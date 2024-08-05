@@ -13,9 +13,9 @@ export default function App({ Component, pageProps }) {
 
   return (
     <Fragment>
-    
+      <JeenaHead />
       {loading && <Preloader />}
-     
+      <Component {...pageProps} />
     </Fragment>
   );
 }
