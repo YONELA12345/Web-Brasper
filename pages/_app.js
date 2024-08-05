@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }) {
     <Fragment>
       <JeenaHead />
       {loading && <Preloader />}
-      <Component {...pageProps} />
+     
     </Fragment>
   );
 }
