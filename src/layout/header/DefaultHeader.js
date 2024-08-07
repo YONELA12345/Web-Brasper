@@ -37,7 +37,7 @@ const DefaultHeader = () => {
             <div className="menu-btns">
               <Link legacyBehavior href="/contact">
                 <a className="theme-btn">
-                  Get a Quote <i className="fas fa-long-arrow-right" />
+                  Contactanos <i className="fas fa-long-arrow-right" />
                 </a>
               </Link>
             </div>

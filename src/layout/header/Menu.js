@@ -24,7 +24,7 @@ const MobileMenu = () => {
           <div className="mobile-logo">
             <Link href="/">
               <img
-                src="assets/images/logos/logo-one.png"
+                src="assets/images/logos/logo_principal.png"
                 alt="Logo"
                 title="Logo"
               />
@@ -187,7 +187,7 @@ const DeskTopMenu = () => {
         <div className="mobile-logo">
           <Link href="/">
             <img
-              src="assets/images/logos/logo-one.png"
+              src="assets/images/logos/logo_principal.png"
               alt="Logo"
               title="Logo"
             />
@@ -281,7 +281,7 @@ const DeskTopMenu = () => {
               <span className="fas fa-chevron-down" />
             </div>
           </li>
-          <li className="dropdown">
+          {/* <li className="dropdown">
             <a href="#">blog</a>
             <ul>
               <li>
@@ -294,7 +294,7 @@ const DeskTopMenu = () => {
             <div className="dropdown-btn">
               <span className="fas fa-chevron-down" />
             </div>
-          </li>
+          </li> */}
           <li className="dropdown">
             <a href="#">¿Como funciona?</a>
             <ul>

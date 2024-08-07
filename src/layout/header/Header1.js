@@ -22,13 +22,13 @@ const Header1 = () => {
               </li>
               <li>
                 <div className="social-style-one">
-                  <a href="#">
+                  <a href="https://www.facebook.com/BrasPerTransferencias" target="_blank">
                     <i className="fab fa-facebook-f" />
                   </a>
-                  <a href="#">
-                    <i className="fab fa-twitter" />
+                  <a href="https://www.instagram.com/brasper.transferencias" target="_blank">
+                  <i className="fab fa-tiktok" />
                   </a>
-                  <a href="#">
+                  <a href="https://www.instagram.com/brasper.transferencias" target="_blank">
                     <i className="fab fa-instagram" />
                   </a>
                   <a href="#">
@@ -49,7 +49,7 @@ const Header1 = () => {
                 <Link legacyBehavior href="/index">
                   <a>
                     <img
-                      src="assets/images/logos/logo-one.png"
+                      src="assets/images/logos/logo_principal.png"
                       alt="Logo"
                       title="Logo"
                     />
@@ -70,7 +70,7 @@ const Header1 = () => {
             <div className="menu-btns">
               <Link legacyBehavior href="/contact">
                 <a className="theme-btn">
-                  Get a Quote <i className="fas fa-long-arrow-right" />
+                  Contactanos <i className="fas fa-long-arrow-right" />
                 </a>
               </Link>
             </div>

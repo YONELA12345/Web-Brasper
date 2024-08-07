@@ -38,7 +38,7 @@ const Footer = () => {
               <div className="footer-logo mb-30">
                 <Link legacyBehavior href="/index">
                   <a>
-                    <img src="assets/images/logos/logo-one.png" alt="Logo" />
+                    <img src="assets/images/logos/logo_principal.png" alt="Logo" />
                   </a>
                 </Link>
               </div>
