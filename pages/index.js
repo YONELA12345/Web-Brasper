@@ -18,15 +18,15 @@ const Index = () => {
           <div className="row align-items-center">
             <div className="col-lg-6 align-self-center">
               <div className="hero-content pt-115 pb-125 rpb-0 wow fadeInUp delay-0-4s">
-                <h1>Affordable Big IT &amp; Technology Solutions</h1>
+                <h1>Brasper transferencias</h1>
                 <p>
-                  Bring On Monday, the innovative small business online
-                  accounting services that both you and your bottom line will
-                  love.
+                Envíos de Soles, Dólares, y Reales a
+                Brasil y Perú al mejor tipo de cambio y
+                con una tarifa premium para sus envíos!
                 </p>
                 <Link legacyBehavior href="/about">
                   <a className="theme-btn mt-20 wow fadeInUp delay-0-6s">
-                    Let’s Get Started <i className="fas fa-long-arrow-right" />
+                    Invita aqui<i className="fas fa-long-arrow-right" />
                   </a>
                 </Link>
                 <div className="hero-shapes">
@@ -50,7 +50,7 @@ const Index = () => {
             </div>
             <div className="col-lg-6 align-self-end">
               <div className="hero-images mt-80 wow fadeInLeft">
-                <img src="assets/images/hero/hero-one.jpg" alt="Hero" />
+                <img src="assets/images/hero/calculadora.png" alt="Hero" />
               </div>
             </div>
           </div>

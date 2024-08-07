@@ -50,7 +50,7 @@ const MobileMenu = () => {
           <ul className="navigation clearfix">
             <li className="dropdown">
               <a href="#" onClick={() => active("home")}>
-                Home
+                Inicio
               </a>
               <ul style={activeSubMenu("home")}>
                 <li>
@@ -72,7 +72,7 @@ const MobileMenu = () => {
             </li>
             <li className="dropdown">
               <a href="#" onClick={() => active("services")}>
-                services
+                Servicios
               </a>
               <ul style={activeSubMenu("services")}>
                 <li>
@@ -89,7 +89,7 @@ const MobileMenu = () => {
                 <span className="fas fa-chevron-down" />
               </div>
             </li>
-            <li className="dropdown">
+            {/* <li className="dropdown">
               <a href="#" onClick={() => active("Project")}>
                 Project
               </a>
@@ -107,10 +107,10 @@ const MobileMenu = () => {
               <div className="dropdown-btn" onClick={() => active("Project")}>
                 <span className="fas fa-chevron-down" />
               </div>
-            </li>
+            </li> */}
             <li className="dropdown">
               <a href="#" onClick={() => active("shop")}>
-                shop
+                ¿Quienes somos?
               </a>
               <ul style={activeSubMenu("shop")}>
                 <li>

@@ -1,44 +1,8 @@
 {
-  "about.js -> @/src/components/Counter": {
-    "id": 9925,
-    "files": [
-      "static/chunks/655-b2286124dccb6b66.js",
-      "static/chunks/925.8c56c3df0ce143b5.js"
-    ]
-  },
   "index.js -> @/src/components/Counter": {
-    "id": 9925,
+    "id": "index.js -> @/src/components/Counter",
     "files": [
-      "static/chunks/655-b2286124dccb6b66.js",
-      "static/chunks/925.8c56c3df0ce143b5.js"
-    ]
-  },
-  "index2.js -> @/src/components/Counter": {
-    "id": 9925,
-    "files": [
-      "static/chunks/655-b2286124dccb6b66.js",
-      "static/chunks/925.8c56c3df0ce143b5.js"
-    ]
-  },
-  "index3.js -> @/src/components/Counter": {
-    "id": 9925,
-    "files": [
-      "static/chunks/655-b2286124dccb6b66.js",
-      "static/chunks/925.8c56c3df0ce143b5.js"
-    ]
-  },
-  "project-masonry.js -> @/src/components/ProjectIsotope": {
-    "id": 6153,
-    "files": [
-      "static/chunks/391.844967eec0a86544.js",
-      "static/chunks/153.abfd668452aa6152.js"
-    ]
-  },
-  "services2.js -> @/src/components/Counter": {
-    "id": 9925,
-    "files": [
-      "static/chunks/655-b2286124dccb6b66.js",
-      "static/chunks/925.8c56c3df0ce143b5.js"
+      "static/chunks/src_components_Counter_js.js"
     ]
   }
 }

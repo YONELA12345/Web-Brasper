@@ -11,15 +11,14 @@ const Header1 = () => {
             <ul>
               <li>
                 <i className="far fa-envelope" />{" "}
-                <a href="mailto:support@gmail.com">support@gmail.com</a>
+                <a href="mailto:support@gmail.com">info@braspertransferencias.com</a>
               </li>
               <li>
                 <i className="far fa-phone" />{" "}
                 <a href="callto:+000(123)45688">+000 (123) 456 88</a>
               </li>
               <li className="for-none">
-                <i className="far fa-clock" /> Working Hours : Monday- Friday,
-                10 am to 5pm
+                <i className="far fa-clock" />atendemos de 8:30 am / 5:00 pm
               </li>
               <li>
                 <div className="social-style-one">
