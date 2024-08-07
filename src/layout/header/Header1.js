@@ -15,7 +15,7 @@ const Header1 = () => {
               </li>
               <li>
                 <i className="far fa-phone" />{" "}
-                <a href="callto:+000(123)45688">+000 (123) 456 88</a>
+                <a href="callto:+51966991933">+51 966991933</a>
               </li>
               <li className="for-none">
                 <i className="far fa-clock" />atendemos de 8:30 am / 5:00 pm
@@ -68,7 +68,8 @@ const Header1 = () => {
             </div>
             {/* Menu Button */}
             <div className="menu-btns">
-              <Link legacyBehavior href="/contact">
+              {/* <Link legacyBehavior href="/contact" target="_blank"> */}
+              <Link legacyBehavior href="https://rb.gy/vjpce3" target="_blank">
                 <a className="theme-btn">
                   Contactanos <i className="fas fa-long-arrow-right" />
                 </a>

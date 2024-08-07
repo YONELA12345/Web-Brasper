@@ -24,7 +24,7 @@ const Index = () => {
                 Brasil y Perú al mejor tipo de cambio y
                 con una tarifa premium para sus envíos!
                 </p>
-                <Link legacyBehavior href="/about">
+                <Link legacyBehavior href="https://rb.gy/vjpce3" target="_blank">
                   <a className="theme-btn mt-20 wow fadeInUp delay-0-6s">
                     Invita aqui<i className="fas fa-long-arrow-right" />
                   </a>
