@@ -76,7 +76,7 @@ const Index = () => {
             <span className="sub-title mb-15">Global Partners</span>
             <h2>World Wide Partners</h2>
           </div>
-          <div className="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-2 justify-content-center">
+          <div className="w-full row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-2 justify-content-center border border-danger">
             <div className="col">
               <Link legacyBehavior href="/contact">
                 <a className="partner-item wow fadeInUp delay-0-3s">
