@@ -208,7 +208,7 @@ const DeskTopMenu = () => {
       <div className="navbar-collapse collapse clearfix">
         <ul className="navigation clearfix">
           <li className="dropdown">
-            <a href="#">Home</a>
+            <a href="#">Inicio</a>
             <ul>
               <li>
                 <Link href="/">IT Company</Link>
@@ -228,7 +228,7 @@ const DeskTopMenu = () => {
             </div>
           </li>
           <li className="dropdown">
-            <a href="#">services</a>
+            <a href="#">Servicios</a>
             <ul>
               <li>
                 <Link href="services">Services One</Link>
@@ -244,7 +244,7 @@ const DeskTopMenu = () => {
               <span className="fas fa-chevron-down" />
             </div>
           </li>
-          <li className="dropdown">
+          {/* <li className="dropdown">
             <a href="#">Project</a>
             <ul>
               <li>
@@ -260,9 +260,9 @@ const DeskTopMenu = () => {
             <div className="dropdown-btn">
               <span className="fas fa-chevron-down" />
             </div>
-          </li>
+          </li> */}
           <li className="dropdown">
-            <a href="#">shop</a>
+            <a href="#">¿Quienes somos?</a>
             <ul>
               <li>
                 <Link href="shop">shop grid</Link>
@@ -296,13 +296,13 @@ const DeskTopMenu = () => {
             </div>
           </li>
           <li className="dropdown">
-            <a href="#">pages</a>
+            <a href="#">¿Como funciona?</a>
             <ul>
               <li>
                 <Link href="about">About us</Link>
               </li>
               <li>
-                <Link href="contact">Contact us</Link>
+                <Link href="contact">Contacto</Link>
               </li>
               <li>
                 <Link href="team">Team</Link>
