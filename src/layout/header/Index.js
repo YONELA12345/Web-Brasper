@@ -9,7 +9,7 @@ const Header = ({ header }) => {
     stickyNav();
   }, []);
 
-  switch (header) {
+  /*   switch (header) {
     case 1:
       return <Header1 />;
     case 3:
@@ -19,6 +19,13 @@ const Header = ({ header }) => {
 
     default:
       return <DefaultHeader />;
+  } */
+  switch (header) {
+    case 1:
+      return <Header1 />;
+
+    default:
+      return <Header1 />;
   }
 };
 export default Header;
