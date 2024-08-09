@@ -11,14 +11,14 @@ const Header1 = () => {
             <ul>
               <li>
                 <i className="far fa-envelope" />{" "}
-                <a href="mailto:support@gmail.com">info@braspertransferencias.com</a>
+                <a href="mailto:brasper@braspertransferencias.com">brasper@braspertransferencias.com</a>
               </li>
               <li>
                 <i className="far fa-phone" />{" "}
                 <a href="callto:+51966991933">+51 966991933</a>
               </li>
               <li className="for-none">
-                <i className="far fa-clock" />atendemos de 8:30 am / 5:00 pm
+                <i className="far fa-clock" />atendemos de 8:30 am / 14:00 pm
               </li>
               <li>
                 <div className="social-style-one">
@@ -43,12 +43,13 @@ const Header1 = () => {
       {/*Header-Upper*/}
       <div className="header-upper bgc-black">
         <div className="container clearfix">
-          <div className="header-inner rel d-flex align-items-center">
+          <div className="header-inner rel d-flex align-items-center border border-danger">
             <div className="logo-outer">
-              <div className="logo">
+              <div className="logo border border-danger">
                 <Link legacyBehavior href="/">
                   <a>
                     <img
+                      className="border border-danger"
                       src="assets/images/logos/logo_principal.png"
                       alt="Logo"
                       title="Logo"
@@ -63,14 +64,14 @@ const Header1 = () => {
               {/* Main Menu End*/}
             </div>
             {/* Nav Search */}
-            <div className="nav-search py-10">
+            {/* <div className="nav-search py-10">
               <Search />
-            </div>
+            </div> */}
             {/* Menu Button */}
             <div className="menu-btns">
               {/* <Link legacyBehavior href="/contact" target="_blank"> */}
               <Link legacyBehavior href="https://rb.gy/vjpce3" target="_blank">
-                <a className="theme-btn">
+                <a className="theme-btn" target="_blank">
                   Contactanos <i className="fas fa-long-arrow-right" />
                 </a>
               </Link>
