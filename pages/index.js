@@ -140,27 +140,29 @@ const Index = () => {
             <div className="col-lg-6">
               <div className="about-content rmb-65 wow fadeInLeft delay-0-2s">
                 <div className="section-title mb-30">
-                  <span className="sub-title mb-15">About Company</span>
-                  <h2>Small Enough to Care Big Enough to Success</h2>
+                  <span className="sub-title mb-15">Acerca de la empresa</span>
+                  <h2>Conecta tu Mundo, Maximiza tu Valor</h2>
                 </div>
                 <p>
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium totam rem aperiam eaque ipsa
-                  quae abillo inventore veritatis et quasi architecto beatae
-                  vitae dicta sunt explicabo.
+                En un mundo globalizado y cada vez más conectado, realizar transferencias internacionales
+                y cambios de moneda de manera eficiente, segura y con tasas competitivas es esencial para 
+                individuos y empresas por igual. En Braper Transferencias, nos especializamos en ofrecer 
+                un servicio de cambio de divisas y transferencias internacionales que se destaca por su transparencia, 
+                confiabilidad y atención personalizada. Nuestra misión es hacer que cada transacción sea sencilla y libre 
+                de preocupaciones, para que puedas enfocarte en lo que realmente importa.
                 </p>
                 <div className="about-btns mb-45">
                   <Link legacyBehavior href="/about">
                     <a className="theme-btn mt-15">
-                      Learn More <i className="fas fa-long-arrow-right" />
+                      Ver mas <i className="fas fa-long-arrow-right" />
                     </a>
                   </Link>
                   <div className="hotline mt-15">
                     <i className="fas fa-phone" />
                     <div className="content">
-                      <span>Hotline</span>
+                      <span>Comunicate con nosotros</span>
                       <br />
-                      <a href="callto:+000(123)45688">+000 (123) 456 88</a>
+                      <a href="callto:+51966991933">+51 966991933</a>
                     </div>
                   </div>
                 </div>
@@ -175,7 +177,7 @@ const Index = () => {
                       </div>
                       <h4>
                         <Link legacyBehavior href="service-details">
-                          IT Consulting
+                        Tu Mejor Elección en Cambio de Moneda
                         </Link>
                       </h4>
                       <p>
@@ -194,12 +196,11 @@ const Index = () => {
                       </div>
                       <h4>
                         <Link legacyBehavior href="service-details">
-                          Business Growth
+                        Inversiones Inteligentes, Resultados Garantizados
                         </Link>
                       </h4>
                       <p>
-                        Sit amet consectetur adiisc elit sed eiusmod temp diunts
-                        ut labore et dolore magna
+                        Maximiza tus ganancias eligiendo la casa de cambio confiable.
                       </p>
                     </div>
                   </div>
@@ -211,12 +212,12 @@ const Index = () => {
                 <div className="top-part">
                   <img
                     className="wow fadeInRight delay-0-3s"
-                    src="assets/images/about/about1.jpg"
+                    src="assets/images/about/about1.png"
                     alt="About"
                   />
                   <img
                     className="wow zoomIn delay-0-5s"
-                    src="assets/images/about/about-logo.png"
+                    src="assets/images/about/ISOTIPO.png"
                     alt="About"
                   />
                 </div>
@@ -242,8 +243,8 @@ const Index = () => {
       <section className="project-area overflow-hidden bgc-lighter pt-130 rpt-100 rel z-1">
         <div className="container">
           <div className="section-title text-center mb-55 wow fadeInUp delay-0-2s">
-            <span className="sub-title mb-15">Learn Our Project</span>
-            <h2>Our Work Does the Talking</h2>
+            <span className="sub-title mb-15">Brasper</span>
+            <h2>Transferencias Internacionales</h2>
           </div>
           <Slider {...projectSliderActive} className="project-slider-active">
             <div className="project-slider-item">
@@ -253,6 +254,7 @@ const Index = () => {
                   alt="Video"
                 />
                 <a
+                
                   href="https://www.youtube.com/watch?v=9Y7ma241N8k"
                   className="mfp-iframe video-play"
                   tabIndex={-1}

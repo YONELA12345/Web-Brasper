@@ -204,8 +204,8 @@ const DeskTopMenu = () => {
       <div className="navbar-collapse collapse clearfix">
         <ul className="navigation clearfix">
           <li className="dropdown">
-            <a href="#">Inicio</a>
-            <ul>
+            <a href="/">Inicio</a>
+            {/* <ul>
               <li>
                 <Link href="/">IT Company</Link>
               </li>
@@ -218,14 +218,14 @@ const DeskTopMenu = () => {
               <li>
                 <Link href="index4">IT Agency</Link>
               </li>
-            </ul>
-            <div className="dropdown-btn">
+            </ul> */}
+            {/* <div className="dropdown-btn">
               <span className="fas fa-chevron-down" />
-            </div>
+            </div> */}
           </li>
           <li className="dropdown">
             <a href="#">Servicios</a>
-            <ul>
+            {/* <ul>
               <li>
                 <Link href="services">Services One</Link>
               </li>
@@ -235,10 +235,10 @@ const DeskTopMenu = () => {
               <li>
                 <Link href="service-details">service details</Link>
               </li>
-            </ul>
-            <div className="dropdown-btn">
+            </ul> */}
+            {/* <div className="dropdown-btn">
               <span className="fas fa-chevron-down" />
-            </div>
+            </div> */}
           </li>
           {/* <li className="dropdown">
             <a href="#">Project</a>
@@ -293,7 +293,7 @@ const DeskTopMenu = () => {
           </li> */}
           <li className="dropdown">
             <a href="#">¿Como funciona?</a>
-            <ul>
+            {/* <ul>
               <li>
                 <Link href="about">About us</Link>
               </li>
@@ -315,7 +315,7 @@ const DeskTopMenu = () => {
             </ul>
             <div className="dropdown-btn">
               <span className="fas fa-chevron-down" />
-            </div>
+            </div> */}
           </li>
         </ul>
       </div>
