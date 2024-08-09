@@ -43,13 +43,12 @@ const Header1 = () => {
       {/*Header-Upper*/}
       <div className="header-upper bgc-black">
         <div className="container clearfix">
-          <div className="header-inner rel d-flex align-items-center border border-danger">
+          <div className="header-inner rel d-flex align-items-center">
             <div className="logo-outer">
-              <div className="logo border border-danger">
+              <div className="logo">
                 <Link legacyBehavior href="/">
                   <a>
                     <img
-                      className="border border-danger"
                       src="assets/images/logos/logo_principal.png"
                       alt="Logo"
                       title="Logo"
