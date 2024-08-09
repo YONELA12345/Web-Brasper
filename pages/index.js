@@ -171,7 +171,7 @@ const Index = () => {
                     <div className="service-item active">
                       <div className="icon">
                         <img
-                          src="assets/images/services/icon1.png"
+                          src="assets/images/about/icon-about1.png"
                           alt="Icon"
                         />
                       </div>
@@ -190,7 +190,7 @@ const Index = () => {
                     <div className="service-item">
                       <div className="icon">
                         <img
-                          src="assets/images/services/icon2.png"
+                          src="assets/images/about/icon-about2.png"
                           alt="Icon"
                         />
                       </div>
@@ -229,7 +229,7 @@ const Index = () => {
                   />
                   <img
                     className="wow fadeInDown delay-0-3s"
-                    src="assets/images/about/about2.jpg"
+                    src="assets/images/about/about2.png"
                     alt="About"
                   />
                 </div>
@@ -254,7 +254,7 @@ const Index = () => {
                   alt="Video"
                 />
                 <a
-                
+
                   href="https://www.youtube.com/watch?v=9Y7ma241N8k"
                   className="mfp-iframe video-play"
                   tabIndex={-1}
@@ -264,21 +264,21 @@ const Index = () => {
               </div>
               <div className="content">
                 <h4>
-                  High successful Sa video platform with a patented technology
-                  used by global enterprises.
+                Tiempo de Transferencia
                 </h4>
                 <p>
-                  On the other hand, we denounce with righteous indignation and
-                  dislike men who are so beguiled and demoralized by the charms
-                  of pleasure of the moment so blinded by desire
+                Dependiendo del método utilizado, las transferencias de soles a 
+                reales pueden tardar desde unas pocas horas hasta varios días hábiles. 
+                Las casas de cambio especializadas y plataformas fintech suelen ofrecer 
+                tiempos de procesamiento más rápidos en comparación con los bancos tradicionales.
                 </p>
                 <ul className="list-style-one">
-                  <li>Bringing new IT solutions to the market</li>
-                  <li>To be included the list of the best 100 IT companies</li>
+                  <li>Tiempos de Procesamiento Más Rápidos</li>
+                  <li>Tasas de Cambio Más Favorables</li>
                 </ul>
                 <Link legacyBehavior href="/project-details">
                   <a className="theme-btn style-two mt-15">
-                    View Details <i className="fas fa-long-arrow-right" />
+                    Ver detalles <i className="fas fa-long-arrow-right" />
                   </a>
                 </Link>
               </div>
@@ -286,21 +286,20 @@ const Index = () => {
             <div className="project-slider-item">
               <div className="content">
                 <h4>
-                  High successful Sa video platform with a patented technology
-                  used by global enterprises.
+                Seguridad
                 </h4>
                 <p>
-                  On the other hand, we denounce with righteous indignation and
-                  dislike men who are so beguiled and demoralized by the charms
-                  of pleasure of the moment so blinded by desire
+                Es fundamental elegir una entidad que esté regulada por 
+                las autoridades financieras pertinentes, tanto en Perú 
+                como en Brasil, para asegurar la protección de tus fondos.
                 </p>
                 <ul className="list-style-one">
-                  <li>Bringing new IT solutions to the market</li>
-                  <li>To be included the list of the best 100 IT companies</li>
+                  <li>Seguridad Financiera Garantizada</li>
+                  <li>Protección Avanzada de Datos</li>
                 </ul>
                 <Link legacyBehavior href="/project-details">
                   <a className="theme-btn style-two mt-15">
-                    View Details <i className="fas fa-long-arrow-right" />
+                    Ver mas <i className="fas fa-long-arrow-right" />
                   </a>
                 </Link>
               </div>
