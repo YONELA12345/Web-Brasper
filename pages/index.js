@@ -4,6 +4,7 @@ import { projectSliderActive } from "@/src/sliderProps";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import Slider from "react-slick";
+import Bancos from "@/pages/bancos";
 
 const Counter = dynamic(() => import("@/src/components/Counter"), {
   ssr: false,
@@ -70,7 +71,7 @@ const Index = () => {
       </section>
       {/* Hero Section End */}
       {/* Partners Area start */}
-      <section className="partners-area mt-60 pt-150 pb-100 rmt-30 rpb-70 rel z-1">
+      {/* <section className="partners-area mt-60 pt-150 pb-100 rmt-30 rpb-70 rel z-1">
         <div className="container">
           <div className="section-title text-center mb-50 wow fadeInUp delay-0-2s">
             <span className="sub-title mb-15">Global Partners</span>
@@ -81,7 +82,7 @@ const Index = () => {
               <Link legacyBehavior href="/contact">
                 <a className="partner-item wow fadeInUp delay-0-3s">
                   <img
-                    src="assets/images/partners/partner1.png"
+                    src="assets/images/brasper/bcp.jpeg"
                     alt="Partner"
                   />
                 </a>
@@ -91,7 +92,7 @@ const Index = () => {
               <Link legacyBehavior href="/contact">
                 <a className="partner-item wow fadeInUp delay-0-4s">
                   <img
-                    src="assets/images/partners/partner2.png"
+                    src="assets/images/brasper/interbank.jpeg"
                     alt="Partner"
                   />
                 </a>
@@ -101,7 +102,7 @@ const Index = () => {
               <Link legacyBehavior href="/contact">
                 <a className="partner-item wow fadeInUp delay-0-5s">
                   <img
-                    src="assets/images/partners/partner3.png"
+                    src="assets/images/brasper/bdb.png"
                     alt="Partner"
                   />
                 </a>
@@ -111,7 +112,7 @@ const Index = () => {
               <Link legacyBehavior href="/contact">
                 <a className="partner-item wow fadeInUp delay-0-6s">
                   <img
-                    src="assets/images/partners/partner4.png"
+                    src="assets/images/brasper/nubank.png"
                     alt="Partner"
                   />
                 </a>
@@ -121,7 +122,7 @@ const Index = () => {
               <Link legacyBehavior href="/contact">
                 <a className="partner-item wow fadeInUp delay-0-7s">
                   <img
-                    src="assets/images/partners/partner5.png"
+                    src="assets/images/brasper/c6bank.png"
                     alt="Partner"
                   />
                 </a>
@@ -129,7 +130,8 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+      <Bancos/>
       {/* Partners Area end */}
       {/* About Area start */}
       <section className="about-area pb-130 rpb-100 rel z-1">

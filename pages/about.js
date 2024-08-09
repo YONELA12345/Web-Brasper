@@ -3,6 +3,7 @@ import TestimonialsSlider from "@/src/components/slider/TestimonialsSlider";
 import Layout from "@/src/layout/Layout";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import Bancos from "@/pages/bancos";
 
 const Counter = dynamic(() => import("@/src/components/Counter"), {
   ssr: false,
@@ -535,83 +536,7 @@ const About = () => {
       </section>
       {/* Testimonials Area Two end */}
       {/* Partners Area start */}
-      <div className="partners-area-three text-center rel z-1 pb-110 rpb-80">
-        <div className="container">
-          <hr className="mb-75" />
-          <div className="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-2 justify-content-center">
-            <div className="col">
-              <Link legacyBehavior href="/contact">
-                <a className="partner-item-two wow fadeInUp delay-0-3s">
-                  <img
-                    src="assets/images/brasper/bcp.jpeg"
-                    alt="Partner"
-                  />
-                </a>
-              </Link>
-            </div>
-            <div className="col">
-              <Link legacyBehavior href="/contact">
-                <a className="partner-item-two wow fadeInUp delay-0-4s">
-                  <img
-                    src="assets/images/brasper/interbank.jpeg"
-                    alt="Partner"
-                  />
-                </a>
-              </Link>
-            </div>
-            <div className="col">
-              <Link legacyBehavior href="/contact">
-                <a className="partner-item-two wow fadeInUp delay-0-5s">
-                  <img
-                    src="assets/images/brasper/bdb.png"
-                    alt="Partner"
-                  />
-                </a>
-              </Link>
-            </div>
-            <div className="col">
-              <Link legacyBehavior href="/contact">
-                <a className="partner-item-two wow fadeInUp delay-0-6s">
-                  <img
-                    src="assets/images/brasper/nubank.png"
-                    alt="Partner"
-                  />
-                </a>
-              </Link>
-            </div>
-            <div className="col">
-              <Link legacyBehavior href="/contact">
-                <a className="partner-item-two wow fadeInUp delay-0-7s">
-                  <img
-                    src="assets/images/brasper/c6bank.png"
-                    alt="Partner"
-                  />
-                </a>
-              </Link>
-            </div>
-            <div className="col">
-              <Link legacyBehavior href="/contact">
-                <a className="partner-item-two wow fadeInUp delay-0-7s">
-                  <img
-                    src="assets/images/brasper/bancocontinental.png"
-                    alt="Partner"
-                  />
-                </a>
-              </Link>
-            </div><div className="col">
-              <Link legacyBehavior href="/contact">
-                <a className="partner-item-two wow fadeInUp delay-0-7s">
-                  <img
-                    src="assets/images/brasper/yapeplin.png"
-                    alt="Partner"
-                  />
-                </a>
-              </Link>
-            </div>
-          </div>
-          <hr className="mt-45" />
-        </div>
-      </div>
+      <Bancos/>
     </Layout>
   );
 };

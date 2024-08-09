@@ -12,7 +12,7 @@ const JeenaHead = () => {
       />
       {/* Title */}
       <title>
-        braspertrabsferencias
+        braspertransferencias
       </title>
       {/* Favicon Icon */}
       <link
