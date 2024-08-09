@@ -3,7 +3,7 @@ import ImageView from "../components/ImageView";
 import VideoPopup from "../components/VideoPopup";
 import { animation } from "../utils";
 import Footer from "./footer/Index";
-import Header from "./header/Index";
+import Header from "./header/Header1";
 import ScrollTopButton from "./ScrollTopButton";
 const Layout = ({ children, header }) => {
   useEffect(() => {

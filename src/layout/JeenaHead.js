@@ -12,12 +12,12 @@ const JeenaHead = () => {
       />
       {/* Title */}
       <title>
-        Jeena - IT solutions &amp; Services HTML Template || Home Four
+        braspertrabsferencias
       </title>
       {/* Favicon Icon */}
       <link
         rel="shortcut icon"
-        href="assets/images/favicon.png"
+        href="assets/images/favicon.ico"
         type="image/x-icon"
       />
       {/* Google Fonts */}

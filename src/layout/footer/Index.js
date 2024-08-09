@@ -219,7 +219,7 @@ const Footer = () => {
       <div className="footer-bottom bgc-black mt-20 pt-20">
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-lg-8">
+            {/* <div className="col-lg-8">
               <div className="footer-bottom-menu mb-10 wow fadeInRight delay-0-2s">
                 <ul>
                   <li>
@@ -239,10 +239,10 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> */}
             <div className="col-lg-4">
               <div className="copyright-text text-lg-end wow fadeInLeft delay-0-2s">
-                <p>© 2023 Jeena. All rights reserved.</p>
+                <p>© 2024 Brasper. Reservados todos los derechos.</p>
               </div>
             </div>
           </div>

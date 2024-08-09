@@ -20,9 +20,9 @@ const Index = () => {
               <div className="hero-content pt-115 pb-125 rpb-0 wow fadeInUp delay-0-4s">
                 <h1>Brasper transferencias</h1>
                 <p>
-                Envíos de Soles, Dólares, y Reales a
-                Brasil y Perú al mejor tipo de cambio y
-                con una tarifa premium para sus envíos!
+                  Envíos de Soles, Dólares, y Reales a
+                  Brasil y Perú al mejor tipo de cambio y
+                  con una tarifa premium para sus envíos!
                 </p>
                 <Link legacyBehavior href="https://rb.gy/vjpce3" target="_blank">
                   <a className="theme-btn mt-20 wow fadeInUp delay-0-6s">
@@ -76,7 +76,7 @@ const Index = () => {
             <span className="sub-title mb-15">Global Partners</span>
             <h2>World Wide Partners</h2>
           </div>
-          <div className="w-full row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-2 justify-content-center border border-danger">
+          <div className="w-full row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-2 justify-content-center ">
             <div className="col">
               <Link legacyBehavior href="/contact">
                 <a className="partner-item wow fadeInUp delay-0-3s">

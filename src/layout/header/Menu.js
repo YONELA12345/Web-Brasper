@@ -71,9 +71,9 @@ const MobileMenu = () => {
               </div>
             </li>
             <li className="dropdown">
-              <a href="#" onClick={() => active("services")}>
+              <Link href="" onClick={() => active("services")}>
                 Servicios
-              </a>
+              </Link>
               <ul style={activeSubMenu("services")}>
                 <li>
                   <Link href="services">Services One</Link>
@@ -108,11 +108,9 @@ const MobileMenu = () => {
                 <span className="fas fa-chevron-down" />
               </div>
             </li> */}
-            <li className="dropdown">
-              <a href="#" onClick={() => active("shop")}>
-                ¿Quienes somos?
-              </a>
-              <ul style={activeSubMenu("shop")}>
+            <li >
+              <Link href="/">IT Company</Link>
+              {/*  <ul style={activeSubMenu("shop")}>
                 <li>
                   <Link href="shop">shop grid</Link>
                 </li>
@@ -125,10 +123,8 @@ const MobileMenu = () => {
                 <li>
                   <Link href="checkout">checkout</Link>
                 </li>
-              </ul>
-              <div className="dropdown-btn" onClick={() => active("shop")}>
-                <span className="fas fa-chevron-down" />
-              </div>
+              </ul> */}
+
             </li>
             <li className="dropdown">
               <a href="#" onClick={() => active("blog")}>
@@ -262,8 +258,8 @@ const DeskTopMenu = () => {
             </div>
           </li> */}
           <li className="dropdown">
-            <a href="#">¿Quienes somos?</a>
-            <ul>
+            <Link href="/about">Quienes Somos ?</Link>
+            {/*  <ul>
               <li>
                 <Link href="shop">shop grid</Link>
               </li>
@@ -279,7 +275,7 @@ const DeskTopMenu = () => {
             </ul>
             <div className="dropdown-btn">
               <span className="fas fa-chevron-down" />
-            </div>
+            </div> */}
           </li>
           {/* <li className="dropdown">
             <a href="#">blog</a>

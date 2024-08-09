@@ -46,7 +46,7 @@ const Header1 = () => {
           <div className="header-inner rel d-flex align-items-center">
             <div className="logo-outer">
               <div className="logo">
-                <Link legacyBehavior href="/index">
+                <Link legacyBehavior href="/">
                   <a>
                     <img
                       src="assets/images/logos/logo_principal.png"

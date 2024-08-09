@@ -11,7 +11,7 @@ const Counter = dynamic(() => import("@/src/components/Counter"), {
 const About = () => {
   return (
     <Layout>
-      <PageBanner pageName={"About Us"} />
+      <PageBanner pageName={"Nosotros"} />
       <section className="about-area-five py-130 rpt-100 rpb-65 rel z-1">
         <div className="container">
           <div className="row align-items-center gap-100">
@@ -20,8 +20,8 @@ const About = () => {
                 <img src="assets/images/about/about-five1.jpg" alt="About" />
                 <img src="assets/images/about/about-five2.jpg" alt="About" />
                 <div className="experience-years">
-                  <span className="years">25</span>
-                  <h4>Years Of ExperienceIT Solutions</h4>
+                  <span className="years">2</span>
+                  <h4>Vision y Mision</h4>
                 </div>
                 <img
                   className="abut-bg-shape"
@@ -33,10 +33,9 @@ const About = () => {
             <div className="col-lg-6">
               <div className="about-content mt-55 rel z-1 wow fadeInLeft delay-0-2s">
                 <div className="section-title mb-60 rmb-40">
-                  <span className="sub-title mb-15">About Company</span>
+                  <span className="sub-title mb-15">Sobre la empreza </span>
                   <h2>
-                    Best talent, Competitive Cost, Incredible IT Service
-                    Infrastructure
+                    Tu Socio de Confianza para Transferencias Internacionales
                   </h2>
                 </div>
                 <div className="row gap-40">
@@ -47,18 +46,20 @@ const About = () => {
                       </div>
                       <h4>
                         <Link legacyBehavior href="service-details">
-                          Awards Winning Company
+                          MISIÓN BRASPER
                         </Link>
                       </h4>
                       <p>
-                        Sed ut perspiciat unde omnis este natus error sit
-                        voluptatem accusantium doloremque
+                        Ofrecer el servicio de envío de remesas vía online de Brasil hacia Perú y de Perú a Brasil, con la
+                        mayor rapidez, confianza, seguridad y al mejor tipo de cambio, garantizando la calidad de
+                        nuestros servicios y desarrollando excelentes relaciones con nuestros clientes locales y
+                        regionales.
                       </p>
-                      <Link legacyBehavior href="/service-details">
+                      {/*  <Link legacyBehavior href="/service-details">
                         <a className="read-more">
                           Read More <i className="far fa-arrow-right" />
                         </a>
-                      </Link>
+                      </Link> */}
                     </div>
                   </div>
                   <div className="col-md-6">
@@ -68,18 +69,19 @@ const About = () => {
                       </div>
                       <h4>
                         <Link legacyBehavior href="service-details">
-                          Startup IT Solution &amp; Business Dev
+                          VISIÓN BRASPER
                         </Link>
                       </h4>
                       <p>
-                        Sed ut perspiciat unde omnis este natus error sit
-                        voluptatem accusantium doloremque
+                        Ser una organización con ventaja competitiva en el envío de remesas a nivel regional que
+                        trascienda en el tiempo, a través del desarrollo ético de sus trabajadores y con un enfoque
+                        sostenible.
                       </p>
-                      <Link legacyBehavior href="/service-details">
+                     {/*  <Link legacyBehavior href="/service-details">
                         <a className="read-more">
                           Read More <i className="far fa-arrow-right" />
                         </a>
-                      </Link>
+                      </Link> */}
                     </div>
                   </div>
                 </div>
@@ -99,13 +101,12 @@ const About = () => {
                   <i className="flaticon-agile" />
                 </div>
                 <h4>
-                  <Link legacyBehavior href="service-details">
-                    Simplicity
+                  <Link legacyBehavior href="about">
+                    Sencillo y seguro
                   </Link>
                 </h4>
                 <p>
-                  Sed ut perspiciatis unde omniste natusey error sit voluptatem
-                  accusantium
+                  Nos destacamos por ofrecer un servicio rápido, seguro y con el mejor tipo de cambio,
                 </p>
               </div>
             </div>
@@ -115,13 +116,12 @@ const About = () => {
                   <i className="flaticon-mission" />
                 </div>
                 <h4>
-                  <Link legacyBehavior href="service-details">
-                    Social Good
+                  <Link legacyBehavior href="about">
+                    Transferencia Directa
                   </Link>
                 </h4>
                 <p>
-                  Sed ut perspiciatis unde omniste natusey error sit voluptatem
-                  accusantium
+                  Envía dinero de Brasil a Perú y viceversa en minutos, tu dinero llega sin intermediarios y de forma segura
                 </p>
               </div>
             </div>
@@ -132,13 +132,11 @@ const About = () => {
                 </div>
                 <h4>
                   <Link legacyBehavior href="service-details">
-                    Trust Partner
+                    Socio de Confianza
                   </Link>
                 </h4>
                 <p>
-                  Sed ut perspiciatis unde omniste natusey error sit voluptatem
-                  accusantium
-                </p>
+                  La confianza es nuestro pilar. Nos comprometemos a ofrecerte un servicio seguro, transparente y eficiente.     </p>
               </div>
             </div>
           </div>
@@ -158,19 +156,19 @@ const About = () => {
               <div className="col-xl-5 col-lg-6">
                 <div className="statistics-content mb-55 wow fadeInUp delay-0-2s">
                   <div className="section-title mb-30">
-                    <span className="sub-title mb-15">Company Statistics</span>
-                    <h2>Learn About Our Comapny Statistics</h2>
+                    <span className="sub-title mb-15">Estadísticas de la empresa</span>
+                    <h2>Conozca las estadísticas de nuestra empresa</h2>
                   </div>
-                  <Link legacyBehavior href="/about">
-                    <a className="read-more">
-                      Learn More <i className="fas fa-long-arrow-right" />
-                    </a>
-                  </Link>
+                  {/*  <Link legacyBehavior href="/about">
+                      <a className="read-more">
+                        Learn More <i className="fas fa-long-arrow-right" />
+                      </a>
+                    </Link> */}
                 </div>
               </div>
               <div className="col-xl-7 col-lg-6">
                 <div className="row">
-                  <div className="col-xl-3 col-small col-6">
+                  {/*  <div className="col-xl-3 col-small col-6">
                     <div className="counter-item counter-text-wrap wow fadeInDown delay-0-3s">
                       <i className="flaticon-target" />
                       <span
@@ -182,7 +180,7 @@ const About = () => {
                       </span>
                       <span className="counter-title">Project Complate</span>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="col-xl-3 col-small col-6">
                     <div className="counter-item counter-text-wrap wow fadeInUp delay-0-3s">
                       <i className="flaticon-target-audience" />
@@ -193,7 +191,7 @@ const About = () => {
                       >
                         <Counter end={98.9} decimals="1" />
                       </span>
-                      <span className="counter-title">Clinets Happy</span>
+                      <span className="counter-title">Clientes felices</span>
                     </div>
                   </div>
                   <div className="col-xl-3 col-small col-6">
@@ -202,14 +200,14 @@ const About = () => {
                       <span
                         className="count-text plus"
                         data-speed={3000}
-                        data-stop="35.6"
+                        data-stop="2.6"
                       >
-                        <Counter end={35.6} decimals="1" />
+                        <Counter end={2.6} decimals="1" />
                       </span>
-                      <span className="counter-title">Years Experience</span>
+                      <span className="counter-title">Años de experiencia</span>
                     </div>
                   </div>
-                  <div className="col-xl-3 col-small col-6">
+                  {/*  <div className="col-xl-3 col-small col-6">
                     <div className="counter-item counter-text-wrap wow fadeInUp delay-0-3s">
                       <i className="flaticon-medal" />
                       <span
@@ -221,7 +219,7 @@ const About = () => {
                       </span>
                       <span className="counter-title">Award Winning</span>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -343,14 +341,14 @@ const About = () => {
           <div className="row justify-content-center">
             <div className="col-xl-8">
               <div className="section-title text-center mb-45 wow fadeInUp delay-0-2s">
-                <span className="sub-title mb-15">Why Choose Us</span>
+                <span className="sub-title mb-15">¿Por qué elegirnos?</span>
                 <h2>
-                  Top-Notch Software Development and Digital Transformation
+                  Innovación y confianza en cada transacción.
                 </h2>
               </div>
             </div>
           </div>
-          <div className="why-choose-tab">
+          {/*   <div className="why-choose-tab">
             <ul className="nav nav-pills nav-fill mb-80 rmb-50 wow fadeInUp delay-0-4s">
               <li className="nav-item">
                 <a
@@ -525,7 +523,7 @@ const About = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
       {/* Why Choose Us Area end */}
@@ -545,7 +543,7 @@ const About = () => {
               <Link legacyBehavior href="/contact">
                 <a className="partner-item-two wow fadeInUp delay-0-3s">
                   <img
-                    src="assets/images/partners/partner1.png"
+                    src="assets/images/brasper/bcp.jpeg"
                     alt="Partner"
                   />
                 </a>
@@ -555,7 +553,7 @@ const About = () => {
               <Link legacyBehavior href="/contact">
                 <a className="partner-item-two wow fadeInUp delay-0-4s">
                   <img
-                    src="assets/images/partners/partner2.png"
+                    src="assets/images/brasper/interbank.jpeg"
                     alt="Partner"
                   />
                 </a>
@@ -565,7 +563,7 @@ const About = () => {
               <Link legacyBehavior href="/contact">
                 <a className="partner-item-two wow fadeInUp delay-0-5s">
                   <img
-                    src="assets/images/partners/partner3.png"
+                    src="assets/images/brasper/bdb.png"
                     alt="Partner"
                   />
                 </a>
@@ -575,7 +573,7 @@ const About = () => {
               <Link legacyBehavior href="/contact">
                 <a className="partner-item-two wow fadeInUp delay-0-6s">
                   <img
-                    src="assets/images/partners/partner4.png"
+                    src="assets/images/brasper/nubank.png"
                     alt="Partner"
                   />
                 </a>
@@ -585,7 +583,26 @@ const About = () => {
               <Link legacyBehavior href="/contact">
                 <a className="partner-item-two wow fadeInUp delay-0-7s">
                   <img
-                    src="assets/images/partners/partner5.png"
+                    src="assets/images/brasper/c6bank.png"
+                    alt="Partner"
+                  />
+                </a>
+              </Link>
+            </div>
+            <div className="col">
+              <Link legacyBehavior href="/contact">
+                <a className="partner-item-two wow fadeInUp delay-0-7s">
+                  <img
+                    src="assets/images/brasper/bancocontinental.png"
+                    alt="Partner"
+                  />
+                </a>
+              </Link>
+            </div><div className="col">
+              <Link legacyBehavior href="/contact">
+                <a className="partner-item-two wow fadeInUp delay-0-7s">
+                  <img
+                    src="assets/images/brasper/yapeplin.png"
                     alt="Partner"
                   />
                 </a>
