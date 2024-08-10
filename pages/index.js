@@ -250,7 +250,7 @@ const Index = () => {
             <div className="project-slider-item">
               <div className="video">
                 <img
-                  src="assets/images/projects/project-video.png"
+                  src="assets/images/about/br2.png"
                   alt="Video"
                 />
                 <a
@@ -339,8 +339,8 @@ const Index = () => {
           <div className="row medium-gap">
             <div className="col-xl-4 col-md-6">
               <div className="section-title mb-60 wow fadeInUp delay-0-2s">
-                <span className="sub-title mb-15">Latest Services</span>
-                <h2>We Provide Best IT Services</h2>
+                <span className="sub-title mb-15">Ultimos servicios</span>
+                <h2>Brindamos las mejores cotizaciones en transferencias</h2>
               </div>
             </div>
             <div className="col-xl-4 col-md-6">
@@ -351,12 +351,11 @@ const Index = () => {
                 <div className="content">
                   <h4>
                     <Link legacyBehavior href="service-details">
-                      Digital Consulting
+                      Transferencias
                     </Link>
                   </h4>
                   <p>
-                    On the other hand we denounce withteous indignation and
-                    dislike men who beguilede demoralized by the charms pleasure
+                  Una transferencia bancaria es un proceso mediante el cual se mueve dinero de una cuenta bancaria a otra.
                   </p>
                 </div>
               </div>
@@ -369,12 +368,13 @@ const Index = () => {
                 <div className="content">
                   <h4>
                     <Link legacyBehavior href="service-details">
-                      Design &amp; Development
+                      Cotizaciones
                     </Link>
                   </h4>
                   <p>
-                    On the other hand we denounce withteous indignation and
-                    dislike men who beguilede demoralized by the charms pleasure
+                  En el contexto de una casa de cambio o una entidad que se dedica al cambio de divisas,
+                  una cotización se refiere al valor o tasa a la cual se puede cambiar una moneda por 
+                  otra en un momento determinado.
                   </p>
                 </div>
               </div>
@@ -387,12 +387,11 @@ const Index = () => {
                 <div className="content">
                   <h4>
                     <Link legacyBehavior href="service-details">
-                      Mobile App Solutions
+                      Envios
                     </Link>
                   </h4>
                   <p>
-                    On the other hand we denounce withteous indignation and
-                    dislike men who beguilede demoralized by the charms pleasure
+                    Envios rapidos y seguros con Brasper transferencias
                   </p>
                 </div>
               </div>
@@ -405,12 +404,12 @@ const Index = () => {
                 <div className="content">
                   <h4>
                     <Link legacyBehavior href="service-details">
-                      UX/UI Design Strategy
+                      Servicios
                     </Link>
                   </h4>
                   <p>
-                    On the other hand we denounce withteous indignation and
-                    dislike men who beguilede demoralized by the charms pleasure
+                    Los servicios que te brindamos no solo son tranferencias seguras,
+                    sino que te frindamos asesoramiento y datos curiosos para finanzas.
                   </p>
                 </div>
               </div>
@@ -423,12 +422,12 @@ const Index = () => {
                 <div className="content">
                   <h4>
                     <Link legacyBehavior href="service-details">
-                      SEO Optimization
+                      Mejoramiento de gastos
                     </Link>
                   </h4>
                   <p>
-                    On the other hand we denounce withteous indignation and
-                    dislike men who beguilede demoralized by the charms pleasure
+                    Con nosotros tendras la confianza en mejorar tus trasferencias
+                    y te damos un porcentajes de descuento en tu primera transferencia con nosotros
                   </p>
                 </div>
               </div>
@@ -440,8 +439,8 @@ const Index = () => {
       {/* Work Process Area start */}
       <section className="work-process-area pt-130 pb-100 rpt-100 rpb-70 rel z-1">
         <div className="section-title text-center mb-70 wow fadeInUp delay-0-2s">
-          <span className="sub-title mb-15">Working Process</span>
-          <h2>Industry Best Practices to the Core</h2>
+          <span className="sub-title mb-15">Nuestra pequeña guia</span>
+          <h2>Compra o vende tus Reales, soles o dolares en 4 simples pasos</h2>
         </div>
         <div className="work-process-line text-center">
           <img src="assets/images/shapes/work-process-line.png" alt="line" />
@@ -496,7 +495,7 @@ const Index = () => {
                 </div>
               </div>
             </div>
-            <div className="col">
+            {/* <div className="col">
               <div className="work-process-item mt-50 wow fadeInUp delay-0-2s">
                 <div className="number">05</div>
                 <div className="content">
@@ -507,13 +506,13 @@ const Index = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
       {/* Work Process Area end */}
       {/* Team Area start */}
-      <section className="team-area pb-100 rpb-70 rel z-1">
+      {/* <section className="team-area pb-100 rpb-70 rel z-1">
         <div className="container">
           <div className="section-title text-center mb-60 wow fadeInUp delay-0-2s">
             <span className="sub-title mb-15">Team Member</span>
@@ -606,10 +605,10 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* Team Area end */}
       {/* Statistics Area start */}
-      <section className="statistics-area rel z-2">
+      {/* <section className="statistics-area rel z-2">
         <div className="container">
           <div
             className="statistics-inner bgs-cover text-white p-80 pb-20"
@@ -690,10 +689,10 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* Statistics Area end */}
       {/* Pricing Plan Area start */}
-      <section className="price-plan-area bgc-lighter mt-30 rmt-0 pt-220 pb-100 rpb-70 rel z-1">
+      {/* <section className="price-plan-area bgc-lighter mt-30 rmt-0 pt-220 pb-100 rpb-70 rel z-1">
         <div className="container pt-20">
           <div className="section-title text-center mb-55 wow fadeInUp delay-0-2s">
             <span className="sub-title mb-15">Amazing Pricing Plan</span>
@@ -819,7 +818,7 @@ const Index = () => {
             alt="Shape"
           />
         </div>
-      </section>
+      </section> */}
       {/* Pricing Plan Area end */}
       {/* Testimonials Area start */}
       <section className="testimonials-area py-130 rpy-100 rel z-1">
@@ -867,8 +866,8 @@ const Index = () => {
       <section className="blog-area pb-150 mb-30 rmb-0 rel z-1">
         <div className="container">
           <div className="section-title text-center mb-55 wow fadeInUp delay-0-2s">
-            <span className="sub-title mb-15">Our Blog &amp; News</span>
-            <h2>Latest Blog, New &amp; Articles</h2>
+            <span className="sub-title mb-15">Informate con nosotros</span>
+            <h2>Con notros prenderas un poco de finanzas</h2>
           </div>
           <div className="row justify-content-center">
             <div className="col-xl-4 col-md-6">
