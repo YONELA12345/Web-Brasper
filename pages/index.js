@@ -255,7 +255,7 @@ const Index = () => {
                 />
                 <a
 
-                  href="https://www.youtube.com/watch?v=9Y7ma241N8k"
+                  href="https://www.youtube.com/watch?v=DPR8pZN9OrM"
                   className="mfp-iframe video-play"
                   tabIndex={-1}
                 >
@@ -309,7 +309,7 @@ const Index = () => {
                   alt="Video"
                 />
                 <a
-                  href="https://www.youtube.com/watch?v=9Y7ma241N8k"
+                  href="https://www.youtube.com/shorts/arT3LE9GSvk"
                   className="mfp-iframe video-play"
                   tabIndex={-1}
                 >
@@ -451,10 +451,9 @@ const Index = () => {
               <div className="work-process-item mt-40 wow fadeInUp delay-0-2s">
                 <div className="number">01</div>
                 <div className="content">
-                  <h4>Discover</h4>
+                  <h4>Cotiza</h4>
                   <p>
-                    We emphasize planning get everythin documente nothing
-                    assumption
+                  Cotiza e ingresa el monto que deseas cambiar.
                   </p>
                 </div>
               </div>
@@ -463,10 +462,11 @@ const Index = () => {
               <div className="work-process-item mt-10 wow fadeInDown delay-0-2s">
                 <div className="number">02</div>
                 <div className="content">
-                  <h4>Planning</h4>
+                  <h4>Registrate</h4>
                   <p>
-                    Our design approach is to simplify. We embrace creating
-                    something.
+                  Regístrate y realiza la transferencia 
+                  a la cuenta de BrasPer Transferencias 
+                  y envíanos la constancia de la operación.
                   </p>
                 </div>
               </div>
@@ -475,10 +475,9 @@ const Index = () => {
               <div className="work-process-item mt-40 wow fadeInUp delay-0-2s">
                 <div className="number">03</div>
                 <div className="content">
-                  <h4>Design &amp; Dev</h4>
+                  <h4>Recibe tu transferencia</h4>
                   <p>
-                    At this step, we cater to requirement backed web services
-                    developmenc
+                    Recibe tu cambio. Te abonaremos el dinero a la cuenta registrada.
                   </p>
                 </div>
               </div>
@@ -487,10 +486,9 @@ const Index = () => {
               <div className="work-process-item wow fadeInDown delay-0-2s">
                 <div className="number">04</div>
                 <div className="content">
-                  <h4>Testing</h4>
+                  <h4>Recomienda</h4>
                   <p>
-                    On the other denounce with righteou indignation dislike
-                    beguile demore
+                    Si quedaste satisfecho con nuestro servicio recomiendanos con mas personas.
                   </p>
                 </div>
               </div>
