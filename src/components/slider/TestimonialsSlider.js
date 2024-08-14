@@ -20,8 +20,8 @@ export default class TestimonialsSlider extends Component {
         <div className="row justify-content-between align-items-end mb-30">
           <div className="col-lg-8">
             <div className="section-title mb-25 wow fadeInRight delay-0-2s">
-              <span className="sub-title mb-15">Clients Feedback</span>
-              <h2>What Our Clients Say Us</h2>
+              <span className="sub-title mb-15">Comentarios de los clientes</span>
+              <h2>Lo que nos dicen nuestros clientes</h2>
             </div>
           </div>
           <div className="col-lg-4">
@@ -52,7 +52,7 @@ export default class TestimonialsSlider extends Component {
             </div>
             <div className="content">
               <div className="testi-header">
-                <h4>Excellent Works</h4>
+                <h4>Excelente trabajo</h4>
                 <div className="ratting">
                   <i className="fas fa-star" />
                   <i className="fas fa-star" />
@@ -62,9 +62,9 @@ export default class TestimonialsSlider extends Component {
                 </div>
               </div>
               <div className="testi-text">
-                Sed ut perspiciatis unde omnis iste natus voluptatem accus
-                antiume dolorem queauy antium totam aperiam eaque quaey abillosa
-                inventore veritatis vitaec
+                Me brindaron un servicio impecable y maravilloso, 
+                muchas gracias brasper, yo seguire haciendo mid transfeerncias 
+                con ustedes, me brindaron mucho apoyo y rapidez.
               </div>
               <div className="testi-footer">
                 <div className="icon">
@@ -72,7 +72,7 @@ export default class TestimonialsSlider extends Component {
                 </div>
                 <div className="title">
                   <h4>Andrew D. Bricker</h4>
-                  <span className="designation">CEO &amp; Founder</span>
+                  <span className="designation">Peruano</span>
                 </div>
               </div>
             </div>
@@ -80,7 +80,7 @@ export default class TestimonialsSlider extends Component {
           <div className="testimonial-item wow fadeInUp delay-0-4s">
             <div className="content">
               <div className="testi-header">
-                <h4>Excellent Works</h4>
+                <h4>Excelente servicio</h4>
                 <div className="ratting">
                   <i className="fas fa-star" />
                   <i className="fas fa-star" />
@@ -90,22 +90,22 @@ export default class TestimonialsSlider extends Component {
                 </div>
               </div>
               <div className="testi-text">
-                On the other hand denounce righteous indignations and dislike
-                men who beguiled and demoralized by the charms of pleasure
-                moment blinded foresee
+              Brasper tornou a troca de moedas rápida e simples. 
+              Sempre obtenho boas taxas e o atendimento ao cliente é excelente. 
+              Sem dúvida, uma opção confiável e eficiente.
               </div>
               <div className="testi-footer">
                 <div className="icon">
                   <i className="flaticon-quotation" />
                 </div>
                 <div className="title">
-                  <h4>Jose T. McMichael</h4>
-                  <span className="designation">Senior Manager</span>
+                  <h4>Juliana</h4>
+                  <span className="designation">Brasileña</span>
                 </div>
               </div>
             </div>
           </div>
-          <div className="testimonial-item wow fadeInUp delay-0-6s">
+          {/* <div className="testimonial-item wow fadeInUp delay-0-6s">
             <div className="image">
               <img
                 src="assets/images/testimonials/testi-author4.jpg"
@@ -138,7 +138,7 @@ export default class TestimonialsSlider extends Component {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </Slider>
       </Fragment>
     );

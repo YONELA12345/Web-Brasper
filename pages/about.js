@@ -237,10 +237,10 @@ const About = () => {
           </div>
           <div className="row justify-content-center">
             <div className="col-xl-3 col-lg-4 col-md-6">
-              <div className="team-member style-two wow fadeInUp delay-0-2s">
-                <img src="assets/images/team/member1.jpg" alt="Team" />
-                <h4>Johnathan P. Bailey</h4>
-                <span className="designation">UX/UI Designer</span>
+              <div className="team-member style-two wow fadeInUp delay-0-4s">
+                <img src="assets/images/team/member2.jpg" alt="Team" />
+                <h4>Esperanza Tello</h4>
+                <span className="designation">rol</span>
                 <div className="social-style-two">
                   <a href="#">
                     <i className="fab fa-facebook-f" />
@@ -258,10 +258,10 @@ const About = () => {
               </div>
             </div>
             <div className="col-xl-3 col-lg-4 col-md-6">
-              <div className="team-member style-two wow fadeInUp delay-0-4s">
-                <img src="assets/images/team/member2.jpg" alt="Team" />
-                <h4>Mark M. Hughes</h4>
-                <span className="designation">Web Developer</span>
+              <div className="team-member style-two wow fadeInUp delay-0-2s">
+                <img src="assets/images/team/member1.jpg" alt="Team" />
+                <h4>Carlos Gonzales</h4>
+                <span className="designation">SEO</span>
                 <div className="social-style-two">
                   <a href="#">
                     <i className="fab fa-facebook-f" />
@@ -281,8 +281,8 @@ const About = () => {
             <div className="col-xl-3 col-lg-4 col-md-6">
               <div className="team-member style-two wow fadeInUp delay-0-6s">
                 <img src="assets/images/team/member3.jpg" alt="Team" />
-                <h4>Donald B. Mitchell</h4>
-                <span className="designation">Software Engineer</span>
+                <h4>Manuel Echeverre</h4>
+                <span className="designation">rol</span>
                 <div className="social-style-two">
                   <a href="#">
                     <i className="fab fa-facebook-f" />
@@ -299,7 +299,7 @@ const About = () => {
                 </div>
               </div>
             </div>
-            <div className="col-xl-3 col-lg-4 col-md-6">
+            {/* <div className="col-xl-3 col-lg-4 col-md-6">
               <div className="team-member style-two wow fadeInUp delay-0-8s">
                 <img src="assets/images/team/member4.jpg" alt="Team" />
                 <h4>Bennie N. Bannister</h4>
@@ -319,7 +319,7 @@ const About = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="team-shapes">
@@ -339,7 +339,7 @@ const About = () => {
       {/* Why Choose Us Area start */}
       <section className="why-choose-us-area py-130 rpy-100 rel z-1">
         <div className="container">
-          <div className="row justify-content-center">
+          {/* <div className="row justify-content-center">
             <div className="col-xl-8">
               <div className="section-title text-center mb-45 wow fadeInUp delay-0-2s">
                 <span className="sub-title mb-15">¿Por qué elegirnos?</span>
@@ -348,7 +348,7 @@ const About = () => {
                 </h2>
               </div>
             </div>
-          </div>
+          </div> */}
           {/*   <div className="why-choose-tab">
             <ul className="nav nav-pills nav-fill mb-80 rmb-50 wow fadeInUp delay-0-4s">
               <li className="nav-item">

@@ -12,20 +12,20 @@ const Footer = () => {
             }}
           >
             <div className="section-title wow fadeInLeft delay-0-2s">
-              <span className="sub-title">Need Any Consultations ?</span>
-              <h2>We’re Ready to Growth IT Business</h2>
+              <span className="sub-title"> Ques si somos la mejor opcion?</span>
+              <h2>Somos la mejor opción, escogenos</h2>
             </div>
             <Link legacyBehavior href="/contact">
               <a className="theme-btn style-three wow fadeInRight delay-0-2s">
-                Get Free Quote <i className="fas fa-long-arrow-right" />
+                  Informate mas <i className="fas fa-long-arrow-right" />
               </a>
             </Link>
             <div className="hotline wow fadeInRight delay-0-2s">
               <i className="fas fa-phone" />
               <div className="content">
-                <span>Hotline</span>
+                <span>Llamanos</span>
                 <br />
-                <a href="callto:+000(123)45688">+000 (123) 456 88</a>
+                <a href="callto:+51 966991933">+51 966991933</a>
               </div>
             </div>
           </div>
@@ -43,139 +43,110 @@ const Footer = () => {
                 </Link>
               </div>
               <p>
-                Sed perspiciatis unde omnste natus error voluptatem accusanti
-                doloreue audantium totamrem aeriam.
+                Brasper es una empresa especializada en servicios de cambio de divisas, 
+                enfocada principalmente en la conversión de reales brasileños a soles 
+                peruanos y viceversa, así como en el intercambio de dólares estadounidenses. 
               </p>
               <Link legacyBehavior href="/about">
                 <a className="read-more">
-                  Learn More Us <i className="fas fa-long-arrow-right" />
+                  Informate mas <i className="fas fa-long-arrow-right" />
                 </a>
               </Link>
             </div>
           </div>
           <div className="col-xl-3 col-sm-6 order-xl-2">
             <div className="footer-widget widget_newsletter wow fadeInUp delay-0-6s">
-              <h4 className="footer-title">Newsletter</h4>
+              <h4 className="footer-title">Contactanos</h4>
               <p>
-                Sed perspiciatis unde omnste natus error voluptatem accusante.
+                Puedes escribiernos al siguiente correo, te ayudaremos con gusto
               </p>
               <form onSubmit={(e) => e.preventDefault()} action="#">
-                <label htmlFor="email">
-                  <i className="far fa-envelope" />
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  placeholder="support@gmail.com"
-                  required
-                />
-                <button>Sign Up</button>
+                
+              <li>
+                <i className="far fa-envelope" />{" "}
+                <a href="mailto:brasper@braspertransferencias.com">brasper@braspertransferencias.com</a>
+              </li>
+                {/* <button>Sign Up</button> */}
               </form>
-              <h5>Follow Us</h5>
-              <div className="social-style-one">
-                <a href="#">
-                  <i className="fab fa-facebook-f" />
-                </a>
-                <a href="#">
-                  <i className="fab fa-twitter" />
-                </a>
-                <a href="#">
-                  <i className="fab fa-instagram" />
-                </a>
-                <a href="#">
-                  <i className="fab fa-linkedin-in" />
-                </a>
-              </div>
+              <h5>SIGUENOS</h5>
+                <div className="social-style-one">
+                  <a href="https://www.facebook.com/BrasPerTransferencias" target="_blank">
+                    <i className="fab fa-facebook-f" />
+                  </a>
+                  <a href="https://www.tiktok.com/@braspertransferencias" target="_blank">
+                  <i className="fab fa-tiktok" />
+                  </a>
+                  <a href="https://www.instagram.com/brasper.transferencias" target="_blank">
+                    <i className="fab fa-instagram" />
+                  </a>
+                  <a href="https://www.linkedin.com/in/brasper-transferencias-7a7b7b311/" target="_blank">
+                    <i className="fab fa-linkedin-in" />
+                  </a>
+                </div>
             </div>
           </div>
           <div className="col-xl-6">
             <div className="row">
               <div className="col-md-4 col-6 col-small">
                 <div className="footer-widget widget_nav_menu wow fadeInUp delay-0-3s">
-                  <h4 className="footer-title">Quick Links</h4>
+                  <h4 className="footer-title">Servicios</h4>
                   <ul className="list-style-two">
                     <li>
                       <Link
                         legacyBehavior
                         href="about"
-                      >{`Company History`}</Link>
+                      >{`Transferencias`}</Link>
                     </li>
                     <li>
-                      <Link legacyBehavior href="about">{`About Company`}</Link>
+                      <Link legacyBehavior href="about">{`Cotización`}</Link>
                     </li>
                     <li>
                       <Link
                         legacyBehavior
                         href="services"
-                      >{`Latest Services`}</Link>
+                      >{`Divisas`}</Link>
                     </li>
                     <li>
                       <Link
                         legacyBehavior
                         href="project-grid"
-                      >{`Popular Works`}</Link>
+                      >{`Asesoría`}</Link>
                     </li>
                     <li>
                       <Link
                         legacyBehavior
                         href="faqs"
-                      >{`Asked Questions`}</Link>
+                      >{`Fidelización`}</Link>
                     </li>
-                    <li>
+                    {/* <li>
                       <Link
                         legacyBehavior
                         href="blog"
                       >{`Blog &amp; News`}</Link>
-                    </li>
-                    <li>
-                      <Link legacyBehavior href="contact">{`Contact us`}</Link>
-                    </li>
+                    </li> */}
+                    
                   </ul>
                 </div>
               </div>
               <div className="col-md-4 col-6 col-small">
                 <div className="footer-widget widget_nav_menu wow fadeInUp delay-0-4s">
-                  <h4 className="footer-title">Services</h4>
+                  <h4 className="footer-title">¿Quienes somos?</h4>
                   <ul className="list-style-two">
                     <li>
-                      <Link legacyBehavior href="service-details">
-                        <a>Product Design</a>
+                      <Link legacyBehavior href="about">
+                        <a>Mision</a>
                       </Link>
                     </li>
                     <li>
-                      <Link legacyBehavior href="service-details">
-                        <a>Design &amp; Development</a>
+                      <Link legacyBehavior href="about">
+                        <a>Vision</a>
                       </Link>
                     </li>
-                    <li>
-                      <Link legacyBehavior href="service-details">
-                        <a>UX/UI Strategy</a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link legacyBehavior href="service-details">
-                        <a>Search Engine</a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link legacyBehavior href="service-details">
-                        <a>IT Consulting</a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link legacyBehavior href="service-details">
-                        <a>Software Development</a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link legacyBehavior href="service-details">
-                        <a>Business Analysis</a>
-                      </Link>
-                    </li>
+                    
                   </ul>
                 </div>
               </div>
-              <div className="col-md-4 col-6 col-small">
+              {/* <div className="col-md-4 col-6 col-small">
                 <div className="footer-widget widget_nav_menu wow fadeInUp delay-0-5s">
                   <h4 className="footer-title">Support</h4>
                   <ul className="list-style-two">
@@ -211,7 +182,7 @@ const Footer = () => {
                     </li>
                   </ul>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

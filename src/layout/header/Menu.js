@@ -258,7 +258,7 @@ const DeskTopMenu = () => {
             </div>
           </li> */}
           <li className="dropdown">
-            <Link href="/about">Quienes Somos ?</Link>
+            <Link href="/about">¿Quienes Somos?</Link>
             {/*  <ul>
               <li>
                 <Link href="shop">shop grid</Link>

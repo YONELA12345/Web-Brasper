@@ -25,13 +25,13 @@ const Header1 = () => {
                   <a href="https://www.facebook.com/BrasPerTransferencias" target="_blank">
                     <i className="fab fa-facebook-f" />
                   </a>
-                  <a href="https://www.instagram.com/brasper.transferencias" target="_blank">
+                  <a href="https://www.tiktok.com/@braspertransferencias" target="_blank">
                   <i className="fab fa-tiktok" />
                   </a>
                   <a href="https://www.instagram.com/brasper.transferencias" target="_blank">
                     <i className="fab fa-instagram" />
                   </a>
-                  <a href="#">
+                  <a href="https://www.linkedin.com/in/brasper-transferencias-7a7b7b311/" target="_blank">
                     <i className="fab fa-linkedin-in" />
                   </a>
                 </div>

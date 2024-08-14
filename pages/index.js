@@ -821,7 +821,7 @@ const Index = () => {
       </section> */}
       {/* Pricing Plan Area end */}
       {/* Testimonials Area start */}
-      <section className="testimonials-area py-130 rpy-100 rel z-1">
+      {/* <section className="testimonials-area py-130 rpy-100 rel z-1">
         <div className="container">
           <div className="row align-items-center justify-content-between">
             <div className="col-xl-5 col-lg-6">
@@ -860,10 +860,10 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* Testimonials Area end */}
       {/* Blog Area start */}
-      <section className="blog-area pb-150 mb-30 rmb-0 rel z-1">
+      {/* <section className="blog-area pb-150 mb-30 rmb-0 rel z-1">
         <div className="container">
           <div className="section-title text-center mb-55 wow fadeInUp delay-0-2s">
             <span className="sub-title mb-15">Informate con nosotros</span>
@@ -986,7 +986,7 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* Blog Area end */}
     </Layout>
   );
