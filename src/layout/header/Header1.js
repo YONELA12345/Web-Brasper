@@ -47,13 +47,11 @@ const Header1 = () => {
             <div className="logo-outer">
               <div className="logo">
                 <Link legacyBehavior href="/">
-                  <a>
                     <img
                       src="assets/images/logos/logo_principal.png"
                       alt="Logo"
                       title="Logo"
                     />
-                  </a>
                 </Link>
               </div>
             </div>
@@ -78,7 +76,6 @@ const Header1 = () => {
           </div>
         </div>
       </div>
-      {/*End Header Upper*/}
     </header>
   );
 };

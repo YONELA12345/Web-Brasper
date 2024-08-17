@@ -187,6 +187,15 @@ input[type=checkbox], input[type=radio] {
 /*******************************************************/
 /******************  ## Common Classes *****************/
 /*******************************************************/
+
+.partner-item-two img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.partner-item-two:hover img {
+  transform: scale(1.5); /* Ajusta el valor para aumentar o disminuir el zoom */
+}
+
 .page-wrapper {
   position: relative;
   z-index: 9;
