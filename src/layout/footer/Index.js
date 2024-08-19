@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="main-footer bgc-gray footer-white rel z-1">
+    <footer className="main-footer bgc-header1 footer-white rel z-1">
       <div className="footer-cta-wrap">
         <div className="container">
           <div
@@ -12,7 +12,7 @@ const Footer = () => {
             }}
           >
             <div className="section-title wow fadeInLeft delay-0-2s">
-              <span className="sub-title"> Ques si somos la mejor opcion?</span>
+              <span className="sub-title"> ¿Que si somos la mejor opcion?</span>
               <h2>Somos la mejor opción, escogenos</h2>
             </div>
             <Link legacyBehavior href="/contact">
@@ -38,7 +38,7 @@ const Footer = () => {
               <div className="footer-logo mb-30">
                 <Link legacyBehavior href="/index">
                   <a>
-                    <img src="assets/images/logos/logo_principal.png" alt="Logo" />
+                    <img src="assets/images/logos/logo_completo.png" alt="Logo" />
                   </a>
                 </Link>
               </div>
@@ -211,8 +211,8 @@ const Footer = () => {
                 </ul>
               </div>
             </div> */}
-            <div className="col-lg-4">
-              <div className="copyright-text text-lg-end wow fadeInLeft delay-0-2s">
+            <div className="col-lg-4 ">
+              <div className="copyright-text text-lg-end wow fadeInLeft delay-0-2s ">
                 <p>© 2024 Brasper. Reservados todos los derechos.</p>
               </div>
             </div>

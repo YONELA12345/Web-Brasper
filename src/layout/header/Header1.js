@@ -5,7 +5,7 @@ import Menu from "./Menu";
 const Header1 = () => {
   return (
     <header className="main-header header-one menu-white">
-      <div className="header-top-wrap bgc-gray">
+      <div className="header-top-wrap bgc-header1">
         <div className="container">
           <div className="header-top">
             <ul>

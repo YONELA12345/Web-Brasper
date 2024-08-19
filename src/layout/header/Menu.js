@@ -45,14 +45,14 @@ const MobileMenu = () => {
         </div>
         <Accordion.Collapse
           eventKey="collapse"
-          className="navbar-collapse clearfix"
-        >
+          className="navbar-collapse clearfix">
+          
           <ul className="navigation clearfix">
             <li className="dropdown">
-              <a href="#" onClick={() => active("home")}>
+              <a href="/" onClick={() => active("home")}>
                 Inicio
               </a>
-              <ul style={activeSubMenu("home")}>
+              {/* <ul style={activeSubMenu("home")}>
                 <li>
                   <Link href="/">IT Company</Link>
                 </li>
@@ -65,16 +65,16 @@ const MobileMenu = () => {
                 <li>
                   <Link href="index4">IT Agency</Link>
                 </li>
-              </ul>
-              <div className="dropdown-btn" onClick={() => active("home")}>
+              </ul> */}
+              {/* <div className="dropdown-btn" onClick={() => active("home")}>
                 <span className="fas fa-chevron-down" />
-              </div>
+              </div> */}
             </li>
             <li className="dropdown">
               <Link href="" onClick={() => active("services")}>
                 Servicios
               </Link>
-              <ul style={activeSubMenu("services")}>
+              {/* <ul style={activeSubMenu("services")}>
                 <li>
                   <Link href="services">Services One</Link>
                 </li>
@@ -84,10 +84,10 @@ const MobileMenu = () => {
                 <li>
                   <Link href="service-details">service details</Link>
                 </li>
-              </ul>
-              <div className="dropdown-btn" onClick={() => active("services")}>
+              </ul> */}
+              {/* <div className="dropdown-btn" onClick={() => active("services")}>
                 <span className="fas fa-chevron-down" />
-              </div>
+              </div> */}
             </li>
             {/* <li className="dropdown">
               <a href="#" onClick={() => active("Project")}>
@@ -109,7 +109,7 @@ const MobileMenu = () => {
               </div>
             </li> */}
             <li >
-              <Link href="/">IT Company</Link>
+              <Link href="/">¿Quienes somos?</Link>
               {/*  <ul style={activeSubMenu("shop")}>
                 <li>
                   <Link href="shop">shop grid</Link>
@@ -128,21 +128,21 @@ const MobileMenu = () => {
             </li>
             <li className="dropdown">
               <a href="#" onClick={() => active("blog")}>
-                blog
+                ¿Como funciona?
               </a>
-              <ul style={activeSubMenu("blog")}>
+              {/* <ul style={activeSubMenu("blog")}>
                 <li>
                   <Link href="blog">blog standard</Link>
                 </li>
                 <li>
                   <Link href="blog-details">blog details</Link>
                 </li>
-              </ul>
-              <div className="dropdown-btn" onClick={() => active("blog")}>
+              </ul> */}
+              {/* <div className="dropdown-btn" onClick={() => active("blog")}>
                 <span className="fas fa-chevron-down" />
-              </div>
+              </div> */}
             </li>
-            <li className="dropdown">
+            {/* <li className="dropdown">
               <a href="#" onClick={() => active("pages")}>
                 pages
               </a>
@@ -169,16 +169,17 @@ const MobileMenu = () => {
               <div className="dropdown-btn" onClick={() => active("pages")}>
                 <span className="fas fa-chevron-down" />
               </div>
-            </li>
+            </li> */}
           </ul>
         </Accordion.Collapse>
       </Accordion>
     </nav>
   );
 };
+
 const DeskTopMenu = () => {
   return (
-    <nav className="main-menu navbar-expand-lg desktop-menu">
+    <nav className="main-menu navbar-expand-lg desktop-menu ">
       <div className="navbar-header">
         <div className="mobile-logo">
           <Link href="/">
