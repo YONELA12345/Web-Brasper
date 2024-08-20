@@ -65,7 +65,9 @@ body {
   --lighter-color: #f7f7f9;
   --border-color: rgba(21, 16, 31, 0.1); 
 }
-
+.a_text_nav1{
+  color: #ffffff;
+}
 a {
   color: var(--base-color);
   cursor: pointer;
@@ -908,7 +910,10 @@ a.theme-btn {
   }
 
 .bgc-header1{
-  background-color: #11449b;
+  background-color: #1c54a4;
+}
+.footer_bacground{
+  background-color: var(--heading-color)
 }
 
 .bgc-primary {

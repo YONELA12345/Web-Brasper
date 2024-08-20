@@ -15,7 +15,7 @@ const bancos = () => {
           <div className="row flex-nowrap justify-content-center">
             {databancos.map((banco, index) => (
               <div className="col" key={banco.id}>
-                <Link legacyBehavior href="/contact">
+                <Link legacyBehavior href={banco.enlace} target="_blank">
                   <a
                     className={`partner-item-two wow fadeInUp delay-0-${
                       index + 3

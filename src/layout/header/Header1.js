@@ -11,27 +11,27 @@ const Header1 = () => {
             <ul>
               <li>
                 <i className="far fa-envelope" />{" "}
-                <a href="mailto:brasper@braspertransferencias.com">brasper@braspertransferencias.com</a>
+                <a href="mailto:brasper@braspertransferencias.com" style={{color: '#fff'}}>brasper@braspertransferencias.com</a>
               </li>
               <li>
                 <i className="far fa-phone" />{" "}
-                <a href="callto:+51966991933">+51 966991933</a>
+                <a href="callto:+51966991933" style={{color: '#fff'}}>+51 966991933</a>
               </li>
-              <li className="for-none">
+              <li className="for-none" style={{color: '#fff'}}>
                 <i className="far fa-clock" />atendemos de 8:30 am / 14:00 pm
               </li>
               <li>
                 <div className="social-style-one">
-                  <a href="https://www.facebook.com/BrasPerTransferencias" target="_blank">
+                  <a href="https://www.facebook.com/BrasPerTransferencias" target="_blank" style={{color: '#fff'}}>
                     <i className="fab fa-facebook-f" />
                   </a>
-                  <a href="https://www.tiktok.com/@braspertransferencias" target="_blank">
+                  <a href="https://www.tiktok.com/@braspertransferencias" target="_blank" style={{color: '#fff'}}>
                   <i className="fab fa-tiktok" />
                   </a>
-                  <a href="https://www.instagram.com/brasper.transferencias" target="_blank">
+                  <a href="https://www.instagram.com/brasper.transferencias" target="_blank" style={{color: '#fff'}}>
                     <i className="fab fa-instagram" />
                   </a>
-                  <a href="https://www.linkedin.com/in/brasper-transferencias-7a7b7b311/" target="_blank">
+                  <a href="https://www.linkedin.com/in/brasper-transferencias-7a7b7b311/" target="_blank" style={{color: '#fff'}}>
                     <i className="fab fa-linkedin-in" />
                   </a>
                 </div>

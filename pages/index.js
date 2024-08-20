@@ -148,7 +148,7 @@ const Index = () => {
             <div className="project-slider-item">
               <div className="video">
                 <img
-                  src="assets/images/about/br2.png"
+                  src="assets/images/projects/img_video2.png"
                   alt="Video"
                 />
                 <a
@@ -203,7 +203,7 @@ const Index = () => {
               </div>
               <div className="video">
                 <img
-                  src="assets/images/projects/project-video.png"
+                  src="assets/images/projects/img-video1.png"
                   alt="Video"
                 />
                 <a

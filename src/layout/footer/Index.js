@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="main-footer bgc-header1 footer-white rel z-1">
+    <footer className="main-footer footer_bacground footer-white rel z-1">
       <div className="footer-cta-wrap">
         <div className="container">
           <div
@@ -187,7 +187,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="footer-bottom bgc-black mt-20 pt-20">
+      <div className="footer-bottom mt-20 pt-20 border-top">
         <div className="container">
           <div className="row align-items-center">
             {/* <div className="col-lg-8">
