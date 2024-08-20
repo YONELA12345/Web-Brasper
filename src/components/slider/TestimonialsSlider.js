@@ -78,6 +78,12 @@ export default class TestimonialsSlider extends Component {
             </div>
           </div>
           <div className="testimonial-item wow fadeInUp delay-0-4s">
+          <div className="image">
+              <img
+                src="assets/images/testimonials/karol.png"
+                alt="Author"
+              />
+            </div>
             <div className="content">
               <div className="testi-header">
                 <h4>Excelente servicio</h4>

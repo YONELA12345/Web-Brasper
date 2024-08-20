@@ -6,30 +6,30 @@ import Link from "next/link";
 const bancos = () => {
   return (
     <section className="partners-area mt-60 pt-50 pb-30 rmt-30 rpb-70 rel z-1">
-      <div className="partners-area-three text-center rel z-1 pb-110 rpb-80">
-        <div className="container-fluid">
-          <div className="section-title text-center mb-50 wow fadeInUp delay-0-2s">
-            <span className="sub-title mb-10">Bancos</span>
-            <h2>Medios de transferencia</h2>
-          </div>
-          <div className="row flex-nowrap justify-content-center">
-            {databancos.map((banco, index) => (
-              <div className="col" key={banco.id}>
-                <Link legacyBehavior href={banco.enlace} target="_blank">
-                  <a
-                    className={`partner-item-two wow fadeInUp delay-0-${
-                      index + 3
-                    }s`}
-                  >
-                    <img className="w-50" src={banco.img1} alt="Partner" />
-                  </a>
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
+  <div className="partners-area-three text-center rel z-1 pb-110 rpb-80">
+    <div className="container-fluid">
+      <div className="section-title text-center mb-50 wow fadeInUp delay-0-2s">
+        <span className="sub-title mb-10">Bancos</span>
+        <h2>Medios de transferencia</h2>
       </div>
-    </section>
+      <div className="row flex-nowrap justify-content-center">
+        {databancos.map((banco, index) => (
+          <div className="col" key={banco.id}>
+            <div
+              className={`partner-item-two wow fadeInUp delay-0-${
+                index + 3
+              }s`}
+              onClick={() => window.open(banco.enlace, '_blank')}
+              style={{ cursor: 'pointer' }}
+            >
+              <img className="w-50" src={banco.img1} alt="Partner" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
   );
 };
 

@@ -207,7 +207,7 @@ const Index = () => {
                   alt="Video"
                 />
                 <a
-                  href="https://www.youtube.com/shorts/arT3LE9GSvk"
+                  href="https://youtube.com/shorts/arT3LE9GSvk?si=wyoG0vCLHUd4UDnV"
                   className="mfp-iframe video-play"
                   tabIndex={-1}
                 >
