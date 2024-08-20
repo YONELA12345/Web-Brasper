@@ -243,7 +243,7 @@ const Index = () => {
             <div className="col-xl-4 col-md-6">
               <div className="service-two-item wow fadeInUp delay-0-4s">
                 <div className="icon">
-                  <i className="flaticon-networking" />
+                <img src="assets/images/acerca/transferencias.png" alt="transferencias" />
                 </div>
                 <div className="content">
                   <h4>
@@ -260,7 +260,7 @@ const Index = () => {
             <div className="col-xl-4 col-md-6">
               <div className="service-two-item wow fadeInUp delay-0-6s">
                 <div className="icon">
-                  <i className="flaticon-coding" />
+                  <img src="assets/images/acerca/cotizaciones.png" alt="transferencias" />
                 </div>
                 <div className="content">
                   <h4>
@@ -279,7 +279,7 @@ const Index = () => {
             <div className="col-xl-4 col-md-6">
               <div className="service-two-item wow fadeInUp delay-0-3s">
                 <div className="icon">
-                  <i className="flaticon-app-development" />
+                <img src="assets/images/acerca/envios.png" alt="transferencias" />
                 </div>
                 <div className="content">
                   <h4>
@@ -296,7 +296,7 @@ const Index = () => {
             <div className="col-xl-4 col-md-6">
               <div className="service-two-item wow fadeInUp delay-0-5s">
                 <div className="icon">
-                  <i className="flaticon-logo" />
+                <img src="assets/images/acerca/servicios.png" alt="transferencias" />
                 </div>
                 <div className="content">
                   <h4>
@@ -314,7 +314,7 @@ const Index = () => {
             <div className="col-xl-4 col-md-6">
               <div className="service-two-item wow fadeInUp delay-0-7s">
                 <div className="icon">
-                  <i className="flaticon-seo" />
+                <img src="assets/images/acerca/economia.png" alt="transferencias" />
                 </div>
                 <div className="content">
                   <h4>
