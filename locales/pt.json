@@ -1,0 +1,66 @@
+{
+    "navbar": {
+        "home": "Início",
+        "about": "Sobre Nós",
+        "contact": "Contate-Nos",
+        "services": "Services",
+        "howItWorks": "Como funciona?"
+    },
+    "header": {
+        "email": "E-mail",
+        "phone": "Telefone",
+        "hours": "Atendemos das 8:30 às 14:00",
+        "contactUs": "Contate-Nos"
+    },
+    "footer": {
+        "allRightsReserved": "Todos os direitos reservados."
+    },
+    "homepage": {
+        "welcome": "Bem-vindo ao nosso site!",
+        "description": "Oferecemos serviços excelentes."
+    },
+    "heroSection": {
+        "title": "Transferências Brasper",
+        "description": "Envie Soles, Dólares e Reais para o Brasil e Peru com a melhor taxa de câmbio e com uma tarifa premium para suas transferências!",
+        "buttonText": "Convide aqui"
+    },
+    "projectSection": {
+        "title": "Transferências Internacionais",
+        "item1Title": "Tempo de Transferência",
+        "item1Description": "Dependendo do método utilizado, as transferências de soles para reais podem levar de algumas horas a vários dias úteis. Casas de câmbio especializadas e plataformas fintech costumam oferecer tempos de processamento mais rápidos em comparação com os bancos tradicionais.",
+        "item1Point1": "Tempos de Processamento Mais Rápidos",
+        "item1Point2": "Taxas de Câmbio Mais Favoráveis",
+        "item2Title": "Segurança",
+        "item2Description": "É fundamental escolher uma entidade regulada pelas autoridades financeiras pertinentes, tanto no Peru quanto no Brasil, para garantir a proteção dos seus fundos.",
+        "item2Point1": "Segurança Financeira Garantida",
+        "item2Point2": "Proteção Avançada de Dados",
+        "viewDetails": "Ver detalhes",
+        "viewMore": "Ver mais"
+    },
+    "servicesSection": {
+        "title": "Últimos serviços",
+        "subtitle": "Fornecemos as melhores cotações para transferências",
+        "service1Title": "Transferências",
+        "service1Description": "Uma transferência bancária é um processo pelo qual o dinheiro é transferido de uma conta bancária para outra.",
+        "service2Title": "Cotações",
+        "service2Description": "No contexto de uma casa de câmbio ou de uma entidade que trabalha com câmbio de moeda, uma cotação se refere ao valor ou taxa pela qual uma moeda pode ser trocada por outra em um determinado momento.",
+        "service3Title": "Envios",
+        "service3Description": "Envios rápidos e seguros com as transferências da Brasper.",
+        "service4Title": "Serviços",
+        "service4Description": "Os serviços que prestamos não são apenas transferências seguras, mas também oferecemos consultoria e insights financeiros.",
+        "service5Title": "Melhoria de Despesas",
+        "service5Description": "Com a gente, você terá confiança em melhorar suas transferências e nós oferecemos um desconto em sua primeira transferência conosco."
+    },
+    "workProcessSection": {
+        "title": "Nosso guia simples",
+        "subtitle": "Compre ou venda seus Reais, Soles ou Dólares em 4 etapas simples",
+        "step1Title": "Obter Cotação",
+        "step1Description": "Obtenha uma cotação e insira o valor que deseja trocar.",
+        "step2Title": "Cadastre-se",
+        "step2Description": "Cadastre-se e faça a transferência para a conta da BrasPer Transferencias e nos envie o comprovante da operação.",
+        "step3Title": "Receba sua transferência",
+        "step3Description": "Receba sua troca. Depositaremos o dinheiro na conta registrada.",
+        "step4Title": "Recomende",
+        "step4Description": "Se você ficou satisfeito com nosso serviço, recomende-nos a mais pessoas."
+    }
+}

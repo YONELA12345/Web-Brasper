@@ -1,0 +1,66 @@
+{
+    "navbar": {
+        "home": "Home",
+        "about": "About Us",
+        "contact": "Contact Us",
+        "services": "Services",
+        "howItWorks": "How Works?"
+    },
+    "header": {
+        "email": "Email",
+        "phone": "Phone",
+        "hours": "We are open from 8:30 am to 14:00 pm",
+        "contactUs": "Contact Us"
+    },
+    "footer": {
+        "allRightsReserved": "All rights reserved."
+    },
+    "homepage": {
+        "welcome": "Welcome to our website!",
+        "description": "We provide excellent services."
+    },
+    "heroSection": {
+        "title": "Brasper Transfers",
+        "description": "Send Soles, Dollars, and Reais to Brazil and Peru at the best exchange rate and with a premium fee for your transfers!",
+        "buttonText": "Invite here"
+    },
+    "projectSection": {
+        "title": "International Transfers",
+        "item1Title": "Transfer Time",
+        "item1Description": "Depending on the method used, transfers from soles to reais can take from a few hours to several business days. Specialized exchange houses and fintech platforms often offer faster processing times compared to traditional banks.",
+        "item1Point1": "Faster Processing Times",
+        "item1Point2": "More Favorable Exchange Rates",
+        "item2Title": "Security",
+        "item2Description": "It is essential to choose an entity regulated by the relevant financial authorities, both in Peru and Brazil, to ensure the protection of your funds.",
+        "item2Point1": "Guaranteed Financial Security",
+        "item2Point2": "Advanced Data Protection",
+        "viewDetails": "View details",
+        "viewMore": "View more"
+    },
+    "servicesSection": {
+        "title": "Latest services",
+        "subtitle": "We provide the best exchange rates for transfers",
+        "service1Title": "Transfers",
+        "service1Description": "A bank transfer is a process by which money is moved from one bank account to another.",
+        "service2Title": "Quotations",
+        "service2Description": "In the context of an exchange house or an entity that deals in currency exchange, a quotation refers to the value or rate at which one currency can be exchanged for another at a given time.",
+        "service3Title": "Shipments",
+        "service3Description": "Fast and secure shipments with Brasper transfers.",
+        "service4Title": "Services",
+        "service4Description": "The services we provide are not only secure transfers but also offer advice and financial insights.",
+        "service5Title": "Expense Improvement",
+        "service5Description": "With us, you will have confidence in improving your transfers and we offer you a discount on your first transfer with us."
+    },
+    "workProcessSection": {
+        "title": "Our simple guide",
+        "subtitle": "Buy or sell your Reais, Soles, or Dollars in 4 simple steps",
+        "step1Title": "Get a Quote",
+        "step1Description": "Get a quote and enter the amount you want to exchange.",
+        "step2Title": "Register",
+        "step2Description": "Register and make the transfer to the BrasPer Transferencias account and send us the proof of operation.",
+        "step3Title": "Receive your transfer",
+        "step3Description": "Receive your exchange. We will deposit the money into the registered account.",
+        "step4Title": "Recommend",
+        "step4Description": "If you were satisfied with our service, recommend us to more people."
+    }
+}

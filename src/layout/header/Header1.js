@@ -1,8 +1,10 @@
 import Link from "next/link";
-import Search from "../Search";
 import Menu from "./Menu";
+import { useLocale } from "../../../context/LocaleContext"; // Importa el contexto de idioma
 
 const Header1 = () => {
+  const { locale, changeLocale, t } = useLocale(); // Usa el contexto de idioma
+
   return (
     <header className="main-header header-one menu-white">
       <div className="header-top-wrap bgc-header1">
@@ -11,30 +13,58 @@ const Header1 = () => {
             <ul>
               <li>
                 <i className="far fa-envelope" />{" "}
-                <a href="mailto:brasper@braspertransferencias.com" style={{color: '#fff'}}>brasper@braspertransferencias.com</a>
+                <a
+                  href="mailto:brasper@braspertransferencias.com"
+                  style={{ color: "#fff" }}
+                >
+                  brasper@braspertransferencias.com
+                </a>
               </li>
               <li>
                 <i className="far fa-phone" />{" "}
-                <a href="callto:+51966991933" style={{color: '#fff'}}>+51 966991933</a>
+                <a href="callto:+51966991933" style={{ color: "#fff" }}>
+                  +51 966991933
+                </a>
               </li>
-              <li className="for-none" style={{color: '#fff'}}>
-                <i className="far fa-clock" />atendemos de 8:30 am / 14:00 pm
+              <li className="for-none" style={{ color: "#fff" }}>
+                <i className="far fa-clock" />
+                {t.header.hours} {/* Traducir el texto */}
               </li>
               <li>
                 <div className="social-style-one">
-                  <a href="https://www.facebook.com/BrasPerTransferencias" target="_blank" style={{color: '#fff'}}>
+                  <a
+                    href="https://www.facebook.com/BrasPerTransferencias"
+                    target="_blank"
+                    style={{ color: "#fff" }}
+                  >
                     <i className="fab fa-facebook-f" />
                   </a>
-                  <a href="https://www.tiktok.com/@braspertransferencias" target="_blank" style={{color: '#fff'}}>
-                  <i className="fab fa-tiktok" />
+                  <a
+                    href="https://www.tiktok.com/@braspertransferencias"
+                    target="_blank"
+                    style={{ color: "#fff" }}
+                  >
+                    <i className="fab fa-tiktok" />
                   </a>
-                  <a href="https://www.instagram.com/brasper.transferencias" target="_blank" style={{color: '#fff'}}>
+                  <a
+                    href="https://www.instagram.com/brasper.transferencias"
+                    target="_blank"
+                    style={{ color: "#fff" }}
+                  >
                     <i className="fab fa-instagram" />
                   </a>
-                  <a href="https://www.linkedin.com/in/brasper-transferencias-7a7b7b311/" target="_blank" style={{color: '#fff'}}>
+                  <a
+                    href="https://www.linkedin.com/in/brasper-transferencias-7a7b7b311/"
+                    target="_blank"
+                    style={{ color: "#fff" }}
+                  >
                     <i className="fab fa-linkedin-in" />
                   </a>
                 </div>
+              </li>
+              <li>
+                {/* Selector de idioma */}
+              
               </li>
             </ul>
           </div>
@@ -47,29 +77,24 @@ const Header1 = () => {
             <div className="logo-outer">
               <div className="logo">
                 <Link legacyBehavior href="/">
-                    <img
-                      src="assets/images/logos/logo_principal.png"
-                      alt="Logo"
-                      title="Logo"
-                    />
+                  <img
+                    src="assets/images/logos/logo_principal.png"
+                    alt="Logo"
+                    title="Logo"
+                  />
                 </Link>
               </div>
             </div>
             <div className="nav-outer mx-auto clearfix">
               {/* Main Menu */}
               <Menu />
-              {/* Main Menu End*/}
+              {/* Main Menu End */}
             </div>
-            {/* Nav Search */}
-            {/* <div className="nav-search py-10">
-              <Search />
-            </div> */}
-            {/* Menu Button */}
             <div className="menu-btns">
-              {/* <Link legacyBehavior href="/contact" target="_blank"> */}
               <Link legacyBehavior href="https://rb.gy/vjpce3" target="_blank">
                 <a className="theme-btn" target="_blank">
-                  Contactanos <i className="fas fa-long-arrow-right" />
+                  {t.header.contactUs} <i className="fas fa-long-arrow-right" />{" "}
+                  {/* Traducir el texto */}
                 </a>
               </Link>
             </div>
@@ -79,4 +104,5 @@ const Header1 = () => {
     </header>
   );
 };
+
 export default Header1;

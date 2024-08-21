@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import { Accordion } from "react-bootstrap";
+import { useLocale } from "../../../context/LocaleContext"; // Asegúrate de importar el contexto de idioma
 
-import { Fragment } from "react";
 const Menu = () => {
   return (
     <Fragment>
@@ -13,10 +13,13 @@ const Menu = () => {
 };
 
 const MobileMenu = () => {
+  const { locale, changeLocale, t } = useLocale(); // Usa el contexto de idioma para obtener traducciones
   const [activeMenu, setActiveMenu] = useState(null);
+
   const active = (value) => setActiveMenu(value === activeMenu ? null : value),
     activeSubMenu = (value) =>
       value == activeMenu ? { display: "block" } : { display: "none" };
+
   return (
     <nav className="main-menu navbar-expand-lg mobile-menu">
       <Accordion>
@@ -30,7 +33,6 @@ const MobileMenu = () => {
               />
             </Link>
           </div>
-          {/* Toggle Button */}
           <Accordion.Toggle
             as={"button"}
             type="button"
@@ -45,131 +47,43 @@ const MobileMenu = () => {
         </div>
         <Accordion.Collapse
           eventKey="collapse"
-          className="navbar-collapse clearfix">
-          
+          className="navbar-collapse clearfix"
+        >
           <ul className="navigation clearfix">
             <li className="dropdown">
-              <a href="/" onClick={() => active("home")}>
-                Inicio
-              </a>
-              {/* <ul style={activeSubMenu("home")}>
-                <li>
-                  <Link href="/">IT Company</Link>
-                </li>
-                <li>
-                  <Link href="index2">IT Solutions</Link>
-                </li>
-                <li>
-                  <Link href="index3">IT Services</Link>
-                </li>
-                <li>
-                  <Link href="index4">IT Agency</Link>
-                </li>
-              </ul> */}
-              {/* <div className="dropdown-btn" onClick={() => active("home")}>
-                <span className="fas fa-chevron-down" />
-              </div> */}
+              <Link href="/" onClick={() => active("home")}>
+                {t.navbar.home} {/* Traducción de "Inicio" */}
+              </Link>
             </li>
             <li className="dropdown">
               <Link href="" onClick={() => active("services")}>
-                Servicios
+                {t.navbar.services} {/* Traducción de "Servicios" */}
               </Link>
-              {/* <ul style={activeSubMenu("services")}>
-                <li>
-                  <Link href="services">Services One</Link>
-                </li>
-                <li>
-                  <Link href="services2">Services Two</Link>
-                </li>
-                <li>
-                  <Link href="service-details">service details</Link>
-                </li>
-              </ul> */}
-              {/* <div className="dropdown-btn" onClick={() => active("services")}>
-                <span className="fas fa-chevron-down" />
-              </div> */}
-            </li>
-            {/* <li className="dropdown">
-              <a href="#" onClick={() => active("Project")}>
-                Project
-              </a>
-              <ul style={activeSubMenu("Project")}>
-                <li>
-                  <Link href="project-grid">Project Grid</Link>
-                </li>
-                <li>
-                  <Link href="project-masonry">Project Masonry.</Link>
-                </li>
-                <li>
-                  <Link href="project-details">Project Details</Link>
-                </li>
-              </ul>
-              <div className="dropdown-btn" onClick={() => active("Project")}>
-                <span className="fas fa-chevron-down" />
-              </div>
-            </li> */}
-            <li >
-              <Link href="/">¿Quienes somos?</Link>
-              {/*  <ul style={activeSubMenu("shop")}>
-                <li>
-                  <Link href="shop">shop grid</Link>
-                </li>
-                <li>
-                  <Link href="product-details">product details</Link>
-                </li>
-                <li>
-                  <Link href="cart">cart page</Link>
-                </li>
-                <li>
-                  <Link href="checkout">checkout</Link>
-                </li>
-              </ul> */}
-
             </li>
             <li className="dropdown">
-              <a href="#" onClick={() => active("blog")}>
-                ¿Como funciona?
-              </a>
-              {/* <ul style={activeSubMenu("blog")}>
-                <li>
-                  <Link href="blog">blog standard</Link>
-                </li>
-                <li>
-                  <Link href="blog-details">blog details</Link>
-                </li>
-              </ul> */}
-              {/* <div className="dropdown-btn" onClick={() => active("blog")}>
-                <span className="fas fa-chevron-down" />
-              </div> */}
+              <Link href="/about">{t.navbar.about}</Link>
             </li>
-            {/* <li className="dropdown">
-              <a href="#" onClick={() => active("pages")}>
-                pages
-              </a>
-              <ul style={activeSubMenu("pages")}>
-                <li>
-                  <Link href="about">About us</Link>
-                </li>
-                <li>
-                  <Link href="contact">Contact us</Link>
-                </li>
-                <li>
-                  <Link href="team">Team</Link>
-                </li>
-                <li>
-                  <Link href="faqs">faqs</Link>
-                </li>
-                <li>
-                  <Link href="pricing">Pricing Plan</Link>
-                </li>
-                <li>
-                  <Link href="404">404 error</Link>
-                </li>
-              </ul>
-              <div className="dropdown-btn" onClick={() => active("pages")}>
-                <span className="fas fa-chevron-down" />
-              </div>
-            </li> */}
+            <li className="dropdown">
+              <Link href="#">{t.navbar.howItWorks}</Link>
+            </li>
+            {/* Selector de idioma */}
+            <li className="dropdown">
+              <select
+                value={locale}
+                onChange={(e) => changeLocale(e.target.value)}
+                style={{
+                  background: "transparent",
+                  border: "none",
+                  color: "#fff",
+                  padding: "5px",
+                  borderRadius: "4px",
+                }}
+              >
+                <option value="es">Español</option>
+                <option value="en">English</option>
+                <option value="pt">Português</option>
+              </select>
+            </li>
           </ul>
         </Accordion.Collapse>
       </Accordion>
@@ -178,6 +92,8 @@ const MobileMenu = () => {
 };
 
 const DeskTopMenu = () => {
+  const { locale, changeLocale, t } = useLocale(); // Usa el contexto de idioma para obtener traducciones
+
   return (
     <nav className="main-menu navbar-expand-lg desktop-menu ">
       <div className="navbar-header">
@@ -190,7 +106,6 @@ const DeskTopMenu = () => {
             />
           </Link>
         </div>
-        {/* Toggle Button */}
         <button
           type="button"
           className="navbar-toggle"
@@ -205,122 +120,42 @@ const DeskTopMenu = () => {
       <div className="navbar-collapse collapse clearfix">
         <ul className="navigation clearfix">
           <li className="dropdown">
-            <a href="/">Inicio</a>
-            {/* <ul>
-              <li>
-                <Link href="/">IT Company</Link>
-              </li>
-              <li>
-                <Link href="index2">IT Solutions</Link>
-              </li>
-              <li>
-                <Link href="index3">IT Services</Link>
-              </li>
-              <li>
-                <Link href="index4">IT Agency</Link>
-              </li>
-            </ul> */}
-            {/* <div className="dropdown-btn">
-              <span className="fas fa-chevron-down" />
-            </div> */}
+            <Link href="/">{t.navbar.home}</Link> {/* Traducción de "Inicio" */}
           </li>
           <li className="dropdown">
-            <a href="#">Servicios</a>
-            {/* <ul>
-              <li>
-                <Link href="services">Services One</Link>
-              </li>
-              <li>
-                <Link href="services2">Services Two</Link>
-              </li>
-              <li>
-                <Link href="service-details">service details</Link>
-              </li>
-            </ul> */}
-            {/* <div className="dropdown-btn">
-              <span className="fas fa-chevron-down" />
-            </div> */}
+            <Link href="#">{t.navbar.services}</Link>{" "}
+            {/* Traducción de "Servicios" */}
           </li>
-          {/* <li className="dropdown">
-            <a href="#">Project</a>
-            <ul>
-              <li>
-                <Link href="project-grid">Project Grid</Link>
-              </li>
-              <li>
-                <Link href="project-masonry">Project Masonry.</Link>
-              </li>
-              <li>
-                <Link href="project-details">Project Details</Link>
-              </li>
-            </ul>
-            <div className="dropdown-btn">
-              <span className="fas fa-chevron-down" />
-            </div>
-          </li> */}
           <li className="dropdown">
-            <Link href="/about">¿Quienes Somos?</Link>
-            {/*  <ul>
-              <li>
-                <Link href="shop">shop grid</Link>
-              </li>
-              <li>
-                <Link href="product-details">product details</Link>
-              </li>
-              <li>
-                <Link href="cart">cart page</Link>
-              </li>
-              <li>
-                <Link href="checkout">checkout</Link>
-              </li>
-            </ul>
-            <div className="dropdown-btn">
-              <span className="fas fa-chevron-down" />
-            </div> */}
+            <Link href="/about">{t.navbar.about}</Link>{" "}
+            {/* Traducción de "¿Quiénes somos?" */}
           </li>
-          {/* <li className="dropdown">
-            <a href="#">blog</a>
-            <ul>
-              <li>
-                <Link href="blog">blog standard</Link>
-              </li>
-              <li>
-                <Link href="blog-details">blog details</Link>
-              </li>
-            </ul>
-            <div className="dropdown-btn">
-              <span className="fas fa-chevron-down" />
-            </div>
-          </li> */}
           <li className="dropdown">
-            <a href="#">¿Como funciona?</a>
-            {/* <ul>
-              <li>
-                <Link href="about">About us</Link>
-              </li>
-              <li>
-                <Link href="contact">Contacto</Link>
-              </li>
-              <li>
-                <Link href="team">Team</Link>
-              </li>
-              <li>
-                <Link href="faqs">faqs</Link>
-              </li>
-              <li>
-                <Link href="pricing">Pricing Plan</Link>
-              </li>
-              <li>
-                <Link href="404">404 error</Link>
-              </li>
-            </ul>
-            <div className="dropdown-btn">
-              <span className="fas fa-chevron-down" />
-            </div> */}
+            <Link href="#">{t.navbar.howItWorks}</Link>{" "}
+            {/* Traducción de "¿Cómo funciona?" */}
+          </li>
+          {/* Selector de idioma */}
+          <li className="dropdown">
+            <select
+              value={locale}
+              onChange={(e) => changeLocale(e.target.value)}
+              style={{
+                background: "transparent",
+                border: "none",
+                color: "#fff",
+                padding: "5px",
+                borderRadius: "4px",
+              }}
+            >
+              <option value="es">Español</option>
+              <option value="en">English</option>
+              <option value="pt">Português</option>
+            </select>
           </li>
         </ul>
       </div>
     </nav>
   );
 };
+
 export default Menu;

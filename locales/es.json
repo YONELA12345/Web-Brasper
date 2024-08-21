@@ -1,0 +1,66 @@
+{
+    "navbar": {
+        "home": "Inicio",
+        "about": "Nosotros",
+        "services": "Servicios",
+        "contact": "Contáctanos",
+        "howItWorks": "¿Como Funciona?"
+    },
+    "header": {
+        "email": "Correo Electrónico",
+        "phone": "Teléfono",
+        "hours": "Atendemos de 8:30 am a 14:00 pm",
+        "contactUs": "Contáctanos"
+    },
+    "footer": {
+        "allRightsReserved": "Todos los derechos reservados."
+    },
+    "homepage": {
+        "welcome": "¡Bienvenido a nuestro sitio web!",
+        "description": "Ofrecemos servicios excelentes."
+    },
+    "heroSection": {
+        "title": "Brasper transferencias",
+        "description": "Envíos de Soles, Dólares, y Reales a Brasil y Perú al mejor tipo de cambio y con una tarifa premium para sus envíos!",
+        "buttonText": "Invita aquí"
+    },
+    "projectSection": {
+        "title": "Transferencias Internacionales",
+        "item1Title": "Tiempo de Transferencia",
+        "item1Description": "Dependiendo del método utilizado, las transferencias de soles a reales pueden tardar desde unas pocas horas hasta varios días hábiles. Las casas de cambio especializadas y plataformas fintech suelen ofrecer tiempos de procesamiento más rápidos en comparación con los bancos tradicionales.",
+        "item1Point1": "Tiempos de Procesamiento Más Rápidos",
+        "item1Point2": "Tasas de Cambio Más Favorables",
+        "item2Title": "Seguridad",
+        "item2Description": "Es fundamental elegir una entidad que esté regulada por las autoridades financieras pertinentes, tanto en Perú como en Brasil, para asegurar la protección de tus fondos.",
+        "item2Point1": "Seguridad Financiera Garantizada",
+        "item2Point2": "Protección Avanzada de Datos",
+        "viewDetails": "Ver detalles",
+        "viewMore": "Ver más"
+    },
+    "servicesSection": {
+        "title": "Últimos servicios",
+        "subtitle": "Brindamos las mejores cotizaciones en transferencias",
+        "service1Title": "Transferencias",
+        "service1Description": "Una transferencia bancaria es un proceso mediante el cual se mueve dinero de una cuenta bancaria a otra.",
+        "service2Title": "Cotizaciones",
+        "service2Description": "En el contexto de una casa de cambio o una entidad que se dedica al cambio de divisas, una cotización se refiere al valor o tasa a la cual se puede cambiar una moneda por otra en un momento determinado.",
+        "service3Title": "Envíos",
+        "service3Description": "Envíos rápidos y seguros con Brasper transferencias.",
+        "service4Title": "Servicios",
+        "service4Description": "Los servicios que te brindamos no solo son transferencias seguras, sino que te brindamos asesoramiento y datos curiosos para finanzas.",
+        "service5Title": "Mejoramiento de gastos",
+        "service5Description": "Con nosotros tendrás la confianza en mejorar tus transferencias y te damos un porcentaje de descuento en tu primera transferencia con nosotros."
+    },
+    "workProcessSection": {
+        "title": "Nuestra pequeña guía",
+        "subtitle": "Compra o vende tus Reales, soles o dólares en 4 simples pasos",
+        "step1Title": "Cotiza",
+        "step1Description": "Cotiza e ingresa el monto que deseas cambiar.",
+        "step2Title": "Regístrate",
+        "step2Description": "Regístrate y realiza la transferencia a la cuenta de BrasPer Transferencias y envíanos la constancia de la operación.",
+        "step3Title": "Recibe tu transferencia",
+        "step3Description": "Recibe tu cambio. Te abonaremos el dinero a la cuenta registrada.",
+        "step4Title": "Recomienda",
+        "step4Description": "Si quedaste satisfecho con nuestro servicio recomiéndanos con más personas."
+    }
+}

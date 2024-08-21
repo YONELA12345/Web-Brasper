@@ -21,8 +21,7 @@ const About = () => {
                 <img src="assets/images/about/about-five1.jpg" alt="About" />
                 <img src="assets/images/about/about-five2.jpg" alt="About" />
                 <div className="experience-years">
-                  <span className="years">2</span>
-                  <h4>Vision y Mision</h4>
+                  <h3>Vision y Mision</h3>
                 </div>
                 <img
                   className="abut-bg-shape"
@@ -34,7 +33,7 @@ const About = () => {
             <div className="col-lg-6">
               <div className="about-content mt-55 rel z-1 wow fadeInLeft delay-0-2s">
                 <div className="section-title mb-60 rmb-40">
-                  <span className="sub-title mb-15">Sobre la empreza </span>
+                  <span className="sub-title mb-15">Sobre la empresa </span>
                   <h2>
                     Tu Socio de Confianza para Transferencias Internacionales
                   </h2>
@@ -51,10 +50,12 @@ const About = () => {
                         </Link>
                       </h4>
                       <p>
-                        Ofrecer el servicio de envío de remesas vía online de Brasil hacia Perú y de Perú a Brasil, con la
-                        mayor rapidez, confianza, seguridad y al mejor tipo de cambio, garantizando la calidad de
-                        nuestros servicios y desarrollando excelentes relaciones con nuestros clientes locales y
-                        regionales.
+                        Ofrecer el servicio de envío de remesas vía online de
+                        Brasil hacia Perú y de Perú a Brasil, con la mayor
+                        rapidez, confianza, seguridad y al mejor tipo de cambio,
+                        garantizando la calidad de nuestros servicios y
+                        desarrollando excelentes relaciones con nuestros
+                        clientes locales y regionales.
                       </p>
                       {/*  <Link legacyBehavior href="/service-details">
                         <a className="read-more">
@@ -74,11 +75,12 @@ const About = () => {
                         </Link>
                       </h4>
                       <p>
-                        Ser una organización con ventaja competitiva en el envío de remesas a nivel regional que
-                        trascienda en el tiempo, a través del desarrollo ético de sus trabajadores y con un enfoque
-                        sostenible.
+                        Ser una organización con ventaja competitiva en el envío
+                        de remesas a nivel regional que trascienda en el tiempo,
+                        a través del desarrollo ético de sus trabajadores y con
+                        un enfoque sostenible.
                       </p>
-                     {/*  <Link legacyBehavior href="/service-details">
+                      {/*  <Link legacyBehavior href="/service-details">
                         <a className="read-more">
                           Read More <i className="far fa-arrow-right" />
                         </a>
@@ -107,7 +109,8 @@ const About = () => {
                   </Link>
                 </h4>
                 <p>
-                  Nos destacamos por ofrecer un servicio rápido, seguro y con el mejor tipo de cambio,
+                  Nos destacamos por ofrecer un servicio rápido, seguro y con el
+                  mejor tipo de cambio,
                 </p>
               </div>
             </div>
@@ -122,7 +125,8 @@ const About = () => {
                   </Link>
                 </h4>
                 <p>
-                  Envía dinero de Brasil a Perú y viceversa en minutos, tu dinero llega sin intermediarios y de forma segura
+                  Envía dinero de Brasil a Perú y viceversa en minutos, tu
+                  dinero llega sin intermediarios y de forma segura
                 </p>
               </div>
             </div>
@@ -137,7 +141,9 @@ const About = () => {
                   </Link>
                 </h4>
                 <p>
-                  La confianza es nuestro pilar. Nos comprometemos a ofrecerte un servicio seguro, transparente y eficiente.     </p>
+                  La confianza es nuestro pilar. Nos comprometemos a ofrecerte
+                  un servicio seguro, transparente y eficiente.{" "}
+                </p>
               </div>
             </div>
           </div>
@@ -157,7 +163,9 @@ const About = () => {
               <div className="col-xl-5 col-lg-6">
                 <div className="statistics-content mb-55 wow fadeInUp delay-0-2s">
                   <div className="section-title mb-30">
-                    <span className="sub-title mb-15">Estadísticas de la empresa</span>
+                    <span className="sub-title mb-15">
+                      Estadísticas de la empresa
+                    </span>
                     <h2>Conozca las estadísticas de nuestra empresa</h2>
                   </div>
                   {/*  <Link legacyBehavior href="/about">
@@ -232,15 +240,15 @@ const About = () => {
       <section className="team-area-two pt-130 rpt-100 pb-100 rpb-70 rel z-1">
         <div className="container">
           <div className="section-title text-center mb-60 wow fadeInUp delay-0-2s">
-            <span className="sub-title mb-15">Team Member</span>
-            <h2>Amazing Team Members</h2>
+            <span className="sub-title mb-15">Trabajadores</span>
+            <h2>Equipo de trabajo</h2>
           </div>
           <div className="row justify-content-center">
             <div className="col-xl-3 col-lg-4 col-md-6">
               <div className="team-member style-two wow fadeInUp delay-0-4s">
                 <img src="assets/images/team/member2.jpg" alt="Team" />
                 <h4>Esperanza Tello</h4>
-                <span className="designation">rol</span>
+                <span className="designation">jefa de contabilidad</span>
                 <div className="social-style-two">
                   <a href="#">
                     <i className="fab fa-facebook-f" />
@@ -261,7 +269,7 @@ const About = () => {
               <div className="team-member style-two wow fadeInUp delay-0-2s">
                 <img src="assets/images/team/member1.jpg" alt="Team" />
                 <h4>Carlos Gonzales</h4>
-                <span className="designation">SEO</span>
+                <span className="designation">Gerente general</span>
                 <div className="social-style-two">
                   <a href="#">
                     <i className="fab fa-facebook-f" />
@@ -282,7 +290,7 @@ const About = () => {
               <div className="team-member style-two wow fadeInUp delay-0-6s">
                 <img src="assets/images/team/member3.jpg" alt="Team" />
                 <h4>Manuel Echeverre</h4>
-                <span className="designation">rol</span>
+                <span className="designation">jefe de finanzas</span>
                 <div className="social-style-two">
                   <a href="#">
                     <i className="fab fa-facebook-f" />
@@ -536,7 +544,7 @@ const About = () => {
       </section>
       {/* Testimonials Area Two end */}
       {/* Partners Area start */}
-      <Bancos/>
+      <Bancos />
     </Layout>
   );
 };
