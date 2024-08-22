@@ -62,5 +62,73 @@
         "step3Description": "Receive your exchange. We will deposit the money into the registered account.",
         "step4Title": "Recommend",
         "step4Description": "If you were satisfied with our service, recommend us to more people."
+    },
+    "testimonialsSection": {
+        "subTitle": "Customer Feedback",
+        "title": "What Our Clients Say",
+        "testimonial1": {
+            "title": "Excellent Work",
+            "text": "They provided me with impeccable and wonderful service. Thank you very much, Brasper. I will continue making my transfers with you; you gave me a lot of support and speed.",
+            "author": "Andrew D. Bricker",
+            "designation": "Peruvian"
+        },
+        "testimonial2": {
+            "title": "Excellent Service",
+            "text": "Brasper made currency exchange quick and simple. I always get good rates, and the customer service is excellent. Definitely a reliable and efficient option.",
+            "author": "Juliana",
+            "designation": "Brazilian"
+        }
+    },
+    "aboutSection": {
+        "subTitle": "About the Company",
+        "title": "Connect Your World, Maximize Your Value",
+        "description": "In a globalized and increasingly connected world, making international transfers and currency exchanges efficiently, safely, and with competitive rates is essential for both individuals and businesses. At Braper Transfers, we specialize in offering a currency exchange and international transfer service that stands out for its transparency, reliability, and personalized attention. Our mission is to make every transaction simple and worry-free so that you can focus on what really matters.",
+        "viewMoreButton": "View More",
+        "contactUs": "Contact Us",
+        "bestChoice": {
+            "title": "Your Best Choice for Currency Exchange",
+            "description": "Sit amet consectetur adiisc elit sed eiusmod temp diunts ut labore et dolore magna."
+        },
+        "smartInvestments": {
+            "title": "Smart Investments, Guaranteed Results",
+            "description": "Maximize your earnings by choosing a reliable exchange house."
+        }
+    },
+    "footer": {
+        "cta": {
+            "subTitle": "Wondering if we are the best option?",
+            "title": "We are the best option, choose us",
+            "buttonText": "Learn more",
+            "callUs": "Call us",
+            "phone": "+51 966991933"
+        },
+        "about": {
+            "description": "Brasper is a company specialized in currency exchange services, mainly focused on converting Brazilian reais to Peruvian soles and vice versa, as well as exchanging US dollars.",
+            "moreInfo": "Learn more"
+        },
+        "contactUs": {
+            "title": "Contact Us",
+            "description": "You can write to us at the following email, we will gladly assist you",
+            "email": "brasper@braspertransferencias.com",
+            "followUs": "Follow us"
+        },
+        "services": {
+            "title": "Services",
+            "items": [
+                "Transfers",
+                "Quotation",
+                "Currency Exchange",
+                "Advisory",
+                "Loyalty Program"
+            ]
+        },
+        "aboutUs": {
+            "title": "Who We Are?",
+            "items": [
+                "Mission",
+                "Vision"
+            ]
+        },
+        "copyright": "© 2024 Brasper. All rights reserved."
     }
 }

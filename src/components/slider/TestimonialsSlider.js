@@ -1,317 +1,115 @@
 import { testimonialSlider } from "@/src/sliderProps";
-import { Component, Fragment, useEffect, useState } from "react";
+import { Fragment, useRef } from "react";
 import Slider from "react-slick";
+import { useLocale } from "../../../context/LocaleContext"; // Importa el contexto
 
-export default class TestimonialsSlider extends Component {
-  constructor(props) {
-    super(props);
-    this.next = this.next.bind(this);
-    this.previous = this.previous.bind(this);
-  }
-  next() {
-    this.slider.slickNext();
-  }
-  previous() {
-    this.slider.slickPrev();
-  }
-  render() {
-    return (
-      <Fragment>
-        <div className="row justify-content-between align-items-end mb-30">
-          <div className="col-lg-8">
-            <div className="section-title mb-25 wow fadeInRight delay-0-2s">
-              <span className="sub-title mb-15">Comentarios de los clientes</span>
-              <h2>Lo que nos dicen nuestros clientes</h2>
-            </div>
-          </div>
-          <div className="col-lg-4">
-            <div className="slider-arrow mb-25 text-lg-end">
-              <button
-                className="slick-arrow testi-prev"
-                onClick={this.previous}
-              >
-                <i className="far fa-angle-left" />
-              </button>
-              <button className="slick-arrow testi-next" onClick={this.next}>
-                <i className="far fa-angle-right" />
-              </button>
-            </div>
-          </div>
-        </div>
-        <Slider
-          {...testimonialSlider}
-          ref={(c) => (this.slider = c)}
-          className="testimonial-slider"
-        >
-          <div className="testimonial-item wow fadeInUp delay-0-2s">
-            <div className="image">
-              <img
-                src="assets/images/testimonials/testi-author1.jpg"
-                alt="Author"
-              />
-            </div>
-            <div className="content">
-              <div className="testi-header">
-                <h4>Excelente trabajo</h4>
-                <div className="ratting">
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star-half-alt" />
-                </div>
-              </div>
-              <div className="testi-text">
-                Me brindaron un servicio impecable y maravilloso, 
-                muchas gracias brasper, yo seguire haciendo mid transfeerncias 
-                con ustedes, me brindaron mucho apoyo y rapidez.
-              </div>
-              <div className="testi-footer">
-                <div className="icon">
-                  <i className="flaticon-quotation" />
-                </div>
-                <div className="title">
-                  <h4>Andrew D. Bricker</h4>
-                  <span className="designation">Peruano</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="testimonial-item wow fadeInUp delay-0-4s">
-          <div className="image">
-              <img
-                src="assets/images/testimonials/karol.png"
-                alt="Author"
-              />
-            </div>
-            <div className="content">
-              <div className="testi-header">
-                <h4>Excelente servicio</h4>
-                <div className="ratting">
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star-half-alt" />
-                </div>
-              </div>
-              <div className="testi-text">
-              Brasper tornou a troca de moedas rápida e simples. 
-              Sempre obtenho boas taxas e o atendimento ao cliente é excelente. 
-              Sem dúvida, uma opção confiável e eficiente.
-              </div>
-              <div className="testi-footer">
-                <div className="icon">
-                  <i className="flaticon-quotation" />
-                </div>
-                <div className="title">
-                  <h4>Juliana</h4>
-                  <span className="designation">Brasileña</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* <div className="testimonial-item wow fadeInUp delay-0-6s">
-            <div className="image">
-              <img
-                src="assets/images/testimonials/testi-author4.jpg"
-                alt="Author"
-              />
-            </div>
-            <div className="content">
-              <div className="testi-header">
-                <h4>Excellent Works</h4>
-                <div className="ratting">
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star" />
-                  <i className="fas fa-star-half-alt" />
-                </div>
-              </div>
-              <div className="testi-text">
-                Unde omnis iste natus voluptatem accus antiume dolorem queauy
-                antium totam aperiam eaque quaey abillosa inventore veritatis
-                etuarchite beatae vitaec
-              </div>
-              <div className="testi-footer">
-                <div className="icon">
-                  <i className="flaticon-quotation" />
-                </div>
-                <div className="title">
-                  <h4>Andrew D. Bricker</h4>
-                  <span className="designation">CEO &amp; Founder</span>
-                </div>
-              </div>
-            </div>
-          </div> */}
-        </Slider>
-      </Fragment>
-    );
-  }
-}
+const TestimonialsSlider = () => {
+  const { t } = useLocale(); 
+  const sliderRef = useRef(null);
 
-const TestimonialsSlider2 = () => {
-  const [nav1, setNav1] = useState(null);
-  const [nav2, setNav2] = useState(null);
-  const [slider1, setSlider1] = useState(null);
-  const [slider2, setSlider2] = useState(null);
-  useEffect(() => {
-    setNav1(slider1);
-    setNav2(slider2);
-  });
-  const thumbs = {
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    infinite: false,
-    speed: 400,
-    arrows: false,
-    focusOnSelect: true,
-    autoplay: false,
-    autoplaySpeed: 5000,
-    responsive: [
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 4,
-        },
-      },
-      {
-        breakpoint: 375,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-    ],
+  const next = () => {
+    sliderRef.current.slickNext();
   };
-  const slider = {
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    infinite: false,
-    speed: 400,
-    arrows: false,
-    autoplay: false,
-    autoplaySpeed: 5000,
+
+  const previous = () => {
+    sliderRef.current.slickPrev();
   };
+
   return (
     <Fragment>
+      <div className="row justify-content-between align-items-end mb-30">
+        <div className="col-lg-8">
+          <div className="section-title mb-25 wow fadeInRight delay-0-2s">
+            <span className="sub-title mb-15">
+              {t.testimonialsSection.subTitle}
+            </span>
+            <h2>{t.testimonialsSection.title}</h2>
+          </div>
+        </div>
+        <div className="col-lg-4">
+          <div className="slider-arrow mb-25 text-lg-end">
+            <button className="slick-arrow testi-prev" onClick={previous}>
+              <i className="far fa-angle-left" />
+            </button>
+            <button className="slick-arrow testi-next" onClick={next}>
+              <i className="far fa-angle-right" />
+            </button>
+          </div>
+        </div>
+      </div>
       <Slider
-        {...thumbs}
-        asNavFor={nav1}
-        ref={(slider) => setSlider2(slider)}
-        className="testi-image-slider"
+        {...testimonialSlider}
+        ref={sliderRef}
+        className="testimonial-slider"
       >
-        <div className="testi-image-item">
-          <img
-            src="assets/images/testimonials/testi-author1.jpg"
-            alt="Author"
-          />
-        </div>
-        <div className="testi-image-item">
-          <img
-            src="assets/images/testimonials/testi-author2.jpg"
-            alt="Author"
-          />
-        </div>
-        <div className="testi-image-item">
-          <img
-            src="assets/images/testimonials/testi-author3.jpg"
-            alt="Author"
-          />
-        </div>
-        <div className="testi-image-item">
-          <img
-            src="assets/images/testimonials/testi-author4.jpg"
-            alt="Author"
-          />
-        </div>
-        <div className="testi-image-item">
-          <img
-            src="assets/images/testimonials/testi-author5.jpg"
-            alt="Author"
-          />
-        </div>
-        <div className="testi-image-item">
-          <img
-            src="assets/images/testimonials/testi-author1.jpg"
-            alt="Author"
-          />
-        </div>
-      </Slider>
-      <Slider
-        {...slider}
-        asNavFor={nav2}
-        ref={(slider) => setSlider1(slider)}
-        className="testi-content-slider"
-      >
-        <div className="testi-content-item">
-          <p>
-            Sed ut perspiciatis unde omnis iste natus voluptatem accus antiume
-            dolorem queauy antium totam aperiam eaque quae abillosa inventore
-            veritatis etuarchite beatae vitaec voluptas sit aspernatur autodit
-          </p>
-          <div className="author">
-            <span className="h4">Andrew D. Bricker</span>
-            <span>CEO &amp; Founder</span>
+        <div className="testimonial-item wow fadeInUp delay-0-2s">
+          <div className="image">
+            <img
+              src="assets/images/testimonials/testi-author1.jpg"
+              alt="Author"
+            />
+          </div>
+          <div className="content">
+            <div className="testi-header">
+              <h4>{t.testimonialsSection.testimonial1.title}</h4>
+              <div className="ratting">
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star-half-alt" />
+              </div>
+            </div>
+            <div className="testi-text">
+              {t.testimonialsSection.testimonial1.text}
+            </div>
+            <div className="testi-footer">
+              <div className="icon">
+                <i className="flaticon-quotation" />
+              </div>
+              <div className="title">
+                <h4>{t.testimonialsSection.testimonial1.author}</h4>
+                <span className="designation">
+                  {t.testimonialsSection.testimonial1.designation}
+                </span>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="testi-content-item">
-          <p>
-            Sed ut perspiciatis unde omnis iste natus voluptatem accus antiume
-            dolorem queauy antium totam aperiam eaque quae abillosa inventore
-            veritatis etuarchite beatae vitaec voluptas sit aspernatur autodit
-          </p>
-          <div className="author">
-            <span className="h4">Andrew D. Bricker</span>
-            <span>CEO &amp; Founder</span>
+        <div className="testimonial-item wow fadeInUp delay-0-4s">
+          <div className="image">
+            <img src="assets/images/testimonials/karol.png" alt="Author" />
           </div>
-        </div>
-        <div className="testi-content-item">
-          <p>
-            Sed ut perspiciatis unde omnis iste natus voluptatem accus antiume
-            dolorem queauy antium totam aperiam eaque quae abillosa inventore
-            veritatis etuarchite beatae vitaec voluptas sit aspernatur autodit
-          </p>
-          <div className="author">
-            <span className="h4">Andrew D. Bricker</span>
-            <span>CEO &amp; Founder</span>
-          </div>
-        </div>
-        <div className="testi-content-item">
-          <p>
-            Sed ut perspiciatis unde omnis iste natus voluptatem accus antiume
-            dolorem queauy antium totam aperiam eaque quae abillosa inventore
-            veritatis etuarchite beatae vitaec voluptas sit aspernatur autodit
-          </p>
-          <div className="author">
-            <span className="h4">Andrew D. Bricker</span>
-            <span>CEO &amp; Founder</span>
-          </div>
-        </div>
-        <div className="testi-content-item">
-          <p>
-            Sed ut perspiciatis unde omnis iste natus voluptatem accus antiume
-            dolorem queauy antium totam aperiam eaque quae abillosa inventore
-            veritatis etuarchite beatae vitaec voluptas sit aspernatur autodit
-          </p>
-          <div className="author">
-            <span className="h4">Andrew D. Bricker</span>
-            <span>CEO &amp; Founder</span>
-          </div>
-        </div>
-        <div className="testi-content-item">
-          <p>
-            Sed ut perspiciatis unde omnis iste natus voluptatem accus antiume
-            dolorem queauy antium totam aperiam eaque quae abillosa inventore
-            veritatis etuarchite beatae vitaec voluptas sit aspernatur autodit
-          </p>
-          <div className="author">
-            <span className="h4">Andrew D. Bricker</span>
-            <span>CEO &amp; Founder</span>
+          <div className="content">
+            <div className="testi-header">
+              <h4>{t.testimonialsSection.testimonial2.title}</h4>
+              <div className="ratting">
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star-half-alt" />
+              </div>
+            </div>
+            <div className="testi-text">
+              {t.testimonialsSection.testimonial2.text}
+            </div>
+            <div className="testi-footer">
+              <div className="icon">
+                <i className="flaticon-quotation" />
+              </div>
+              <div className="title">
+                <h4>{t.testimonialsSection.testimonial2.author}</h4>
+                <span className="designation">
+                  {t.testimonialsSection.testimonial2.designation}
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </Slider>
     </Fragment>
   );
 };
-export { TestimonialsSlider2 };
+
+export default TestimonialsSlider;

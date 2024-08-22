@@ -62,5 +62,73 @@
         "step3Description": "Recibe tu cambio. Te abonaremos el dinero a la cuenta registrada.",
         "step4Title": "Recomienda",
         "step4Description": "Si quedaste satisfecho con nuestro servicio recomiéndanos con más personas."
+    },
+    "testimonialsSection": {
+        "subTitle": "Customer Feedback",
+        "title": "What Our Clients Say",
+        "testimonial1": {
+            "title": "Excellent Work",
+            "text": "They provided me with impeccable and wonderful service, thank you very much Brasper, I will continue making my transfers with you, you provided me with a lot of support and speed.",
+            "author": "Andrew D. Bricker",
+            "designation": "Peruvian"
+        },
+        "testimonial2": {
+            "title": "Excellent Service",
+            "text": "Brasper made currency exchange quick and simple. I always get good rates and customer service is excellent. Definitely a reliable and efficient option.",
+            "author": "Juliana",
+            "designation": "Brazilian"
+        }
+    },
+    "aboutSection": {
+        "subTitle": "Acerca de la empresa",
+        "title": "Conecta tu Mundo, Maximiza tu Valor",
+        "description": "En un mundo globalizado y cada vez más conectado, realizar transferencias internacionales y cambios de moneda de manera eficiente, segura y con tasas competitivas es esencial para individuos y empresas por igual. En Braper Transferencias, nos especializamos en ofrecer un servicio de cambio de divisas y transferencias internacionales que se destaca por su transparencia, confiabilidad y atención personalizada. Nuestra misión es hacer que cada transacción sea sencilla y libre de preocupaciones, para que puedas enfocarte en lo que realmente importa.",
+        "viewMoreButton": "Ver más",
+        "contactUs": "Comunícate con nosotros",
+        "bestChoice": {
+            "title": "Tu Mejor Elección en Cambio de Moneda",
+            "description": "Sit amet consectetur adiisc elit sed eiusmod temp diunts ut labore et dolore magna."
+        },
+        "smartInvestments": {
+            "title": "Inversiones Inteligentes, Resultados Garantizados",
+            "description": "Maximiza tus ganancias eligiendo la casa de cambio confiable."
+        }
+    },
+    "footer": {
+        "cta": {
+            "subTitle": "¿Que si somos la mejor opción?",
+            "title": "Somos la mejor opción, escogenos",
+            "buttonText": "Infórmate más",
+            "callUs": "Llámanos",
+            "phone": "+51 966991933"
+        },
+        "about": {
+            "description": "Brasper es una empresa especializada en servicios de cambio de divisas, enfocada principalmente en la conversión de reales brasileños a soles peruanos y viceversa, así como en el intercambio de dólares estadounidenses.",
+            "moreInfo": "Infórmate más"
+        },
+        "contactUs": {
+            "title": "Contáctanos",
+            "description": "Puedes escribirnos al siguiente correo, te ayudaremos con gusto",
+            "email": "brasper@braspertransferencias.com",
+            "followUs": "Síguenos"
+        },
+        "services": {
+            "title": "Servicios",
+            "items": [
+                "Transferencias",
+                "Cotización",
+                "Divisas",
+                "Asesoría",
+                "Fidelización"
+            ]
+        },
+        "aboutUs": {
+            "title": "¿Quiénes somos?",
+            "items": [
+                "Misión",
+                "Visión"
+            ]
+        },
+        "copyright": "© 2024 Brasper. Reservados todos los derechos."
     }
 }

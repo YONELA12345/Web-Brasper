@@ -1,19 +1,33 @@
 import Link from "next/link";
-import { useState, Fragment } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { Accordion } from "react-bootstrap";
 import { useLocale } from "../../../context/LocaleContext"; // Asegúrate de importar el contexto de idioma
 
 const Menu = () => {
+  const { locale, changeLocale, t } = useLocale();
+  const [selectedLocale, setSelectedLocale] = useState(locale);
+
+  useEffect(() => {
+    changeLocale(selectedLocale);
+  }, [selectedLocale, changeLocale]);
+
   return (
     <Fragment>
-      <DeskTopMenu />
-      <MobileMenu />
+      <DeskTopMenu
+        selectedLocale={selectedLocale}
+        setSelectedLocale={setSelectedLocale}
+        t={t}
+      />
+      <MobileMenu
+        selectedLocale={selectedLocale}
+        setSelectedLocale={setSelectedLocale}
+        t={t}
+      />
     </Fragment>
   );
 };
 
-const MobileMenu = () => {
-  const { locale, changeLocale, t } = useLocale(); // Usa el contexto de idioma para obtener traducciones
+const MobileMenu = ({ selectedLocale, setSelectedLocale, t }) => {
   const [activeMenu, setActiveMenu] = useState(null);
 
   const active = (value) => setActiveMenu(value === activeMenu ? null : value),
@@ -69,8 +83,8 @@ const MobileMenu = () => {
             {/* Selector de idioma */}
             <li className="dropdown">
               <select
-                value={locale}
-                onChange={(e) => changeLocale(e.target.value)}
+                value={selectedLocale}
+                onChange={(e) => setSelectedLocale(e.target.value)}
                 style={{
                   background: "transparent",
                   border: "none",
@@ -91,9 +105,7 @@ const MobileMenu = () => {
   );
 };
 
-const DeskTopMenu = () => {
-  const { locale, changeLocale, t } = useLocale(); // Usa el contexto de idioma para obtener traducciones
-
+const DeskTopMenu = ({ selectedLocale, setSelectedLocale, t }) => {
   return (
     <nav className="main-menu navbar-expand-lg desktop-menu ">
       <div className="navbar-header">
@@ -137,8 +149,8 @@ const DeskTopMenu = () => {
           {/* Selector de idioma */}
           <li className="dropdown">
             <select
-              value={locale}
-              onChange={(e) => changeLocale(e.target.value)}
+              value={selectedLocale}
+              onChange={(e) => setSelectedLocale(e.target.value)}
               style={{
                 background: "transparent",
                 border: "none",
