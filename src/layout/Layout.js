@@ -3,7 +3,7 @@ import ImageView from "../components/ImageView";
 import VideoPopup from "../components/VideoPopup";
 import { animation } from "../utils";
 import Footer from "./footer/Index";
-import Header from "./header/Header1";
+import Header from "./header/Index";
 import ScrollTopButton from "./ScrollTopButton";
 import { useLocale } from "../../context/LocaleContext"; // Usar el contexto de idioma
 
@@ -21,7 +21,7 @@ const Layout = ({ children, header }) => {
       <div className="page-wrapper">
         <Header header={header} />
         {/* Selector de idioma global */}
-     
+
         {children}
         <Footer />
         <ScrollTopButton />

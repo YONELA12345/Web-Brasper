@@ -62,10 +62,7 @@ const Header1 = () => {
                   </a>
                 </div>
               </li>
-              <li>
-                {/* Selector de idioma */}
-              
-              </li>
+              <li></li>
             </ul>
           </div>
         </div>
@@ -91,10 +88,16 @@ const Header1 = () => {
               {/* Main Menu End */}
             </div>
             <div className="menu-btns">
-              <Link legacyBehavior href="https://rb.gy/vjpce3" target="_blank">
-                <a className="theme-btn" target="_blank">
-                  {t.header.contactUs} <i className="fas fa-long-arrow-right" />{" "}
-                  {/* Traducir el texto */}
+              <Link legacyBehavior href="login" >
+                <a className="theme-btn" >
+                  {t.header.login} <i className="fas fa-long-arrow-right" />
+                </a>
+              </Link>
+            </div>
+            <div className="menu-btns">
+              <Link legacyBehavior href="/about">
+                <a className="theme-btn style-three">
+                  Registrate <i className="fas fa-long-arrow-right" />
                 </a>
               </Link>
             </div>

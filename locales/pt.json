@@ -4,13 +4,14 @@
         "about": "Sobre Nós",
         "contact": "Contate-Nos",
         "services": "Services",
-        "howItWorks": "Como funciona?"
+        "howItWorks": "Como funciona?",
+        "contactUs": "Contate-Nos"
     },
     "header": {
         "email": "E-mail",
         "phone": "Telefone",
         "hours": "Atendemos das 8:30 às 14:00",
-        "contactUs": "Contate-Nos"
+        "login": "Conecte-se"
     },
     "footer": {
         "allRightsReserved": "Todos os direitos reservados."

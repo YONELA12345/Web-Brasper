@@ -4,13 +4,14 @@
         "about": "About Us",
         "contact": "Contact Us",
         "services": "Services",
-        "howItWorks": "How Works?"
+        "howItWorks": "How Works?",
+        "contactUs": "Contact Us"
     },
     "header": {
         "email": "Email",
         "phone": "Phone",
         "hours": "We are open from 8:30 am to 14:00 pm",
-        "contactUs": "Contact Us"
+        "login": "Login"
     },
     "footer": {
         "allRightsReserved": "All rights reserved."
