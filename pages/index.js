@@ -4,6 +4,7 @@ import Link from "next/link";
 import Slider from "react-slick";
 import Bancos from "@/pages/bancos";
 import Acerca from "@/pages/acerca";
+import Calculator  from "@/pages/Calculator";
 import TestimonialsSlider from "@/src/components/slider/TestimonialsSlider";
 import { useLocale } from "../context/LocaleContext";
 import { projectSliderActive } from "@/src/sliderProps";
@@ -54,10 +55,11 @@ const Index = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-6 align-self-end">
-              <div className="hero-images mt-80 wow fadeInLeft">
+            <div className="col-lg-6 align-self-end border border-danger">
+              {/* <div className="hero-images mt-80 wow fadeInLeft">
                 <img src="assets/images/hero/calculadora.png" alt="Hero" />
-              </div>
+              </div> */}
+              <Calculator />
             </div>
           </div>
         </div>

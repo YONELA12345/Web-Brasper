@@ -1,162 +1,86 @@
-import Layout from "@/layout";
+import React, { useState, useContext } from 'react';
+import HandleSignIn from '../services/handleSingIn_service'; // Asegúrate de que esté escrito correctamente
+import { useRouter } from 'next/router'; // Cambia useNavigate por useRouter
+import { AuthContext } from '../Providers/auth_provider'; // Usa la importación correcta para el contexto
 
-const Pricing = () => {
+const Login = () => {
+  const router = useRouter(); // Inicializa el router en Next.js
+  const { setUserData, login } = useContext(AuthContext); // Asegúrate de que el contexto funcione correctamente
+
+  const leftClick = () => {
+    const container = document.getElementById('container');
+    container.classList.remove('right-panel-active');
+  };
+
+  const rightClick = () => {
+    const container = document.getElementById('container');
+    container.classList.add('right-panel-active');
+  };
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSignInClick = () => {
+    HandleSignIn(username, password)
+      .then(signInResult => {
+        if (signInResult.success) {
+          login(signInResult.data.token, signInResult.data.userData); // Pasa token y datos del usuario
+          setUserData(signInResult.data.userData);
+          router.push('/'); // Redirige a la página principal
+        } else {
+          // Mostrar mensaje de error al usuario
+          alert(signInResult.message);
+        }
+      })
+      .catch(error => {
+        console.error('Error al iniciar sesión:', error);
+        // Mostrar mensaje de error al usuario
+        alert('Error al iniciar sesión');
+      });
+  };
+
   return (
-    <Layout>
-      {" "}
-      <section
-        className="p-0 mb-7 d-flex align-items-center position-relative overflow-hidden"
-        style={{ marginBottom: "20px", height: "90vh" }} // Ajustamos la altura para centrar verticalmente
-      >
-        <div className="container-fluid rounded-3">
-          <div className="row">
-            {/* Sección Izquierda */}
-            <div className="col-12 col-lg-6 d-md-flex align-items-center justify-content-center bg-primary bg-opacity-10 vh-lg-100">
-              <div className="p-3 p-lg-5">
-                {/* Título */}
-                <div className="text-center">
-                  <h2 className="fw-bold">
-                    Bienvenidos a la comunidad más grande
-                  </h2>
-                  <p className="mb-0 h6 fw-light">
-                    Haz Tranfereancias con nosotros
-                  </p>
-                </div>
-                {/* Imagen SVG */}
-
-                {/* Información */}
-              </div>
-            </div>
-
-            {/* Sección Derecha */}
-            <div className="col-12 col-lg-6 m-auto">
-              <div className="row my-5">
-                <div className="col-sm-10 col-xl-8 m-auto">
-                  {/* Título */}
-                  <span className="mb-0 fs-1">👋</span>
-                  <h1 className="fs-2">¡Inicia sesión en Blasper!</h1>
-                  <p className="lead mb-4">
-                    ¡Qué bueno verte! Por favor, inicia sesión con tu cuenta.
-                  </p>
-
-                  {/* Formulario Inicio */}
-                  <form>
-                    {/* Email */}
-                    <div className="mb-4">
-                      <label
-                        htmlFor="exampleInputEmail1"
-                        className="form-label"
-                      >
-                        Correo electrónico *
-                      </label>
-                      <div className="input-group input-group-lg">
-                        <span className="input-group-text bg-light rounded-start border-0 text-secondary px-3">
-                          <i className="bi bi-envelope-fill"></i>
-                        </span>
-                        <input
-                          type="email"
-                          className="form-control border-0 bg-light rounded-end ps-1"
-                          placeholder="Correo electrónico"
-                          id="exampleInputEmail1"
-                        />
-                      </div>
-                    </div>
-                    {/* Contraseña */}
-                    <div className="mb-4">
-                      <label htmlFor="inputPassword5" className="form-label">
-                        Contraseña *
-                      </label>
-                      <div className="input-group input-group-lg">
-                        <span className="input-group-text bg-light rounded-start border-0 text-secondary px-3">
-                          <i className="fas fa-lock"></i>
-                        </span>
-                        <input
-                          type="password"
-                          className="form-control border-0 bg-light rounded-end ps-1"
-                          placeholder="Contraseña"
-                          id="inputPassword5"
-                        />
-                      </div>
-                      <div id="passwordHelpBlock" className="form-text">
-                        Tu contraseña debe tener al menos 8 caracteres
-                      </div>
-                    </div>
-                    {/* Check box */}
-                    <div className="mb-4 d-flex justify-content-between">
-                      <div className="form-check">
-                        <input
-                          type="checkbox"
-                          className="form-check-input"
-                          id="exampleCheck1"
-                        />
-                        <label
-                          className="form-check-label"
-                          htmlFor="exampleCheck1"
-                        >
-                          Recuérdame
-                        </label>
-                      </div>
-                      <div className="text-primary-hover">
-                        <a
-                          href="forgot-password.html"
-                          className="text-secondary"
-                        >
-                          <u>¿Olvidaste tu contraseña?</u>
-                        </a>
-                      </div>
-                    </div>
-                    {/* Botón */}
-                    <div className="align-items-center mt-0">
-                      <div className="d-grid">
-                        <button className="btn btn-primary mb-0" type="button">
-                          Iniciar Sesión
-                        </button>
-                      </div>
-                    </div>
-                  </form>
-                  {/* Formulario Fin */}
-
-                  {/* Botones sociales y divisor */}
-                  <div className="row">
-                    {/* Divisor con texto */}
-                    <div className="position-relative my-4">
-                      <hr />
-                      <p className="small position-absolute top-50 start-50 translate-middle bg-body px-5">
-                        O
-                      </p>
-                    </div>
-
-                    {/* Botones sociales */}
-                    <div className="col-xxl-6 d-grid">
-                      <a href="#" className="btn bg-google mb-2 mb-xxl-0">
-                        <i className="fab fa-fw fa-google text-white me-2"></i>
-                        Inicia sesión con Google
-                      </a>
-                    </div>
-                    <div className="col-xxl-6 d-grid">
-                      <a href="#" className="btn bg-facebook mb-0">
-                        <i className="fab fa-fw fa-facebook-f me-2"></i>Inicia
-                        sesión con Facebook
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* Enlace para registro */}
-                  <div className="mt-4 text-center">
-                    <span>
-                      ¿No tienes una cuenta?{" "}
-                      <a href="singup">Regístrate aquí</a>
-                    </span>
-                  </div>
-                </div>
-              </div>{" "}
-              {/* Fin de la fila */}
-            </div>
-          </div>{" "}
-          {/* Fin de la fila */}
+    <>
+      
+      <div className="container" id="container">
+        <div className="form-container sign-in-container">
+          <form action="#">
+          <h1 style={{ fontSize: '40px' }}>Ingresar</h1>
+            <span>Escribe tu usuario y contraseña</span>
+            <input
+              type="text"
+              value={username}
+              onChange={e => setUsername(e.target.value)}
+              placeholder="Usuario"
+            />
+            <input
+              type="password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              placeholder="Contraseña"
+            />
+            <p>Olvidaste tu contraseña?</p>
+            <button type="button" onClick={handleSignInClick}>Ingresar</button>
+          </form>
         </div>
-      </section>
-    </Layout>
+        <div className="overlay-container">
+          <div className="overlay">
+            <div className="overlay-panel overlay-left">
+              <h1>¿Quieres ser parte?</h1>
+              <p>Se parte de nuestro gran equipo en Footloose</p>
+              <p>Envia un correo a: correo@gmail.com</p>
+              <button className="ghost" onClick={leftClick}>Volver</button>
+            </div>
+            <div className="overlay-panel overlay-right">
+            <h1 style={{ fontSize: '40px', fontWeight: 'bold' }}>Bienvenido</h1>
+              <p>Escribe tu usuario y contraseña para poder ingresar al administrador de la galeria de footloose</p>
+              <button className="ghost" onClick={rightClick}>Ser parte</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
-export default Pricing;
+
+export default Login;
