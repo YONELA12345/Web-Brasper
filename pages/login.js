@@ -42,7 +42,7 @@ const Login = () => {
   return (
     <>
       
-      <div className="container" id="container">
+      <div className="container_login" id="container">
         <div className="form-container sign-in-container">
           <form action="#">
           <h1 style={{ fontSize: '40px' }}>Ingresar</h1>
@@ -60,7 +60,7 @@ const Login = () => {
               placeholder="Contraseña"
             />
             <p>Olvidaste tu contraseña?</p>
-            <button type="button" onClick={handleSignInClick}>Ingresar</button>
+            <button className="" type="button" onClick={handleSignInClick}>Ingresar</button>
           </form>
         </div>
         <div className="overlay-container">
