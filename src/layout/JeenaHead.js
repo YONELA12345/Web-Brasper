@@ -1,4 +1,5 @@
 import Head from "next/head";
+
 const JeenaHead = () => {
   return (
     <Head>
@@ -11,9 +12,7 @@ const JeenaHead = () => {
         content="width=device-width, initial-scale=1, shrink-to-fit=no"
       />
       {/* Title */}
-      <title>
-        braspertransferencias
-      </title>
+      <title>braspertransferencias</title>
       {/* Favicon Icon */}
       <link
         rel="shortcut icon"
@@ -41,7 +40,24 @@ const JeenaHead = () => {
       <link rel="stylesheet" href="assets/css/slick.min.css" />
       {/* Main Style */}
       <link rel="stylesheet" href="assets/css/style.css" />
+
+      {/* Google Tag Manager */}
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-N0X1HJHVZS"
+      ></script>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-N0X1HJHVZS');
+          `,
+        }}
+      />
     </Head>
   );
 };
+
 export default JeenaHead;
