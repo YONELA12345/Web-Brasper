@@ -5,7 +5,7 @@ import Link from "next/link";
 const Blog = () => {
   return (
     <Layout>
-      <PageBanner pageName={"Blog Standard"} />
+      <PageBanner pageName={"Blogs Brasper"} />
       <section className="blog-standard-area py-130 rpy-100">
         <div className="container">
           <div className="row gap-60">
@@ -21,35 +21,35 @@ const Blog = () => {
                   <div className="content">
                     <div className="blog-meta-two mb-5">
                       <Link legacyBehavior href="/blog">
-                        <a className="tag">Branding</a>
+                        <a className="tag">Informativo</a>
                       </Link>
                     </div>
                     <h4>
                       <Link legacyBehavior href="blog-details">
-                        Rethinking Server-Timing As A Critical Monitoring Tool
+                        La mejor forma de hacer tranferencias
                       </Link>
                     </h4>
                     <p>
-                      Our experts help create the right website for acrosse and
-                      devices consideration user promotey
+                      Realiza transferencias de forma segura, cómoda y rápida
+                      con Brasper
                     </p>
                     <div className="blog-meta-two">
-                      <a className="author" href="#">
+                      {/* <a className="author" href="#">
                         Kenneth S. Denman
-                      </a>
+                      </a> */}
                       <a className="date" href="#">
-                        <i className="far fa-calendar-alt" /> June 26, 2022
+                        <i className="far fa-calendar-alt" /> Junio 26, 2024
                       </a>
                     </div>
                     <hr />
-                    <Link legacyBehavior href="/blog-details">
+                    {/*   <Link legacyBehavior href="/blog-details">
                       <a className="read-more">
                         Read More <i className="far fa-long-arrow-right" />
                       </a>
-                    </Link>
+                    </Link> */}
                   </div>
                 </div>
-                <div className="blog-standard-item wow fadeInUp delay-0-2s">
+                {/*         <div className="blog-standard-item wow fadeInUp delay-0-2s">
                   <div className="image">
                     <img
                       src="assets/images/blog/blog-standard2.jpg"
@@ -87,8 +87,8 @@ const Blog = () => {
                       </a>
                     </Link>
                   </div>
-                </div>
-                <div className="blog-standard-item wow fadeInUp delay-0-2s">
+                </div> */}
+                {/* <div className="blog-standard-item wow fadeInUp delay-0-2s">
                   <div className="image">
                     <img
                       src="assets/images/blog/blog-standard3.jpg"
@@ -125,8 +125,8 @@ const Blog = () => {
                       </a>
                     </Link>
                   </div>
-                </div>
-                <div className="blog-standard-item wow fadeInUp delay-0-2s">
+                </div> */}
+                {/*  <div className="blog-standard-item wow fadeInUp delay-0-2s">
                   <div className="image">
                     <img
                       src="assets/images/blog/blog-standard4.jpg"
@@ -163,8 +163,8 @@ const Blog = () => {
                       </a>
                     </Link>
                   </div>
-                </div>
-                <div className="blog-standard-item wow fadeInUp delay-0-2s">
+                </div> */}
+                {/*  <div className="blog-standard-item wow fadeInUp delay-0-2s">
                   <div className="image">
                     <img
                       src="assets/images/blog/blog-standard5.jpg"
@@ -201,8 +201,8 @@ const Blog = () => {
                       </a>
                     </Link>
                   </div>
-                </div>
-                <div className="blog-standard-item wow fadeInUp delay-0-2s">
+                </div> */}
+                {/*       <div className="blog-standard-item wow fadeInUp delay-0-2s">
                   <div className="image">
                     <img
                       src="assets/images/blog/blog-standard6.jpg"
@@ -240,8 +240,8 @@ const Blog = () => {
                       </a>
                     </Link>
                   </div>
-                </div>
-                <div className="blog-standard-item wow fadeInUp delay-0-2s">
+                </div> */}
+                {/*  <div className="blog-standard-item wow fadeInUp delay-0-2s">
                   <div className="image">
                     <img
                       src="assets/images/blog/blog-standard7.jpg"
@@ -278,8 +278,8 @@ const Blog = () => {
                       </a>
                     </Link>
                   </div>
-                </div>
-                <ul className="pagination flex-wrap wow fadeInUp delay-0-2s">
+                </div> */}
+                {/*   <ul className="pagination flex-wrap wow fadeInUp delay-0-2s">
                   <li className="page-item disabled">
                     <span className="page-link">
                       <i className="fas fa-angle-left" />
@@ -311,12 +311,12 @@ const Blog = () => {
                       <i className="fas fa-angle-right" />
                     </a>
                   </li>
-                </ul>
+                </ul> */}
               </div>
             </div>
             <div className="col-lg-4 col-md-7 col-sm-9">
               <div className="main-sidebar rmt-75">
-                <div className="widget widget-search wow fadeInUp delay-0-2s">
+                {/*   <div className="widget widget-search wow fadeInUp delay-0-2s">
                   <h4 className="widget-title">Search</h4>
                   <form
                     onSubmit={(e) => e.preventDefault()}
@@ -329,8 +329,9 @@ const Blog = () => {
                       className="searchbutton far fa-search"
                     />
                   </form>
-                </div>
-                <div className="widget widget-category wow fadeInUp delay-0-4s">
+                </div> */}
+
+                {/*     <div className="widget widget-category wow fadeInUp delay-0-4s">
                   <h4 className="widget-title">Category</h4>
                   <ul>
                     <li>
@@ -376,11 +377,11 @@ const Blog = () => {
                       <span>(05)</span>
                     </li>
                   </ul>
-                </div>
+                </div> */}
                 <div className="widget widget-recent-news wow fadeInUp delay-0-2s">
-                  <h4 className="widget-title">Recent News</h4>
+                  <h4 className="widget-title">Noticias Nuevas</h4>
                   <ul>
-                    <li>
+                    {/*  <li>
                       <div className="image">
                         <img src="assets/images/widgets/news1.jpg" alt="News" />
                       </div>
@@ -395,8 +396,8 @@ const Blog = () => {
                           <a href="#">25 June 2022</a>
                         </span>
                       </div>
-                    </li>
-                    <li>
+                    </li> */}
+                    {/* <li>
                       <div className="image">
                         <img src="assets/images/widgets/news2.jpg" alt="News" />
                       </div>
@@ -411,7 +412,7 @@ const Blog = () => {
                           <a href="#">25 June 2022</a>
                         </span>
                       </div>
-                    </li>
+                    </li> */}
                     <li>
                       <div className="image">
                         <img src="assets/images/widgets/news3.jpg" alt="News" />
@@ -419,22 +420,26 @@ const Blog = () => {
                       <div className="content">
                         <h5>
                           <Link legacyBehavior href="blog-details">
-                            Manage Accessible Design System With Colorntes
+                            El dolar bajo
                           </Link>
                         </h5>
                         <span className="date">
                           <i className="far fa-calendar-alt" />
-                          <a href="#">25 June 2022</a>
+                          <a href="#">25 Julio 2024</a>
                         </span>
                       </div>
                     </li>
                   </ul>
                 </div>
                 <div className="widget widget-cta wow fadeInUp delay-0-2s">
-                  <h4>Build Awesome Website/Template</h4>
-                  <Link legacyBehavior href="/contact">
+                  <h4>Haz transferencia segura con Brasper</h4>
+                  <Link
+                    legacyBehavior
+                    href="https://rb.gy/vjpce3"
+                    target="_blank"
+                  >
                     <a className="theme-btn style-two">
-                      Contact Us <i className="fas fa-angle-double-right" />
+                      Contactanos <i className="fas fa-angle-double-right" />
                     </a>
                   </Link>
                   <img src="assets/images/widgets/cta.png" alt="CTA" />
@@ -449,7 +454,7 @@ const Blog = () => {
                     alt="CTA bg Dots"
                   />
                 </div>
-                <div className="widget widget-tag-cloud wow fadeInUp delay-0-2s">
+                {/*     <div className="widget widget-tag-cloud wow fadeInUp delay-0-2s">
                   <h4 className="widget-title">Popular Tags</h4>
                   <div className="tag-coulds">
                     <Link legacyBehavior href="blog">
@@ -480,7 +485,7 @@ const Blog = () => {
                       wordpress
                     </Link>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

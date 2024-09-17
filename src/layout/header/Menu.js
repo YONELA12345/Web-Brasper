@@ -124,12 +124,10 @@ const DeskTopMenu = () => {
           <li className="dropdown">
             <Link href="/">{t.navbar.home}</Link> {/* Traducción de "Inicio" */}
           </li>
-
           <li className="dropdown">
             <Link href="/about">{t.navbar.about}</Link>{" "}
             {/* Traducción de "¿Quiénes somos?" */}
           </li>
-
           <li className="dropdown">
             <Link href="#">{t.navbar.howItWorks}</Link>{" "}
             {/* Traducción de "¿Cómo funciona?" */}
@@ -137,8 +135,11 @@ const DeskTopMenu = () => {
           <li className="dropdown">
             <Link href="#">{t.navbar.services}</Link>{" "}
             {/* Traducción de "Servicios" */}
+          </li>{" "}
+          <li className="dropdown">
+            <Link href="blog">{t.navbar.blog}</Link>{" "}
+            {/* Traducción de "Servicios" */}
           </li>
-
           {/* Selector de idioma */}
           <li className="dropdown" style={{ color: "#fff" }}>
             <select

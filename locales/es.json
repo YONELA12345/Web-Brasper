@@ -5,7 +5,8 @@
         "services": "Dolares",
         "contact": "Contáctanos",
         "howItWorks": "Reales",
-        "contactUs": "Contáctanos"
+        "contactUs": "Contáctanos",
+        "blog": "Blog"
     },
     "header": {
         "email": "Correo Electrónico",
