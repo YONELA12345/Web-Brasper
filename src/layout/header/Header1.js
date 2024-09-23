@@ -71,7 +71,7 @@ const Header1 = () => {
       <div className="header-upper bgc-black">
         <div className="container clearfix">
           <div className="header-inner rel d-flex align-items-center">
-            <div className="logo-outer">
+            {/* <div className="logo-outer">
               <div className="logo">
                 <Link legacyBehavior href="/">
                   <img
@@ -81,7 +81,12 @@ const Header1 = () => {
                   />
                 </Link>
               </div>
-            </div>
+            </div> */}
+             <img
+                    src="assets/images/logos/logo_completo.png"
+                    alt="Logo"
+                    title="Logo"
+                  />
             <div className="nav-outer mx-auto clearfix">
               {/* Main Menu */}
               <Menu />
