@@ -4,7 +4,7 @@ import Link from "next/link";
 import Slider from "react-slick";
 import Bancos from "@/pages/bancos";
 import Acerca from "@/pages/acerca";
-import Calculator  from "@/pages/Calculator";
+import Calculator from "@/pages/Calculator";
 import TestimonialsSlider from "@/src/components/slider/TestimonialsSlider";
 import { useLocale } from "../context/LocaleContext";
 import { projectSliderActive } from "@/src/sliderProps";
@@ -20,9 +20,9 @@ const Index = () => {
     <Layout header={1}>
       {/* Hero Section Start */}
       <section className="hero-area bgc-gray rel z-1">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-6 align-self-center">
+        <div className="container ">
+          <div className="row">
+            <div className="col-lg-7 align-self-center ">
               <div className="hero-content pt-115 pb-125 rpb-0 wow fadeInUp delay-0-4s">
                 <h1>{t.heroSection.title}</h1>
                 <p>{t.heroSection.description}</p>
@@ -55,7 +55,7 @@ const Index = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-6 align-self-end border border-danger">
+            <div className="col-lg-4  align-middle ">
               {/* <div className="hero-images mt-80 wow fadeInLeft">
                 <img src="assets/images/hero/calculadora.png" alt="Hero" />
               </div> */}

@@ -1,86 +1,185 @@
 // src/components/Calculator.js
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const exchangeRates = {
-  "PEN-USD": 0.27, // Tipo de cambio de Soles a Dólares
-  "USD-PEN": 3.7,  // Tipo de cambio de Dólares a Soles
-  "PEN-BRL": 1.3,  // Tipo de cambio de Soles a Reales
-  "BRL-PEN": 0.77, // Tipo de cambio de Reales a Soles
-  "USD-BRL": 4.7,  // Tipo de cambio de Dólares a Reales
-  "BRL-USD": 0.21, // Tipo de cambio de Reales a Dólares
+  "PEN-USD": 0.27,
+  "USD-PEN": 3.7,
+  "PEN-BRL": 1.3,
+  "BRL-PEN": 0.77,
+  "USD-BRL": 4.7,
+  "BRL-USD": 0.21,
+};
+
+const commissions = {
+  "PEN-USD": 0.035,
+  "USD-PEN": 0.04,
+  "PEN-BRL": 0.035,
+  "BRL-PEN": 0.04,
+  "USD-BRL": 0.035,
+  "BRL-USD": 0.04,
 };
 
 const Calculator = () => {
-  const [amount, setAmount] = useState(0);
+  const [amountSend, setAmountSend] = useState(0);
+  const [amountReceive, setAmountReceive] = useState(0);
   const [fromCurrency, setFromCurrency] = useState("PEN");
   const [toCurrency, setToCurrency] = useState("USD");
-  const [result, setResult] = useState(null);
-  const [coupon, setCoupon] = useState("");
+  const [commission, setCommission] = useState(0);
+  const [tax, setTax] = useState(0);
+  const [totalToSend, setTotalToSend] = useState(0);
+  const [exchangeRate, setExchangeRate] = useState(0);
 
-  const handleConversion = () => {
-    const conversionKey = `${fromCurrency}-${toCurrency}`;
-    const rate = exchangeRates[conversionKey];
-    if (rate) {
-      setResult(amount * rate);
-    } else {
-      setResult(null); // Si no hay tasa de conversión, se muestra null
+  const currencies = [
+    { code: "PEN", name: "Soles Peruanos", flag: "🇵🇪" },
+    { code: "USD", name: "Dólares Estadounidenses", flag: "🇺🇸" },
+    { code: "BRL", name: "Reales Brasileños", flag: "🇧🇷" },
+  ];
+
+  const calculate = (amount) => {
+    const key = `${fromCurrency}-${toCurrency}`;
+    const rate = exchangeRates[key];
+
+    if (!rate) {
+      setCommission(0);
+      setTax(0);
+      setTotalToSend(0);
+      setExchangeRate(0);
+      setAmountReceive(0);
+      return;
     }
+
+    const commissionRate = commissions[key] || 0;
+
+    const commissionAmount = amount * commissionRate;
+    const taxAmount = amount * 0.0018;
+
+    const total = amount - commissionAmount - taxAmount;
+    const received = total * rate;
+
+    setCommission(commissionAmount.toFixed(2));
+    setTax(taxAmount.toFixed(2));
+    setTotalToSend(total.toFixed(2));
+    setExchangeRate(rate.toFixed(2));
+    setAmountReceive(received.toFixed(2));
+  };
+
+  useEffect(() => {
+    calculate(amountSend);
+  }, [amountSend, fromCurrency, toCurrency]);
+
+  const handleAmountChange = (e) => {
+    const amount = parseFloat(e.target.value) || 0;
+    setAmountSend(amount);
+  };
+
+  const handleFromCurrencyChange = (e) => {
+    setFromCurrency(e.target.value);
+  };
+
+  const handleToCurrencyChange = (e) => {
+    setToCurrency(e.target.value);
+  };
+
+  const handleSendWhatsAppMessage = () => {
+    // Número de teléfono al que se enviará el mensaje (formato internacional sin '+')
+    const phoneNumber = "51966991933"; // +51 966991933
+
+    // Crear el mensaje con los datos de la cotización
+    const fromCurrencyName = currencies.find(
+      (currency) => currency.code === fromCurrency
+    ).name;
+    const toCurrencyName = currencies.find(
+      (currency) => currency.code === toCurrency
+    ).name;
+
+    const message = `*Cotización de Cambio de Moneda*\n\n*Envías:* ${amountSend} ${fromCurrency} (${fromCurrencyName})\n*Comisión:* ${commission} ${fromCurrency}\n*Impuestos:* ${tax} ${fromCurrency}\n*Total a Enviar:* ${totalToSend} ${fromCurrency}\n\n*Tipo de Cambio:* 1 ${fromCurrency} = ${exchangeRate} ${toCurrency}\n\n*Recibes:* ${amountReceive} ${toCurrency} (${toCurrencyName})`;
+
+    // Codificar el mensaje para URL
+    const encodedMessage = encodeURIComponent(message);
+
+    // Crear el enlace de WhatsApp con el número específico
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    // Abrir WhatsApp en una nueva pestaña
+    window.open(whatsappURL, "_blank");
   };
 
   return (
-    <div className="calculator-container">
-      <div className="calculator-header">
-        <button className="calculator-btn">Calculadora</button>
-        <button className="calculator-btn">TKOFERTAS</button>
-      </div>
-
-      <h5>Tipo de cambio hoy en Perú:</h5>
-      <div className="currency-switch">
-        <button className="currency-option">Compra</button>
-        <button className="currency-option active">Venta</button>
-      </div>
-
+    <div className="calculator-container m-1 text-center">
+      <h5>Ingrese el Monto a Enviar</h5>
+      <p>Envías</p>
       <div className="currency-inputs">
-        <div className="currency-row">
-          <span className="currency-flag">🇵🇪</span>
+        <div className="currency-row ">
+          <select
+            value={fromCurrency}
+            onChange={handleFromCurrencyChange}
+            className="w-50"
+          >
+            {currencies.map((currency) => (
+              <option key={currency.code} value={currency.code}>
+                {currency.flag} {currency.code}
+              </option>
+            ))}
+          </select>
           <input
             type="number"
             className="currency-input"
-            value={amount}
-            onChange={(e) => setAmount(parseFloat(e.target.value))}
-            placeholder="S/ Envia"
+            placeholder="Envia"
+            value={amountSend}
+            onChange={handleAmountChange}
           />
         </div>
+        <div className="row gy-5">
+          <div className="col-6">
+            <div>Comisión:</div>
+          </div>
+          <div className="col-6">
+            <div className="border bg-light">{commission}</div>
+          </div>
+          <div className="col-6">
+            <div>Impuestos:</div>
+          </div>
+          <div className="col-6">
+            <div className="border bg-light">{tax}</div>
+          </div>
+          <div className="col-6">
+            <div>Total a Enviar:</div>
+          </div>
+          <div className="col-6">
+            <div className="border bg-light">{totalToSend}</div>
+          </div>
+          <div className="col-6">
+            <div>Tipo de Cambio:</div>
+          </div>
+          <div className="col-6">
+            <div className="border bg-light">{exchangeRate}</div>
+          </div>
+        </div>
         <div className="currency-row">
-          <span className="currency-flag">🇺🇸</span>
+          <select
+            value={toCurrency}
+            onChange={handleToCurrencyChange}
+            className="w-50"
+          >
+            {currencies.map((currency) => (
+              <option key={currency.code} value={currency.code}>
+                {currency.flag} {currency.code}
+              </option>
+            ))}
+          </select>
           <input
             type="text"
             className="currency-input"
-            value={result !== null ? result.toFixed(2) : ''}
-            placeholder="$ Recibes"
+            placeholder="Recibes"
+            value={amountReceive}
             disabled
           />
         </div>
       </div>
 
-      <div className="coupon-section">
-        <input
-          type="text"
-          className="coupon-input"
-          placeholder="Ingresa aquí tu cupón"
-          value={coupon}
-          onChange={(e) => setCoupon(e.target.value)}
-        />
-        <button className="apply-btn">Aplicar</button>
-      </div>
-
-      <div className="savings-info">
-        Estás ahorrando aprox. S/ {result !== null ? (result * 0.05).toFixed(2) : '0.00'}
-      </div>
-
-      <button className="start-operation-btn" onClick={handleConversion}>
-        Iniciar operación
+      <button className="theme-btn" onClick={handleSendWhatsAppMessage}>
+        Enviar Cotización por WhatsApp
       </button>
     </div>
   );
