@@ -41,6 +41,8 @@ const JeenaHead = () => {
       {/* Main Style */}
       <link rel="stylesheet" href="assets/css/style.css" />
 
+      <link rel="stylesheet" type="text/css" href="assets/css/iofrm-style.css" />
+      <link rel="stylesheet" type="text/css" href="assets/css/iofrm-theme22.css" />
       {/* Google Tag Manager */}
       <script
         async

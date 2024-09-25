@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
 
-const Login = () => {
+const Forget = () => {
   return (
     <>
       <div className="form-body without-side">
         <div className="website-logo">
-          <a href="/">
+          <a href="index.html">
             <div className="logo">
               <img
                 className="logo-size"
@@ -25,10 +25,10 @@ const Login = () => {
           <div className="form-holder">
             <div className="form-content">
               <div className="form-items">
-                <h3>Login to account</h3>
+                <h3>Password Reset</h3>
                 <p>
-                  Access to the most powerful tool in the entire design and web
-                  industry.
+                  To reset your password, enter the email address you use to
+                  sign in to iofrm
                 </p>
                 <form>
                   <input
@@ -38,34 +38,26 @@ const Login = () => {
                     placeholder="E-mail Address"
                     required
                   />
-                  <input
-                    className="form-control"
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    required
-                  />
-                  <div className="form-button">
-                    <button id="submit" type="submit" className="ibtn">
-                      Login
+                  <div className="form-button full-width">
+                    <button
+                      id="submit"
+                      type="submit"
+                      className="ibtn btn-forget"
+                    >
+                      Send Reset Link
                     </button>
-                    <a href="forget">Forget password?</a>
                   </div>
                 </form>
-                <div className="other-links social-with-title">
-                  <div className="text">Or login with</div>
-                  <a href="#">
-                    <i className="fab fa-facebook-f"></i>Facebook
-                  </a>
-                  <a href="#">
-                    <i className="fab fa-google"></i>Google
-                  </a>
-                  <a href="#">
-                    <i className="fab fa-linkedin-in"></i>Linkedin
-                  </a>
+              </div>
+              <div className="form-sent">
+                <div className="tick-holder">
+                  <div className="tick-icon"></div>
                 </div>
-                <div className="page-links">
-                  <a href="/singup">Register new account</a>
+                <h3>Password link sent</h3>
+                <p>Please check your inbox iofrm@iofrmtemplate.io</p>
+                <div className="info-holder">
+                  <span>Unsure if that email address was correct?</span>{" "}
+                  <a href="#">We can help</a>.
                 </div>
               </div>
             </div>
@@ -76,4 +68,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Forget;
