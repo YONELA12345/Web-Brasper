@@ -38,14 +38,14 @@ const Pricing = () => {
                     className="form-control"
                     type="text"
                     name="name"
-                    placeholder="Full Name"
+                    placeholder="Nombres"
                     required
                   />
                   <input
                     className="form-control"
                     type="email"
                     name="email"
-                    placeholder="E-mail Address"
+                    placeholder="Corre"
                     required
                   />
                 
@@ -53,23 +53,23 @@ const Pricing = () => {
                     className="form-control"
                     type="number"
                     name="number"
-                    placeholder="+xx "
+                    placeholder="Telefono"
                     required
                   />
                   <input
                     className="form-control"
                     type="password"
                     name="password"
-                    placeholder="Password"
+                    placeholder="Contraseña"
                     required
                   />
                   <div className="form-button">
                     <button id="submit" type="submit" className="ibtn">
-                      Register
+                      Registrate
                     </button>
                   </div>
                 </form>
-                <div className="other-links social-with-title">
+                {/* <div className="other-links social-with-title">
                   <div className="text">Or register with</div>
                   <a href="#">
                     <i className="fab fa-facebook-f"></i>Facebook
@@ -80,10 +80,10 @@ const Pricing = () => {
                   <a href="#">
                     <i className="fab fa-linkedin-in"></i>Linkedin
                   </a>
-                </div>
+                </div> */}
                 <div className="page-links">
                   <Link href="/login" legacyBehavior>
-                    <a>Login to account</a>
+                    <a>Incio de sesion </a>
                   </Link>
                 </div>
               </div>

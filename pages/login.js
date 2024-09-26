@@ -25,34 +25,31 @@ const Login = () => {
           <div className="form-holder">
             <div className="form-content">
               <div className="form-items">
-                <h3>Login to account</h3>
-                <p>
-                  Access to the most powerful tool in the entire design and web
-                  industry.
-                </p>
+                <h3>Inicio de sesion</h3>
+                <p>Accede a todos nuestro beneficios en brasper</p>
                 <form>
                   <input
                     className="form-control"
                     type="text"
                     name="username"
-                    placeholder="E-mail Address"
+                    placeholder="Correo"
                     required
                   />
                   <input
                     className="form-control"
                     type="password"
                     name="password"
-                    placeholder="Password"
+                    placeholder="Contraseña"
                     required
                   />
                   <div className="form-button">
-                    <button id="submit" type="submit" className="ibtn">
-                      Login
-                    </button>
-                    <a href="forget">Forget password?</a>
+                    <a href="/Dash" className="ibtn">
+                      Ingresar
+                    </a>
+                    <a href="forget">¿olvidades tu contraseña?</a>
                   </div>
                 </form>
-                <div className="other-links social-with-title">
+                {/*  <div className="other-links social-with-title">
                   <div className="text">Or login with</div>
                   <a href="#">
                     <i className="fab fa-facebook-f"></i>Facebook
@@ -63,9 +60,9 @@ const Login = () => {
                   <a href="#">
                     <i className="fab fa-linkedin-in"></i>Linkedin
                   </a>
-                </div>
+                </div> */}
                 <div className="page-links">
-                  <a href="/singup">Register new account</a>
+                  <a href="/singup">Registrate </a>
                 </div>
               </div>
             </div>
