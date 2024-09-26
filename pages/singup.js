@@ -48,6 +48,14 @@ const Pricing = () => {
                     placeholder="E-mail Address"
                     required
                   />
+                
+                  <input
+                    className="form-control"
+                    type="number"
+                    name="number"
+                    placeholder="+xx "
+                    required
+                  />
                   <input
                     className="form-control"
                     type="password"
