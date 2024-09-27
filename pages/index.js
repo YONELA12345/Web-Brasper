@@ -4,10 +4,10 @@ import Link from "next/link";
 import Slider from "react-slick";
 import Bancos from "@/pages/bancos";
 import Acerca from "@/pages/acerca";
-import Calculator from "@/pages/Calculator";
 import TestimonialsSlider from "@/src/components/slider/TestimonialsSlider";
 import { useLocale } from "../context/LocaleContext";
 import { projectSliderActive } from "@/src/sliderProps";
+import Calculator from "@/src/components/calculator/Calculator";
 
 const Counter = dynamic(() => import("@/src/components/Counter"), {
   ssr: false,

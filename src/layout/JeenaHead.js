@@ -40,6 +40,8 @@ const JeenaHead = () => {
       <link rel="stylesheet" href="assets/css/slick.min.css" />
       {/* Main Style */}
       <link rel="stylesheet" href="assets/css/style.css" />
+      {/* admin Style */}
+      <link rel="stylesheet" href="assets/css/admin.css" />
 
       <link rel="stylesheet" type="text/css" href="assets/css/iofrm-style.css" />
       <link rel="stylesheet" type="text/css" href="assets/css/iofrm-theme22.css" />

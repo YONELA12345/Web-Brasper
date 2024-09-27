@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 
+//soles a reales , reales a soles , dolares a reales , reales a dolares ,sol a doladres y de dolares a soles 
 const exchangeRates = {
   "PEN-USD": 0.27,
   "USD-PEN": 3.7,
