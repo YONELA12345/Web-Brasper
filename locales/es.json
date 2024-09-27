@@ -66,19 +66,43 @@
         "step4Description": "Si quedaste satisfecho con nuestro servicio recomiéndanos con más personas."
     },
     "testimonialsSection": {
-        "subTitle": "Customer Feedback",
-        "title": "What Our Clients Say",
+        "subTitle": "Comentarios de los clientes",
+        "title": "Lo que dicen nuestros clientes",
         "testimonial1": {
-            "title": "Excellent Work",
-            "text": "They provided me with impeccable and wonderful service, thank you very much Brasper, I will continue making my transfers with you, you provided me with a lot of support and speed.",
+            "title": "Excelente trabajo",
+            "text": "Me brindaron un servicio impecable y maravilloso, muchas gracias Brasper, seguiré realizando mis transferencias con ustedes, me brindaron mucho apoyo y rapidez.",
             "author": "Andrew D. Bricker",
-            "designation": "Peruvian"
+            "designation": "Peru"
         },
         "testimonial2": {
-            "title": "Excellent Service",
-            "text": "Brasper made currency exchange quick and simple. I always get good rates and customer service is excellent. Definitely a reliable and efficient option.",
+            "title": "Excelente servicio",
+            "text": "Brasper hizo que el cambio de divisas fuera rápido y sencillo. Siempre obtengo buenos precios y el servicio al cliente es excelente. Definitivamente una opción confiable y eficiente.",
             "author": "Juliana",
-            "designation": "Brazilian"
+            "designation": "Brasil"
+        },
+        "testimonial3": {
+            "title": "Me gusto el servio",
+            "text": "Empresa de confianza, ya he hecho 2 transferencias sin problemas... y te dice el detalle de la tarifa y cuánto recibirás. recomendar",
+            "author": "Felipe santos",
+            "designation": "Brasil"
+        },
+        "testimonial4": {
+            "title": "El mejor servio",
+            "text": "Un buen servicio y el envió es rápido.",
+            "author": "Martha Felix Patiño",
+            "designation": "Peru"
+        },
+        "testimonial5": {
+            "title": "La mejor experiencia",
+            "text": "Buen servicio transferencia al instante",
+            "author": "Rosmary Rebaza Peñafiel",
+            "designation": "Peru"
+        },
+        "testimonial6": {
+            "title": "Servicio impecable y rapido",
+            "text": "Buen servicio!! recomiendo bastante 👍",
+            "author": "Darwin Ttito",
+            "designation": "Peru"
         }
     },
     "aboutSection": {

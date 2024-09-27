@@ -96,6 +96,18 @@ const Footer = () => {
                 >
                   <i className="fab fa-linkedin-in" />
                 </a>
+                <a
+                  href="https://www.youtube.com/@BrasperTransferencias"
+                  target="_blank"
+                >
+                  <i className="fab fa-youtube" />
+                </a>
+                <a
+                  href="https://x.com/BrasperT21"
+                  target="_blank"
+                >
+                  <i className="fab fa-twitter" />
+                </a>
               </div>
             </div>
           </div>

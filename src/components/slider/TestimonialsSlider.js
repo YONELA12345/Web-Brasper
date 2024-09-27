@@ -107,6 +107,99 @@ const TestimonialsSlider = () => {
             </div>
           </div>
         </div>
+        <div className="testimonial-item wow fadeInUp delay-0-4s">
+          <div className="image">
+            <img src="assets/images/testimonials/karol.png" alt="Author" />
+          </div>
+          <div className="content">
+            <div className="testi-header">
+              <h4>{t.testimonialsSection.testimonial2.title}</h4>
+              <div className="ratting">
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star-half-alt" />
+              </div>
+            </div>
+            <div className="testi-text">
+              {t.testimonialsSection.testimonial2.text}
+            </div>
+            <div className="testi-footer">
+              <div className="icon">
+                <i className="flaticon-quotation" />
+              </div>
+              <div className="title">
+                <h4>{t.testimonialsSection.testimonial2.author}</h4>
+                <span className="designation">
+                  {t.testimonialsSection.testimonial2.designation}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="testimonial-item wow fadeInUp delay-0-4s">
+          <div className="image">
+            <img src="assets/images/testimonials/karol.png" alt="Author" />
+          </div>
+          <div className="content">
+            <div className="testi-header">
+              <h4>{t.testimonialsSection.testimonial2.title}</h4>
+              <div className="ratting">
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star-half-alt" />
+              </div>
+            </div>
+            <div className="testi-text">
+              {t.testimonialsSection.testimonial2.text}
+            </div>
+            <div className="testi-footer">
+              <div className="icon">
+                <i className="flaticon-quotation" />
+              </div>
+              <div className="title">
+                <h4>{t.testimonialsSection.testimonial2.author}</h4>
+                <span className="designation">
+                  {t.testimonialsSection.testimonial2.designation}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="testimonial-item wow fadeInUp delay-0-4s">
+          <div className="image">
+            <img src="assets/images/testimonials/karol.png" alt="Author" />
+          </div>
+          <div className="content">
+            <div className="testi-header">
+              <h4>{t.testimonialsSection.testimonial2.title}</h4>
+              <div className="ratting">
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star-half-alt" />
+              </div>
+            </div>
+            <div className="testi-text">
+              {t.testimonialsSection.testimonial2.text}
+            </div>
+            <div className="testi-footer">
+              <div className="icon">
+                <i className="flaticon-quotation" />
+              </div>
+              <div className="title">
+                <h4>{t.testimonialsSection.testimonial2.author}</h4>
+                <span className="designation">
+                  {t.testimonialsSection.testimonial2.designation}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
       </Slider>
     </Fragment>
   );
