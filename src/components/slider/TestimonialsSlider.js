@@ -113,7 +113,7 @@ const TestimonialsSlider = () => {
           </div>
           <div className="content">
             <div className="testi-header">
-              <h4>{t.testimonialsSection.testimonial2.title}</h4>
+              <h4>{t.testimonialsSection.testimonial3.title}</h4>
               <div className="ratting">
                 <i className="fas fa-star" />
                 <i className="fas fa-star" />
@@ -123,16 +123,16 @@ const TestimonialsSlider = () => {
               </div>
             </div>
             <div className="testi-text">
-              {t.testimonialsSection.testimonial2.text}
+              {t.testimonialsSection.testimonial3.text}
             </div>
             <div className="testi-footer">
               <div className="icon">
                 <i className="flaticon-quotation" />
               </div>
               <div className="title">
-                <h4>{t.testimonialsSection.testimonial2.author}</h4>
+                <h4>{t.testimonialsSection.testimonial3.author}</h4>
                 <span className="designation">
-                  {t.testimonialsSection.testimonial2.designation}
+                  {t.testimonialsSection.testimonial3.designation}
                 </span>
               </div>
             </div>
@@ -144,7 +144,7 @@ const TestimonialsSlider = () => {
           </div>
           <div className="content">
             <div className="testi-header">
-              <h4>{t.testimonialsSection.testimonial2.title}</h4>
+              <h4>{t.testimonialsSection.testimonial4.title}</h4>
               <div className="ratting">
                 <i className="fas fa-star" />
                 <i className="fas fa-star" />
@@ -154,16 +154,16 @@ const TestimonialsSlider = () => {
               </div>
             </div>
             <div className="testi-text">
-              {t.testimonialsSection.testimonial2.text}
+              {t.testimonialsSection.testimonial4.text}
             </div>
             <div className="testi-footer">
               <div className="icon">
                 <i className="flaticon-quotation" />
               </div>
               <div className="title">
-                <h4>{t.testimonialsSection.testimonial2.author}</h4>
+                <h4>{t.testimonialsSection.testimonial4.author}</h4>
                 <span className="designation">
-                  {t.testimonialsSection.testimonial2.designation}
+                  {t.testimonialsSection.testimonial4.designation}
                 </span>
               </div>
             </div>
@@ -175,7 +175,7 @@ const TestimonialsSlider = () => {
           </div>
           <div className="content">
             <div className="testi-header">
-              <h4>{t.testimonialsSection.testimonial2.title}</h4>
+              <h4>{t.testimonialsSection.testimonial5.title}</h4>
               <div className="ratting">
                 <i className="fas fa-star" />
                 <i className="fas fa-star" />
@@ -185,16 +185,47 @@ const TestimonialsSlider = () => {
               </div>
             </div>
             <div className="testi-text">
-              {t.testimonialsSection.testimonial2.text}
+              {t.testimonialsSection.testimonial5.text}
             </div>
             <div className="testi-footer">
               <div className="icon">
                 <i className="flaticon-quotation" />
               </div>
               <div className="title">
-                <h4>{t.testimonialsSection.testimonial2.author}</h4>
+                <h4>{t.testimonialsSection.testimonial5.author}</h4>
                 <span className="designation">
-                  {t.testimonialsSection.testimonial2.designation}
+                  {t.testimonialsSection.testimonial5.designation}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="testimonial-item wow fadeInUp delay-0-4s">
+          <div className="image">
+            <img src="assets/images/testimonials/karol.png" alt="Author" />
+          </div>
+          <div className="content">
+            <div className="testi-header">
+              <h4>{t.testimonialsSection.testimonial6.title}</h4>
+              <div className="ratting">
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star-half-alt" />
+              </div>
+            </div>
+            <div className="testi-text">
+              {t.testimonialsSection.testimonial6.text}
+            </div>
+            <div className="testi-footer">
+              <div className="icon">
+                <i className="flaticon-quotation" />
+              </div>
+              <div className="title">
+                <h4>{t.testimonialsSection.testimonial6.author}</h4>
+                <span className="designation">
+                  {t.testimonialsSection.testimonial6.designation}
                 </span>
               </div>
             </div>
