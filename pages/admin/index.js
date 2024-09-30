@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Layout from "./layout";
 
-const Index = () => {
+const Admin = () => {
   return (
     <Layout>
       <div className="col-xl-9">
@@ -13,4 +13,4 @@ const Index = () => {
     </Layout>
   );
 };
-export default Index;
+export default Admin;

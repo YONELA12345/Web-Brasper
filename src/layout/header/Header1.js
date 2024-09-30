@@ -9,7 +9,7 @@ const Header1 = () => {
     <header className="main-header header-one menu-white">
       <div className="header-top-wrap bgc-header1">
         <div className="container">
-          <div className="header-top">
+          <div className="header-top mb-n4">
             <ul>
               <li>
                 <i className="far fa-envelope" />{" "}

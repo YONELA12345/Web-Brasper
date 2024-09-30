@@ -1,8 +1,5 @@
-// src/components/Calculator.js
-
 import React, { useState, useEffect } from "react";
 
-//soles a reales , reales a soles , dolares a reales , reales a dolares ,sol a doladres y de dolares a soles 
 const exchangeRates = {
   "PEN-USD": 0.27,
   "USD-PEN": 3.7,
@@ -32,9 +29,24 @@ const Calculator = () => {
   const [exchangeRate, setExchangeRate] = useState(0);
 
   const currencies = [
-    { code: "PEN", name: "Soles Peruanos", flag: "🇵🇪" },
-    { code: "USD", name: "Dólares Estadounidenses", flag: "🇺🇸" },
-    { code: "BRL", name: "Reales Brasileños", flag: "🇧🇷" },
+    {
+      code: "PEN",
+      name: "Soles Peruanos",
+      flag: "🇵🇪",
+      image: "/assets/images/flags/bra.png",
+    },
+    {
+      code: "USD",
+      name: "Dólares Estadounidenses",
+      flag: "🇺🇸",
+      image: "/assets/images/flags/bra.png",
+    },
+    {
+      code: "BRL",
+      name: "Reales Brasileños",
+      flag: "🇧🇷",
+      image: "/assets/images/flags/bra.png",
+    },
   ];
 
   const calculate = (amount) => {
@@ -83,10 +95,8 @@ const Calculator = () => {
   };
 
   const handleSendWhatsAppMessage = () => {
-    // Número de teléfono al que se enviará el mensaje (formato internacional sin '+')
-    const phoneNumber = "51966991933"; // +51 966991933
+    const phoneNumber = "51966991933";
 
-    // Crear el mensaje con los datos de la cotización
     const fromCurrencyName = currencies.find(
       (currency) => currency.code === fromCurrency
     ).name;
@@ -96,13 +106,10 @@ const Calculator = () => {
 
     const message = `*Cotización de Cambio de Moneda*\n\n*Envías:* ${amountSend} ${fromCurrency} (${fromCurrencyName})\n*Comisión:* ${commission} ${fromCurrency}\n*Impuestos:* ${tax} ${fromCurrency}\n*Total a Enviar:* ${totalToSend} ${fromCurrency}\n\n*Tipo de Cambio:* 1 ${fromCurrency} = ${exchangeRate} ${toCurrency}\n\n*Recibes:* ${amountReceive} ${toCurrency} (${toCurrencyName})`;
 
-    // Codificar el mensaje para URL
     const encodedMessage = encodeURIComponent(message);
 
-    // Crear el enlace de WhatsApp con el número específico
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
-    // Abrir WhatsApp en una nueva pestaña
     window.open(whatsappURL, "_blank");
   };
 
@@ -110,6 +117,7 @@ const Calculator = () => {
     <div className="calculator-container m-1 text-center">
       <h5>Ingrese el Monto a Enviar</h5>
       <p>Envías</p>
+
       <div className="currency-inputs">
         <div className="currency-row ">
           <select
@@ -118,10 +126,15 @@ const Calculator = () => {
             className="w-50"
           >
             {currencies.map((currency) => (
-              <option key={currency.code} value={currency.code}>
-                {currency.flag} {currency.code}
+              <option
+                key={currency.code}
+                value={currency.code}
+                data-image={currency.image}
+              >
+               {currency.flag} {currency.code}
               </option>
             ))}
+      
           </select>
           <input
             type="number"
@@ -131,30 +144,31 @@ const Calculator = () => {
             onChange={handleAmountChange}
           />
         </div>
-        <div className="row gy-5">
+
+        <div className="row gy-4 mb-3 text-dark">
           <div className="col-6">
             <div>Comisión:</div>
           </div>
           <div className="col-6">
-            <div className="border bg-light">{commission}</div>
+            <div className="">{commission}</div>
           </div>
           <div className="col-6">
             <div>Impuestos:</div>
           </div>
           <div className="col-6">
-            <div className="border bg-light">{tax}</div>
+            <div className="">{tax}</div>
           </div>
           <div className="col-6">
             <div>Total a Enviar:</div>
           </div>
           <div className="col-6">
-            <div className="border bg-light">{totalToSend}</div>
+            <div className="">{totalToSend}</div>
           </div>
           <div className="col-6">
             <div>Tipo de Cambio:</div>
           </div>
           <div className="col-6">
-            <div className="border bg-light">{exchangeRate}</div>
+            <div className=" ">{exchangeRate}</div>
           </div>
         </div>
         <div className="currency-row">

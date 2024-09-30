@@ -1,36 +1,81 @@
-// Importa el array de bancos desde el archivo correspondiente
-import databancos from "../src/data/databancos";
-// Asegúrate de importar Link desde next/link
-import Link from "next/link";
+import React from "react";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import databancos from "../src/data/databancos"; // Importa los bancos
 
-const bancos = () => {
+// Importar los estilos de Swiper
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+const swiperOptions = {
+  modules: [Autoplay, Pagination, Navigation],
+  slidesPerView: 5,
+  spaceBetween: 0,
+  loop: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 30,
+    },
+    575: {
+      slidesPerView: 2,
+      spaceBetween: 30,
+    },
+    767: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
+    991: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
+    1199: {
+      slidesPerView: 4,
+      spaceBetween: 30,
+    },
+    1350: {
+      slidesPerView: 5,
+      spaceBetween: 30,
+    },
+  },
+};
+
+const Bancos = () => {
   return (
     <section className="partners-area mt-60 pt-50 pb-30 rmt-30 rpb-70 rel z-1">
-  <div className="partners-area-three text-center rel z-1 pb-110 rpb-80">
-    <div className="container-fluid">
-      <div className="section-title text-center mb-50 wow fadeInUp delay-0-2s">
-        <span className="sub-title mb-10">Bancos</span>
-        <h2>Medios de transferencia</h2>
-      </div>
-      <div className="row flex-nowrap justify-content-center">
-        {databancos.map((banco, index) => (
-          <div className="col" key={banco.id}>
-            <div
-              className={`partner-item-two wow fadeInUp delay-0-${
-                index + 3
-              }s`}
-              onClick={() => window.open(banco.enlace, '_blank')}
-              style={{ cursor: 'pointer' }}
-            >
-              <img className="w-50" src={banco.img1} alt="Partner" />
-            </div>
+      <div className="partners-area-three text-center rel z-1 pb-110 rpb-80">
+        <div className="container-fluid">
+          <div className="section-title text-center mb-50 wow fadeInUp delay-0-2s">
+            <span className="sub-title mb-10">Bancos</span>
+            <h2>Medios de transferencia</h2>
           </div>
-        ))}
+
+          <Swiper
+            {...swiperOptions}
+            className="thm-swiper__slider swiper-container"
+          >
+            {databancos.map((banco, index) => (
+              <SwiperSlide key={index}>
+                <a
+                  href={banco.enlace}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ cursor: "pointer" }}
+                >
+                  <img className="w-50" src={banco.img1} alt={banco.nombre} />
+                </a>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
   );
 };
 
-export default bancos;
+export default Bancos;
