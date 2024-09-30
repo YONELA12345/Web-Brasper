@@ -21,7 +21,6 @@ const Layout = ({ children, header }) => {
       <div className="page-wrapper">
         <Header header={header} />
         {/* Selector de idioma global */}
-
         {children}
         <Footer />
         <ScrollTopButton />

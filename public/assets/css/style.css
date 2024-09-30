@@ -12155,3 +12155,10 @@ input {
     background-image: url("/assets/images/logos/logo-light.svg");
   }
 }
+.googleContainer{
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
