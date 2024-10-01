@@ -98,7 +98,7 @@ const Login = () => {
             JSON.stringify(response.refresh_token)
           );
           localStorage.setItem("user", JSON.stringify(user));
-          await router.push("/Dash");
+          await router.push("/admin");
           toast.success("Login successful");
         }
       } catch (error) {

@@ -7,9 +7,7 @@ import Layout from "./layout";
 const Admin = () => {
   return (
     <Layout>
-      <div className="col-xl-9">
-        <h1>Adminsitador</h1>
-      </div>
+      <h1>admin</h1>
     </Layout>
   );
 };

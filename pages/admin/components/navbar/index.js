@@ -70,7 +70,7 @@ const Navbar = () => {
               id="navbarTopContent"
             >
               {/* Top search START */}
-              <div className="nav my-3 my-xl-0 flex-nowrap align-items-center">
+         {/*      <div className="nav my-3 my-xl-0 flex-nowrap align-items-center">
                 <div className="nav-item w-100">
                   <form className="position-relative">
                     <input
@@ -87,7 +87,7 @@ const Navbar = () => {
                     </button>
                   </form>
                 </div>
-              </div>
+              </div> */}
               {/* Top search END */}
             </div>
             {/* Topbar menu END */}

@@ -48,7 +48,7 @@ const OffcanvasSidebar = () => {
             </li>
 
             {/* Title */}
-            <li className="nav-item ms-2 my-2 ">Pages</li>
+            <li className="nav-item ms-2 my-2 ">Vistas</li>
 
             {/* Menu item 2 */}
             <li className="nav-item">
@@ -80,9 +80,9 @@ const OffcanvasSidebar = () => {
               >
                 <li className="nav-item">
                   <Link
-                    href="/admin/rangos/sol-real"
+                    href="/admin/solreal"
                     className={`nav-link ${
-                      isActive("/admin/rangos/sol-real") ? "active" : ""
+                      isActive("/admin/solreal") ? "active" : ""
                     }`}
                   >
                     Sol a Real
@@ -90,9 +90,9 @@ const OffcanvasSidebar = () => {
                 </li>
                 <li className="nav-item">
                   <Link
-                    href="/admin/rangos/real-sol"
+                    href="/admin/realsol"
                     className={`nav-link ${
-                      isActive("/admin/rangos/real-sol") ? "active" : ""
+                      isActive("/admin/realsol") ? "active" : ""
                     }`}
                   >
                     Real a Sol
@@ -100,9 +100,9 @@ const OffcanvasSidebar = () => {
                 </li>
                 <li className="nav-item">
                   <Link
-                    href="/admin/rangos/dolar-real"
+                    href="/admin/dolarreal"
                     className={`nav-link ${
-                      isActive("/admin/rangos/dolar-real") ? "active" : ""
+                      isActive("/admin/dolarreal") ? "active" : ""
                     }`}
                   >
                     Dolar a Real
@@ -110,9 +110,9 @@ const OffcanvasSidebar = () => {
                 </li>
                 <li className="nav-item">
                   <Link
-                    href="/admin/rangos/real-dolar"
+                    href="/admin/realdolar"
                     className={`nav-link ${
-                      isActive("/admin/rangos/real-dolar") ? "active" : ""
+                      isActive("/admin/realdolar") ? "active" : ""
                     }`}
                   >
                     Real a Dolar
@@ -122,7 +122,7 @@ const OffcanvasSidebar = () => {
             </li>
 
             {/* Menu item 6 */}
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link
                 href="/admin/earnings"
                 className={`nav-link ${
@@ -131,7 +131,7 @@ const OffcanvasSidebar = () => {
               >
                 <i className="far fa-chart-bar fa-fw me-2"></i>Earnings
               </Link>
-            </li>
+            </li> */}
 
             {/* Menu item 7 */}
             <li className="nav-item">

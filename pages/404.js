@@ -11,20 +11,20 @@ const E404 = () => {
               <Link legacyBehavior href="/">
                 <a>
                   <img
-                    src="assets/images/logos/logo-big.png"
+                    src="/assets/images/logos/logo_completo.png"
                     alt="Logo"
                     title="Logo"
                   />
                 </a>
               </Link>
             </div>
-            <div className="image mb-80 rmb-55 wow fadeInUp delay-0-4s">
-              <img src="assets/images/background/404.png" alt="Error" />
+            <div className="image mb-80 rmb-55 wow fadeInUp delay-0-4s ">
+              <img src="/assets/images/background/404.png" className="w-50" alt="Error" />
             </div>
             <div className="row justify-content-center wow fadeInUp delay-0-2s">
               <div className="col-xl-8 col-lg-10">
                 <div className="section-title mb-20">
-                  <h2>OPPS! This Pages Are Can’t Be Found </h2>
+                  <h2>OPPS! esta paguinas no funciona </h2>
                 </div>
                 <p>
                   On the other hand, we denounce with righteous indignation and
@@ -34,7 +34,7 @@ const E404 = () => {
               </div>
             </div>
             <div className="btn-social pt-15 wow fadeInUp delay-0-4s">
-              <Link legacyBehavior legacyBehavior href="/">
+              <Link legacyBehavior  href="/">
                 <a className="theme-btn mb-30 mx-2">
                   Go to Home <i className="fas fa-long-arrow-right" />
                 </a>
