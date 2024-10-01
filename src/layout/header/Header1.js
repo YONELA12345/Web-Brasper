@@ -82,11 +82,11 @@ const Header1 = () => {
                 </Link>
               </div>
             </div> */}
-             <img
-                    src="assets/images/logos/logo_completo.png"
-                    alt="Logo"
-                    title="Logo"
-                  />
+            <img
+              src="assets/images/logos/logo_completo.png"
+              alt="Logo"
+              title="Logo"
+            />
             <div className="nav-outer mx-auto clearfix">
               {/* Main Menu */}
               <Menu />

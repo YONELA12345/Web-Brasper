@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST={"index.js -> @/src/components/Counter":{"id":"index.js -> @/src/components/Counter","files":["static/chunks/src_components_Counter_js.js"]}}
+self.__REACT_LOADABLE_MANIFEST={"admin\\components\\sidbar\\index.js -> bootstrap/dist/js/bootstrap.bundle.min.js":{"id":"admin\\components\\sidbar\\index.js -> bootstrap/dist/js/bootstrap.bundle.min.js","files":["static/chunks/node_modules_bootstrap_dist_js_bootstrap_bundle_min_js.js"]}}

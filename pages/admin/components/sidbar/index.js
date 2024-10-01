@@ -1,104 +1,154 @@
-"use client"; // Next.js 13 client-side component
-
+"use client";
 import Link from "next/link";
-import { useState } from "react";
+import React, { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const OffcanvasSidebar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    // Este código solo se ejecutará en el cliente, no en el servidor
+    import("bootstrap/dist/js/bootstrap.bundle.min.js");
+  }, []);
+
+  // Función para determinar si un enlace está activo
+  const isActive = (path) => router.pathname === path;
 
   return (
-    <div className="col-xl-3">
-      {/* Responsive offcanvas body START */}
+    <nav className="navbar sidebar navbar-expand-xl navbar-dark bg-dark">
+      {/* Navbar brand for xl START */}
+      <div className="d-flex align-items-center">
+        <Link className="navbar-brand" href="/">
+          <img
+            src="/assets/images/logos/logo_completo.png"
+            alt="Logo"
+            title="Logo"
+          />
+        </Link>
+      </div>
+      {/* Navbar brand for xl END */}
+
       <div
-        className={`offcanvas-xl offcanvas-end ${isOpen ? "show" : ""}`}
+        className="offcanvas offcanvas-start flex-row custom-scrollbar h-100"
+        data-bs-backdrop="true"
         tabIndex="-1"
         id="offcanvasSidebar"
       >
-        {/* Offcanvas header */}
-        <div className="offcanvas-header bg-light">
-          <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
-            My profile
-          </h5>
-          <button
-            type="button"
-            className="btn-close"
-            data-bs-dismiss="offcanvas"
-            data-bs-target="#offcanvasSidebar"
-            aria-label="Close"
-            onClick={() => setIsOpen(!isOpen)}
-          ></button>
-        </div>
-        {/* Offcanvas body */}
-        <div className="offcanvas-body p-3 p-xl-0">
-          <div className="bg-dark border rounded-3 pb-0 p-3 w-100">
-            {/* Dashboard menu */}
-            <div className="list-group list-group-dark list-group-borderless">
+        <div className="offcanvas-body sidebar-content d-flex flex-column bg-dark">
+          {/* Sidebar menu START */}
+          <ul className="navbar-nav flex-column" id="navbar-sidebar">
+            {/* Menu item 1 */}
+            <li className="nav-item">
               <Link
-                href="/instructor-dashboard"
-                className="list-group-item active"
+                href="/admin"
+                className={`nav-link ${isActive("/admin") ? "active" : ""}`}
               >
-                <i className="bi bi-ui-checks-grid fa-fw me-2"></i>
-                Dashboard
+                <i className="fas fa-house fa-fw me-2"></i>Dashboard
               </Link>
+            </li>
+
+            {/* Title */}
+            <li className="nav-item ms-2 my-2 ">Pages</li>
+
+            {/* Menu item 2 */}
+            <li className="nav-item">
               <Link
-                href="/instructor-manage-course"
-                className="list-group-item"
+                href="/admin/users"
+                className={`nav-link ${
+                  isActive("/admin/users") ? "active" : ""
+                }`}
               >
-                <i className="bi bi-basket fa-fw me-2"></i>
-                My Courses
+                <i className="far fa-user-alt fa-fw me-2"></i>Usuarios
               </Link>
-              <Link href="/instructor-quiz" className="list-group-item">
-                <i className="bi bi-question-diamond fa-fw me-2"></i>
-                Quiz
-              </Link>
-              <Link href="/instructor-earning" className="list-group-item">
-                <i className="bi bi-graph-up fa-fw me-2"></i>
-                Earnings
-              </Link>
-              <Link href="/instructor-studentlist" className="list-group-item">
-                <i className="bi bi-people fa-fw me-2"></i>
-                Students
-              </Link>
-              <Link href="/instructor-order" className="list-group-item">
-                <i className="bi bi-folder-check fa-fw me-2"></i>
-                Orders
-              </Link>
-              <Link href="/instructor-review" className="list-group-item">
-                <i className="bi bi-star fa-fw me-2"></i>
-                Reviews
-              </Link>
-              <Link href="/instructor-edit-profile" className="list-group-item">
-                <i className="bi bi-pencil-square fa-fw me-2"></i>
-                Edit Profile
-              </Link>
-              <Link href="/instructor-payout" className="list-group-item">
-                <i className="bi bi-wallet2 fa-fw me-2"></i>
-                Payouts
-              </Link>
-              <Link href="/instructor-setting" className="list-group-item">
-                <i className="bi bi-gear fa-fw me-2"></i>
-                Settings
-              </Link>
+            </li>
+            <li className="nav-item">
+              <a
+                className="nav-link"
+                data-bs-toggle="collapse"
+                href="#collapsepage"
+                role="button"
+                aria-expanded="false"
+                aria-controls="collapsepage"
+              >
+                <i className="fas fa-money-bill fa-fw me-2"></i>Rangos
+              </a>
+              {/* Submenu */}
+              <ul
+                className="nav collapse flex-column"
+                id="collapsepage"
+                data-bs-parent="#navbar-sidebar"
+              >
+                <li className="nav-item">
+                  <Link
+                    href="/admin/rangos/sol-real"
+                    className={`nav-link ${
+                      isActive("/admin/rangos/sol-real") ? "active" : ""
+                    }`}
+                  >
+                    Sol a Real
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    href="/admin/rangos/real-sol"
+                    className={`nav-link ${
+                      isActive("/admin/rangos/real-sol") ? "active" : ""
+                    }`}
+                  >
+                    Real a Sol
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    href="/admin/rangos/dolar-real"
+                    className={`nav-link ${
+                      isActive("/admin/rangos/dolar-real") ? "active" : ""
+                    }`}
+                  >
+                    Dolar a Real
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    href="/admin/rangos/real-dolar"
+                    className={`nav-link ${
+                      isActive("/admin/rangos/real-dolar") ? "active" : ""
+                    }`}
+                  >
+                    Real a Dolar
+                  </Link>
+                </li>
+              </ul>
+            </li>
+
+            {/* Menu item 6 */}
+            <li className="nav-item">
               <Link
-                href="/instructor-delete-account"
-                className="list-group-item"
+                href="/admin/earnings"
+                className={`nav-link ${
+                  isActive("/admin/earnings") ? "active" : ""
+                }`}
               >
-                <i className="bi bi-trash fa-fw me-2"></i>
-                Delete Profile
+                <i className="far fa-chart-bar fa-fw me-2"></i>Earnings
               </Link>
+            </li>
+
+            {/* Menu item 7 */}
+            <li className="nav-item">
               <Link
-                href="/sign-in"
-                className="list-group-item text-danger bg-danger-soft-hover"
+                href="/admin/settings"
+                className={`nav-link ${
+                  isActive("/admin/settings") ? "active" : ""
+                }`}
               >
-                <i className="fas fa-sign-out-alt fa-fw me-2"></i>
-                Sign Out
+                <i className="fas fa-user-cog fa-fw me-2"></i>Admin Settings
               </Link>
-            </div>
-          </div>
+            </li>
+          </ul>
+          {/* Sidebar menu end */}
         </div>
       </div>
-      {/* Responsive offcanvas body END */}
-    </div>
+    </nav>
   );
 };
 

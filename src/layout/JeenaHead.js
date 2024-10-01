@@ -25,23 +25,23 @@ const JeenaHead = () => {
         rel="stylesheet"
       />
       {/* Flaticon */}
-      <link rel="stylesheet" href="assets/css/flaticon.min.css" />
+      <link rel="stylesheet" href="/assets/css/flaticon.min.css" />
       {/* Font Awesome */}
-      <link rel="stylesheet" href="assets/css/fontawesome-5.14.0.min.css" />
+      <link rel="stylesheet" href="/assets/css/fontawesome-5.14.0.min.css" />
       {/* Bootstrap */}
-      <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
       {/* Magnific Popup */}
-      <link rel="stylesheet" href="assets/css/magnific-popup.min.css" />
+      <link rel="stylesheet" href="/assets/css/magnific-popup.min.css" />
       {/* Nice Select */}
-      <link rel="stylesheet" href="assets/css/nice-select.min.css" />
+      <link rel="stylesheet" href="/assets/css/nice-select.min.css" />
       {/* Animate */}
-      <link rel="stylesheet" href="assets/css/animate.min.css" />
+      <link rel="stylesheet" href="/assets/css/animate.min.css" />
       {/* Slick */}
-      <link rel="stylesheet" href="assets/css/slick.min.css" />
+      <link rel="stylesheet" href="/assets/css/slick.min.css" />
       {/* Main Style */}
-      <link rel="stylesheet" href="assets/css/style.css" />
+      <link rel="stylesheet" href="/assets/css/style.css" />
       {/* admin Style */}
-      <link rel="stylesheet" href="assets/css/admin.css" />
+      <link rel="stylesheet" href="/assets/css/admin.css" />
 
       <link rel="stylesheet" type="text/css" href="assets/css/iofrm-style.css" />
       <link rel="stylesheet" type="text/css" href="assets/css/iofrm-theme22.css" />
