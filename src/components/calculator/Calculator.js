@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
+import Select from 'react-select';
 
 const exchangeRates = {
-  "PEN-BRL": 1.3,
-  "BRL-PEN": 0.77,
-  "USD-BRL": 4.7,
-  "BRL-USD": 0.21,
+  "PEN-BRL": 1.45,
+  "BRL-PEN": 0.674,
+  "USD-BRL": 5.416,
+  "BRL-USD": 0.182,
 };
 
 const Calculator = () => {
-  const [amountSend, setAmountSend] = useState(0);
-  const [amountReceive, setAmountReceive] = useState(0);
+  const [amountSend, setAmountSend] = useState('');
+  const [amountReceive, setAmountReceive] = useState('');
   const [fromCurrency, setFromCurrency] = useState("PEN");
   const [toCurrency, setToCurrency] = useState("BRL");
   const [commission, setCommission] = useState(0);
@@ -18,13 +19,14 @@ const Calculator = () => {
   const [totalToSend, setTotalToSend] = useState(0);
   const [exchangeRate, setExchangeRate] = useState(0);
   const [editingReceiveAmount, setEditingReceiveAmount] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const currencies = [
     {
       code: "PEN",
       name: "Soles Peruanos",
       flag: "🇵🇪",
-      image: "/assets/images/flags/peru.png",
+      image: "/assets/images/flags/pe.png",
     },
     {
       code: "USD",
@@ -40,14 +42,39 @@ const Calculator = () => {
     },
   ];
 
-  const commissionRates = [
-    { min: 100, max: 199, rate: 0.045 },
-    { min: 200, max: 299, rate: 0.04 },
-    { min: 300, max: 499, rate: 0.035 },
-    { min: 500, max: 999, rate: 0.03 },
-    { min: 1000, max: 4999, rate: 0.03 },
-    { min: 5000, max: 100000, rate: 0.03 },
-  ];
+  const commissionRates = {
+    "PEN-BRL": [
+      { min: 100, max: 199, rate: 0.045 },
+      { min: 200, max: 299, rate: 0.04 },
+      { min: 300, max: 499, rate: 0.035 },
+      { min: 500, max: 999, rate: 0.03 },
+      { min: 1000, max: 4999, rate: 0.03 },
+      { min: 5000, max: 100000, rate: 0.03 },
+    ],
+    "USD-BRL": [
+      { min: 100, max: 199, rate: 0.05 },
+      { min: 200, max: 299, rate: 0.045 },
+      { min: 300, max: 499, rate: 0.04 },
+      { min: 500, max: 999, rate: 0.035 },
+      { min: 1000, max: 4999, rate: 0.03 },
+      { min: 5000, max: 100000, rate: 0.025 },
+    ],
+    "BRL-PEN": [
+      { min: 100, max: 199, rate: 0.045 },
+      { min: 200, max: 299, rate: 0.04 },
+      { min: 300, max: 499, rate: 0.035 },
+      { min: 500, max: 999, rate: 0.03 },
+      { min: 1000, max: 4999, rate: 0.03 },
+      { min: 5000, max: 100000, rate: 0.03 },
+    ],
+    "BRL-USD": [
+      { min: 100, max: 299, rate: 0.035 },
+      { min: 300, max: 499, rate: 0.035 },
+      { min: 500, max: 999, rate: 0.035 },
+      { min: 1000, max: 4999, rate: 0.035 },
+      { min: 5000, max: 100000, rate: 0.03 },
+    ],
+  };
 
   const currencyOptions = {
     PEN: ["BRL"],
@@ -55,14 +82,18 @@ const Calculator = () => {
     BRL: ["PEN", "USD"],
   };
 
-  const calculateCommissionRate = (amount) => {
-    for (let i = 0; i < commissionRates.length; i++) {
-      const { min, max, rate } = commissionRates[i];
+  const calculateCommissionRate = (amount, currencyPair) => {
+    const rates = commissionRates[currencyPair];
+    if (!rates) {
+      return 0.03; // Tasa de comisión predeterminada
+    }
+    for (let i = 0; i < rates.length; i++) {
+      const { min, max, rate } = rates[i];
       if (amount >= min && amount <= max) {
         return rate;
       }
     }
-    return 0;
+    return rates[rates.length - 1].rate;
   };
 
   const calculate = (amount, isReceiveAmount = false) => {
@@ -76,33 +107,46 @@ const Calculator = () => {
       setTotalToSend(0);
       setExchangeRate("N/A");
       setAmountReceive(0);
+      setErrorMessage("Tipo de cambio no disponible");
       return;
     }
 
-    let commissionRate = calculateCommissionRate(amount);
-    let taxRate = 0.0018;
+    if (amount < 100) {
+      setCommission(0);
+      setCommissionRateDisplay(0);
+      setTax(0);
+      setTotalToSend(0);
+      setExchangeRate(rate.toFixed(2));
+      setAmountReceive(0);
+      setErrorMessage("El monto mínimo es 100");
+      return;
+    } else {
+      setErrorMessage("");
+    }
+
+    const commissionRate = calculateCommissionRate(amount, key);
+    const taxRate = 0.18; // 18% de impuesto sobre la comisión
 
     setCommissionRateDisplay((commissionRate * 100).toFixed(2) + "%");
 
     if (isReceiveAmount) {
-      // Reverse calculation
-      const netAmount = amount / rate;
-      const amountBeforeFees = netAmount / (1 - commissionRate - taxRate);
-      const commissionAmount = amountBeforeFees * commissionRate;
-      const taxAmount = amountBeforeFees * taxRate;
-      const amountSendCalc = amountBeforeFees;
+      // Cálculo inverso
+      const totalAfterFees = amount / rate;
+      const commissionAndTaxRate = commissionRate * (1 + taxRate);
+      const amountSendCalc = totalAfterFees / (1 - commissionAndTaxRate);
+      const commissionAmount = amountSendCalc * commissionRate;
+      const taxAmount = commissionAmount * taxRate;
+      const totalToSendCalc = amountSendCalc - commissionAmount - taxAmount;
 
       setCommission(commissionAmount.toFixed(2));
       setTax(taxAmount.toFixed(2));
-      setTotalToSend(
-        (amountSendCalc - commissionAmount - taxAmount).toFixed(2)
-      );
+      setTotalToSend(totalToSendCalc.toFixed(2));
       setExchangeRate(rate.toFixed(2));
       setAmountSend(amountSendCalc.toFixed(2));
     } else {
-      // Forward calculation
+      // Cálculo directo
       const commissionAmount = amount * commissionRate;
-      const taxAmount = amount * taxRate;
+      const taxAmount = commissionAmount * taxRate;
       const total = amount - commissionAmount - taxAmount;
       const received = total * rate;
 
@@ -129,26 +173,57 @@ const Calculator = () => {
   ]);
 
   const handleAmountChange = (e) => {
-    const amount = parseFloat(e.target.value) || 0;
+    const amount = parseFloat(e.target.value) || '';
     setAmountSend(amount);
+    setEditingReceiveAmount(false);
   };
 
   const handleAmountReceiveChange = (e) => {
-    const amount = parseFloat(e.target.value) || 0;
+    const amount = parseFloat(e.target.value) || '';
     setAmountReceive(amount);
+    setEditingReceiveAmount(true);
   };
 
-  const handleFromCurrencyChange = (e) => {
-    setFromCurrency(e.target.value);
-    // Reset toCurrency if it's not in the new options
-    const newToCurrencies = currencyOptions[e.target.value];
+  // Prepare options with images for react-select
+  const currencyOptionsSelect = currencies.map((currency) => ({
+    value: currency.code,
+    label: (
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <img
+          src={currency.image}
+          alt={currency.code}
+          style={{ width: '20px', marginRight: '8px' }}
+        />
+        {currency.code}
+      </div>
+    ),
+  }));
+
+  const CustomOption = (props) => {
+    const { innerProps, innerRef, data } = props;
+    return (
+      <div ref={innerRef} {...innerProps}>
+        {data.label}
+      </div>
+    );
+  };
+
+  const CustomSingleValue = (props) => {
+    const { data } = props;
+    return data.label;
+  };
+
+  const handleFromCurrencyChange = (selectedOption) => {
+    const newFromCurrency = selectedOption.value;
+    setFromCurrency(newFromCurrency);
+    const newToCurrencies = currencyOptions[newFromCurrency];
     if (!newToCurrencies.includes(toCurrency)) {
       setToCurrency(newToCurrencies[0]);
     }
   };
 
-  const handleToCurrencyChange = (e) => {
-    setToCurrency(e.target.value);
+  const handleToCurrencyChange = (selectedOption) => {
+    setToCurrency(selectedOption.value);
   };
 
   const getAvailableToCurrencies = () => {
@@ -165,7 +240,7 @@ const Calculator = () => {
       (currency) => currency.code === toCurrency
     ).name;
 
-    const message = `*Cotización de Cambio de Moneda*\n\n*Envías:* ${amountSend} ${fromCurrency} (${fromCurrencyName})\n*Comisión (${commissionRateDisplay}):* ${commission} ${fromCurrency}\n*Impuestos (0.18%):* ${tax} ${fromCurrency}\n*Total a Enviar:* ${totalToSend} ${fromCurrency}\n\n*Tipo de Cambio:* 1 ${fromCurrency} = ${exchangeRate} ${toCurrency}\n\n*Recibes:* ${amountReceive} ${toCurrency} (${toCurrencyName})`;
+    const message = `*Cotización de Cambio de Moneda*\n\n*Envías:* ${amountSend} ${fromCurrency} (${fromCurrencyName})\n*Comisión (${commissionRateDisplay}):* ${commission} ${fromCurrency}\n*Impuestos (18% de la comisión):* ${tax} ${fromCurrency}\n*Total a Enviar:* ${totalToSend} ${fromCurrency}\n\n*Tipo de Cambio:* 1 ${fromCurrency} = ${exchangeRate} ${toCurrency}\n\n*Recibes:* ${amountReceive} ${toCurrency} (${toCurrencyName})`;
 
     const encodedMessage = encodeURIComponent(message);
 
@@ -180,30 +255,31 @@ const Calculator = () => {
 
       <div className="currency-inputs">
         <div className="currency-row ">
-          <select
-            value={fromCurrency}
+          <Select
+            value={currencyOptionsSelect.find(
+              (option) => option.value === fromCurrency
+            )}
             onChange={handleFromCurrencyChange}
-            className="w-50"
-          >
-            {currencies.map((currency) => (
-              <option
-                key={currency.code}
-                value={currency.code}
-                data-image={currency.image}
-              >
-                {currency.flag} {currency.code}
-              </option>
-            ))}
-          </select>
+            options={currencyOptionsSelect.filter((option) =>
+              Object.keys(currencyOptions).includes(option.value)
+            )}
+            components={{ Option: CustomOption, SingleValue: CustomSingleValue }}
+            isSearchable={false}
+            styles={{ container: (base) => ({ ...base, width: '50%' }) }}
+          />
           <input
             type="number"
             className="currency-input"
             placeholder="Envías"
             value={amountSend}
             onChange={handleAmountChange}
-            onFocus={() => setEditingReceiveAmount(false)}
+            min="100"
           />
         </div>
+
+        {errorMessage && (
+          <div className="error-message text-danger">{errorMessage}</div>
+        )}
 
         <div className="row gy-4 mb-3 text-dark">
           <div className="col-6">
@@ -213,7 +289,7 @@ const Calculator = () => {
             <div>{commission}</div>
           </div>
           <div className="col-6">
-            <div>Impuestos (0.18%):</div>
+            <div>Impuestos:</div>
           </div>
           <div className="col-6">
             <div>{tax}</div>
@@ -233,27 +309,25 @@ const Calculator = () => {
         </div>
 
         <div className="currency-row">
-          <select
-            value={toCurrency}
+          <Select
+            value={currencyOptionsSelect.find(
+              (option) => option.value === toCurrency
+            )}
             onChange={handleToCurrencyChange}
-            className="w-50"
-          >
-            {getAvailableToCurrencies().map((code) => {
-              const currency = currencies.find((cur) => cur.code === code);
-              return (
-                <option key={currency.code} value={currency.code}>
-                  {currency.flag} {currency.code}
-                </option>
-              );
-            })}
-          </select>
+            options={currencyOptionsSelect.filter((option) =>
+              getAvailableToCurrencies().includes(option.value)
+            )}
+            components={{ Option: CustomOption, SingleValue: CustomSingleValue }}
+            isSearchable={false}
+            styles={{ container: (base) => ({ ...base, width: '50%' }) }}
+          />
           <input
             type="number"
             className="currency-input"
             placeholder="Recibes"
             value={amountReceive}
             onChange={handleAmountReceiveChange}
-            onFocus={() => setEditingReceiveAmount(true)}
+            min="100"
           />
         </div>
       </div>
