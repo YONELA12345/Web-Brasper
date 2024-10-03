@@ -9,6 +9,7 @@ const exchangeRates = {
 };
 
 const Calculator = () => {
+  // Estados existentes
   const [amountSend, setAmountSend] = useState("");
   const [amountReceive, setAmountReceive] = useState("");
   const [fromCurrency, setFromCurrency] = useState("PEN");
@@ -20,7 +21,7 @@ const Calculator = () => {
   const [exchangeRate, setExchangeRate] = useState(0);
   const [editingReceiveAmount, setEditingReceiveAmount] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [termsAccepted, setTermsAccepted] = useState(false); // Nuevo estado para el checkbox
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
 
   const currencies = [
     {
@@ -77,6 +78,7 @@ const Calculator = () => {
     ],
   };
 
+  // Definición de currencyOptions (FALTABA ESTA PARTE)
   const currencyOptions = {
     PEN: ["BRL"],
     USD: ["BRL"],
@@ -240,7 +242,7 @@ const Calculator = () => {
     image: currency.image,
   }));
 
-  // Componentes personalizados
+  // Componentes personalizados para Select
   const CustomOption = (props) => {
     const { innerProps, innerRef, data } = props;
     return (
@@ -311,10 +313,30 @@ const Calculator = () => {
   };
 
   const handleSendWhatsAppMessage = () => {
-    if (!termsAccepted) {
+    // Validación de aceptación de términos
+    if (!acceptedTerms) {
       alert(
-        "Por favor, acepta la Política de Privacidad y los Términos y Condiciones."
+        "Debe aceptar la Política de Privacidad y los Términos y Condiciones para continuar."
       );
+      return;
+    }
+
+    // Validación de datos ingresados
+    if (
+      amountSend === "" ||
+      amountReceive === "" ||
+      isNaN(parseFloat(amountSend)) ||
+      isNaN(parseFloat(amountReceive))
+    ) {
+      alert(
+        "Por favor, ingrese los montos a enviar y recibir antes de continuar."
+      );
+      return;
+    }
+
+    // Validación de errores en los cálculos
+    if (errorMessage) {
+      alert("Por favor, corrija los errores antes de continuar.");
       return;
     }
 
@@ -337,11 +359,20 @@ const Calculator = () => {
   };
 
   return (
-    <div className="calculator-container m-1 text-center">
+    <div className="calculator-container m-3 text-center">
       <h5>Ingrese el Monto a Enviar o Recibir</h5>
 
-      <div className="currency-inputs">
-        <div className="currency-row">
+      <div className="currency-inputs r pb-4 pt-2">
+        <a
+          style={{
+            color: " rgba(0, 0, 255, 1)",
+            fontSize: "20px",
+            paddingBottom: "50px",
+          }}
+        >
+          Envías
+        </a>
+        <div className="currency-row pb-2">
           <Select
             value={currencyOptionsSelect.find(
               (option) => option.value === fromCurrency
@@ -380,6 +411,11 @@ const Calculator = () => {
             value={amountSend}
             onChange={handleAmountChange}
             min="100"
+            style={{
+              backgroundColor: "transparent",
+              //border: 'none',
+              //color: 'inherit', // Mantiene el color del texto heredado
+            }}
           />
         </div>
 
@@ -388,40 +424,57 @@ const Calculator = () => {
         )}
 
         <div className="row gy-4 mb-3 text-dark">
-          <div className="col-6">
-            <div>Comisión ({commissionRateDisplay}):</div>
-          </div>
-          <div className="col-6">
+          <div className="col-6" s>
             <div>
-              {commission}
+              <strong>Comisión {commissionRateDisplay}:</strong>
             </div>
           </div>
           <div className="col-6">
-            <div>Impuestos:</div>
-          </div>
-          <div className="col-6">
-            <div>
-              {tax}
+            <div style={{color: '#c91c10'}}>
+              <strong>{commission}</strong>
             </div>
           </div>
           <div className="col-6">
-            <div>Total a Enviar:</div>
-          </div>
-          <div className="col-6">
             <div>
-              {totalToSend}
+              <strong>Impuestos:</strong>
             </div>
           </div>
           <div className="col-6">
-            <div>Tipo de Cambio:</div>
+            <div style={{color: '#c91c10'}}>
+              <strong>{tax}</strong>
+            </div>
           </div>
           <div className="col-6">
             <div>
-              {exchangeRate}
+              <strong>Total a Enviar:</strong>
+            </div>
+          </div>
+          <div className="col-6">
+            <div style={{color: '#c91c10'}}>
+              <strong>{totalToSend}</strong>
+            </div>
+          </div>
+          <div className="col-6">
+            <div >
+              <strong>Tipo de Cambio:</strong>
+            </div>
+          </div>
+          <div className="col-6">
+            <div style={{color: '#c91c10'}}>
+              <strong>{exchangeRate}</strong>
             </div>
           </div>
         </div>
 
+        <a
+          style={{
+            color: " rgba(0, 0, 255, 1)",
+            fontSize: "20px",
+            paddingBottom: "50px",
+          }}
+        >
+          Recibe
+        </a>
         <div className="currency-row">
           <Select
             value={currencyOptionsSelect.find(
@@ -460,25 +513,29 @@ const Calculator = () => {
             value={amountReceive}
             onChange={handleAmountReceiveChange}
             min="100"
+            style={{
+              backgroundColor: "transparent",
+              //border: 'none',
+              //color: 'inherit', // Mantiene el color del texto heredado
+            }}
           />
         </div>
       </div>
 
-      {/* Nuevo checkbox para aceptar los términos */}
+      {/* Checkbox de aceptación de términos */}
       <div className="terms-container" style={{ margin: "20px 0" }}>
         <input
           type="checkbox"
-          id="terms"
-          checked={termsAccepted}
-          onChange={(e) => setTermsAccepted(e.target.checked)}
-          style={{ marginRight: "10px" }}
+          id="acceptTerms"
+          checked={acceptedTerms}
+          onChange={(e) => setAcceptedTerms(e.target.checked)}
+          style={{ marginRight: "8px" }}
         />
-        <label htmlFor="terms">
+        <label htmlFor="acceptTerms">
           Acepto{" "}
           <a href="/terminos-y-condiciones" target="_blank">
             Términos y Condiciones
           </a>
-          .
         </label>
       </div>
 
