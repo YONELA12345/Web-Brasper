@@ -2,6 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/singup": "pages/singup.js",
-  "/verify": "pages/verify.js"
+  "/": "pages/index.js",
+  "/verify": "pages/verify.js",
+  "/404": "pages/404.js"
 }

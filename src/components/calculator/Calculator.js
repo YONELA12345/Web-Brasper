@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
 
+
+
 const exchangeRates = {
-  "PEN-BRL": 1.45,
+  "PEN-BRL": 1.452,
   "BRL-PEN": 0.674,
   "USD-BRL": 5.416,
   "BRL-USD": 0.182,
@@ -34,7 +36,7 @@ const Calculator = () => {
       code: "USD",
       name: "Dólares Estadounidenses",
       flag: "🇺🇸",
-      image: "/assets/images/flags/usa.png",
+      image: "/assets/images/flags/pe.png",
     },
     {
       code: "BRL",
@@ -349,7 +351,7 @@ const Calculator = () => {
       (currency) => currency.code === toCurrency
     ).name;
 
-    const message = `*Cotización de Cambio de Moneda*\n\n*Envías:* ${amountSend} ${fromCurrency} (${fromCurrencyName})\n*Comisión (${commissionRateDisplay}):* ${commission} ${fromCurrency}\n*Impuestos (18% de la comisión):* ${tax} ${fromCurrency}\n*Total a Enviar:* ${totalToSend} ${fromCurrency}\n\n*Tipo de Cambio:* 1 ${fromCurrency} = ${exchangeRate} ${toCurrency}\n\n*Recibes:* ${amountReceive} ${toCurrency} (${toCurrencyName})`;
+    const message = `*bu*\n\*Cotización de Cambio de Moneda*\n\n*Envías:* ${amountSend} ${fromCurrency} (${fromCurrencyName})\n*Comisión (${commissionRateDisplay}):* ${commission} ${fromCurrency}\n*Impuestos (18% de la comisión):* ${tax} ${fromCurrency}\n*Total a Enviar:* ${totalToSend} ${fromCurrency}\n\n*Tipo de Cambio:* 1 ${fromCurrency} = ${exchangeRate} ${toCurrency}\n\n*Recibes:* ${amountReceive} ${toCurrency} (${toCurrencyName})`;
 
     const encodedMessage = encodeURIComponent(message);
 
