@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Select from 'react-select';
+import Select from "react-select";
 
 const exchangeRates = {
   "PEN-BRL": 1.45,
@@ -9,8 +9,8 @@ const exchangeRates = {
 };
 
 const Calculator = () => {
-  const [amountSend, setAmountSend] = useState('');
-  const [amountReceive, setAmountReceive] = useState('');
+  const [amountSend, setAmountSend] = useState("");
+  const [amountReceive, setAmountReceive] = useState("");
   const [fromCurrency, setFromCurrency] = useState("PEN");
   const [toCurrency, setToCurrency] = useState("BRL");
   const [commission, setCommission] = useState(0);
@@ -20,6 +20,7 @@ const Calculator = () => {
   const [exchangeRate, setExchangeRate] = useState(0);
   const [editingReceiveAmount, setEditingReceiveAmount] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [termsAccepted, setTermsAccepted] = useState(false); // Nuevo estado para el checkbox
 
   const currencies = [
     {
@@ -106,34 +107,48 @@ const Calculator = () => {
       setTax(0);
       setTotalToSend(0);
       setExchangeRate("N/A");
-      setAmountReceive(0);
       setErrorMessage("Tipo de cambio no disponible");
       return;
     }
 
-    if (amount < 100) {
-      setCommission(0);
-      setCommissionRateDisplay(0);
-      setTax(0);
-      setTotalToSend(0);
-      setExchangeRate(rate.toFixed(2));
-      setAmountReceive(0);
-      setErrorMessage("El monto mínimo es 100");
+    const parsedAmount = parseFloat(amount);
+    if (isNaN(parsedAmount)) {
+      // No hacer nada si el monto no es un número válido
       return;
-    } else {
-      setErrorMessage("");
     }
 
-    const commissionRate = calculateCommissionRate(amount, key);
     const taxRate = 0.18; // 18% de impuesto sobre la comisión
-
-    setCommissionRateDisplay((commissionRate * 100).toFixed(2) + "%");
+    let commissionRate;
+    let amountSendCalc;
 
     if (isReceiveAmount) {
       // Cálculo inverso
-      const totalAfterFees = amount / rate;
+      // Estimación inicial del monto a enviar
+      amountSendCalc = parsedAmount / rate;
+      commissionRate = calculateCommissionRate(amountSendCalc, key);
+
+      // Recalculamos amountSendCalc considerando la comisión y el impuesto
       const commissionAndTaxRate = commissionRate * (1 + taxRate);
-      const amountSendCalc = totalAfterFees / (1 - commissionAndTaxRate);
+      amountSendCalc = parsedAmount / (rate * (1 - commissionAndTaxRate));
+
+      // Validamos el monto mínimo
+      if (amountSendCalc < 100) {
+        setCommission(0);
+        setCommissionRateDisplay(0);
+        setTax(0);
+        setTotalToSend(0);
+        setExchangeRate(rate.toFixed(2));
+        setErrorMessage("El monto mínimo es 100");
+        return;
+      } else {
+        setErrorMessage("");
+      }
+
+      // Recalculamos la tasa de comisión con el nuevo amountSendCalc
+      commissionRate = calculateCommissionRate(amountSendCalc, key);
+      setCommissionRateDisplay((commissionRate * 100).toFixed(2) + "%");
+
+      // Calculamos la comisión y los impuestos
       const commissionAmount = amountSendCalc * commissionRate;
       const taxAmount = commissionAmount * taxRate;
       const totalToSendCalc = amountSendCalc - commissionAmount - taxAmount;
@@ -145,9 +160,24 @@ const Calculator = () => {
       setAmountSend(amountSendCalc.toFixed(2));
     } else {
       // Cálculo directo
-      const commissionAmount = amount * commissionRate;
+      if (parsedAmount < 100) {
+        setCommission(0);
+        setCommissionRateDisplay(0);
+        setTax(0);
+        setTotalToSend(0);
+        setExchangeRate(rate.toFixed(2));
+        setErrorMessage("El monto mínimo es 100");
+        return;
+      } else {
+        setErrorMessage("");
+      }
+
+      commissionRate = calculateCommissionRate(parsedAmount, key);
+      setCommissionRateDisplay((commissionRate * 100).toFixed(2) + "%");
+
+      const commissionAmount = parsedAmount * commissionRate;
       const taxAmount = commissionAmount * taxRate;
-      const total = amount - commissionAmount - taxAmount;
+      const total = parsedAmount - commissionAmount - taxAmount;
       const received = total * rate;
 
       setCommission(commissionAmount.toFixed(2));
@@ -158,11 +188,30 @@ const Calculator = () => {
     }
   };
 
+  const resetCalculations = () => {
+    setCommission(0);
+    setCommissionRateDisplay(0);
+    setTax(0);
+    setTotalToSend(0);
+    setExchangeRate(0);
+    setErrorMessage("");
+  };
+
   useEffect(() => {
     if (editingReceiveAmount) {
-      calculate(amountReceive, true);
+      if (amountReceive !== "" && !isNaN(parseFloat(amountReceive))) {
+        calculate(amountReceive, true);
+      } else {
+        resetCalculations();
+        setAmountSend("");
+      }
     } else {
-      calculate(amountSend);
+      if (amountSend !== "" && !isNaN(parseFloat(amountSend))) {
+        calculate(amountSend);
+      } else {
+        resetCalculations();
+        setAmountReceive("");
+      }
     }
   }, [
     amountSend,
@@ -173,44 +222,75 @@ const Calculator = () => {
   ]);
 
   const handleAmountChange = (e) => {
-    const amount = parseFloat(e.target.value) || '';
+    const amount = e.target.value;
     setAmountSend(amount);
     setEditingReceiveAmount(false);
   };
 
   const handleAmountReceiveChange = (e) => {
-    const amount = parseFloat(e.target.value) || '';
+    const amount = e.target.value;
     setAmountReceive(amount);
     setEditingReceiveAmount(true);
   };
 
-  // Prepare options with images for react-select
+  // Crear las opciones para el Select
   const currencyOptionsSelect = currencies.map((currency) => ({
     value: currency.code,
-    label: (
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <img
-          src={currency.image}
-          alt={currency.code}
-          style={{ width: '20px', marginRight: '8px' }}
-        />
-        {currency.code}
-      </div>
-    ),
+    label: currency.code,
+    image: currency.image,
   }));
 
+  // Componentes personalizados
   const CustomOption = (props) => {
     const { innerProps, innerRef, data } = props;
     return (
-      <div ref={innerRef} {...innerProps}>
-        {data.label}
+      <div
+        ref={innerRef}
+        {...innerProps}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          padding: "8px 12px",
+        }}
+      >
+        <img
+          src={data.image}
+          alt={data.label}
+          style={{
+            width: "24px",
+            height: "24px",
+            marginRight: "8px",
+            objectFit: "contain",
+          }}
+        />
+        <span>{data.label}</span>
       </div>
     );
   };
 
   const CustomSingleValue = (props) => {
-    const { data } = props;
-    return data.label;
+    const { innerProps, data } = props;
+    return (
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+        }}
+        {...innerProps}
+      >
+        <img
+          src={data.image}
+          alt={data.label}
+          style={{
+            width: "24px",
+            height: "24px",
+            marginRight: "8px",
+            objectFit: "contain",
+          }}
+        />
+        <span>{data.label}</span>
+      </div>
+    );
   };
 
   const handleFromCurrencyChange = (selectedOption) => {
@@ -231,6 +311,13 @@ const Calculator = () => {
   };
 
   const handleSendWhatsAppMessage = () => {
+    if (!termsAccepted) {
+      alert(
+        "Por favor, acepta la Política de Privacidad y los Términos y Condiciones."
+      );
+      return;
+    }
+
     const phoneNumber = "51966991933";
 
     const fromCurrencyName = currencies.find(
@@ -254,7 +341,7 @@ const Calculator = () => {
       <h5>Ingrese el Monto a Enviar o Recibir</h5>
 
       <div className="currency-inputs">
-        <div className="currency-row ">
+        <div className="currency-row">
           <Select
             value={currencyOptionsSelect.find(
               (option) => option.value === fromCurrency
@@ -263,10 +350,29 @@ const Calculator = () => {
             options={currencyOptionsSelect.filter((option) =>
               Object.keys(currencyOptions).includes(option.value)
             )}
-            components={{ Option: CustomOption, SingleValue: CustomSingleValue }}
+            components={{
+              Option: CustomOption,
+              SingleValue: CustomSingleValue,
+            }}
             isSearchable={false}
-            styles={{ container: (base) => ({ ...base, width: '50%' }) }}
+            styles={{
+              container: (base) => ({
+                ...base,
+                width: "50%",
+                margin: "0 auto",
+              }),
+              control: (base) => ({
+                ...base,
+                minHeight: "45px",
+              }),
+              valueContainer: (base) => ({
+                ...base,
+                display: "flex",
+                alignItems: "center",
+              }),
+            }}
           />
+
           <input
             type="number"
             className="currency-input"
@@ -286,25 +392,33 @@ const Calculator = () => {
             <div>Comisión ({commissionRateDisplay}):</div>
           </div>
           <div className="col-6">
-            <div>{commission}</div>
+            <div>
+              {commission}
+            </div>
           </div>
           <div className="col-6">
             <div>Impuestos:</div>
           </div>
           <div className="col-6">
-            <div>{tax}</div>
+            <div>
+              {tax}
+            </div>
           </div>
           <div className="col-6">
             <div>Total a Enviar:</div>
           </div>
           <div className="col-6">
-            <div>{totalToSend}</div>
+            <div>
+              {totalToSend}
+            </div>
           </div>
           <div className="col-6">
             <div>Tipo de Cambio:</div>
           </div>
           <div className="col-6">
-            <div>{exchangeRate}</div>
+            <div>
+              {exchangeRate}
+            </div>
           </div>
         </div>
 
@@ -317,9 +431,27 @@ const Calculator = () => {
             options={currencyOptionsSelect.filter((option) =>
               getAvailableToCurrencies().includes(option.value)
             )}
-            components={{ Option: CustomOption, SingleValue: CustomSingleValue }}
+            components={{
+              Option: CustomOption,
+              SingleValue: CustomSingleValue,
+            }}
             isSearchable={false}
-            styles={{ container: (base) => ({ ...base, width: '50%' }) }}
+            styles={{
+              container: (base) => ({
+                ...base,
+                width: "50%",
+                margin: "0 auto",
+              }),
+              control: (base) => ({
+                ...base,
+                minHeight: "45px",
+              }),
+              valueContainer: (base) => ({
+                ...base,
+                display: "flex",
+                alignItems: "center",
+              }),
+            }}
           />
           <input
             type="number"
@@ -332,8 +464,26 @@ const Calculator = () => {
         </div>
       </div>
 
+      {/* Nuevo checkbox para aceptar los términos */}
+      <div className="terms-container" style={{ margin: "20px 0" }}>
+        <input
+          type="checkbox"
+          id="terms"
+          checked={termsAccepted}
+          onChange={(e) => setTermsAccepted(e.target.checked)}
+          style={{ marginRight: "10px" }}
+        />
+        <label htmlFor="terms">
+          Acepto{" "}
+          <a href="/terminos-y-condiciones" target="_blank">
+            Términos y Condiciones
+          </a>
+          .
+        </label>
+      </div>
+
       <button className="theme-btn" onClick={handleSendWhatsAppMessage}>
-        Enviar Cotización por WhatsApp
+        Enviar Dinero
       </button>
     </div>
   );
