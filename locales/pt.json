@@ -79,6 +79,31 @@
             "text": "Brasper tornou a troca de moedas rápida e simples. Sempre obtenho boas taxas e o atendimento ao cliente é excelente. Sem dúvida, uma opção confiável e eficiente.",
             "author": "Juliana",
             "designation": "Brasileira"
+        },
+        
+        "testimonial3": {
+            "title": "Me gusto el servio",
+            "text": "Empresa de confianza, ya he hecho 2 transferencias sin problemas... y te dice el detalle de la tarifa y cuánto recibirás. recomendar",
+            "author": "Felipe",
+            "designation": "Brasil"
+        },
+        "testimonial4": {
+            "title": "El mejor servio",
+            "text": "Un buen servicio y el envió es rápido.",
+            "author": "Martha Felix Patiño",
+            "designation": "Peru"
+        },
+        "testimonial5": {
+            "title": "La mejor experiencia",
+            "text": "Buen servicio transferencia al instante",
+            "author": "Rosmary Rebaza Peñafiel",
+            "designation": "Peru"
+        },
+        "testimonial6": {
+            "title": "Servicio impecable y rapido",
+            "text": "Buen servicio!! recomiendo bastante 👍",
+            "author": "Darwin Ttito",
+            "designation": "Peru"
         }
     },
     "aboutSection": {
