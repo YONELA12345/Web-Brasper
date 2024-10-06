@@ -1,15 +1,42 @@
-import PageBanner from "@/components/PageBanner";
-import Layout from "@/layout";
-import PlusMinusBtn from "@/src/components/PlusMinusBtn";
-import Link from "next/link";
+"use client";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 const Dash = () => {
+  const router = useRouter();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!token || user?.role !== "user") {
+      router.push("/login");
+    } else {
+      setLoading(false); 
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
+    router.push("/login");
+  };
+
+  if (loading) {
+    return <div>Cargando...</div>; 
+  }
+
   return (
-    <>
-      <div className="text-midel">
-        <h1>bienvenidos a Brasper</h1>
-      </div>
-    </>
+    <div className="text-center">
+      <h1>Bienvenidos a Brasper</h1>
+      <p>Esta es la vista del panel de usuario</p>
+      <button className="btn btn-danger mt-3" onClick={handleLogout}>
+        Cerrar sesión
+      </button>
+    </div>
   );
 };
+
 export default Dash;

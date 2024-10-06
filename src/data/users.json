@@ -1,0 +1,18 @@
+[
+  {
+    "access_token": "admin_jwt_token",
+    "refresh_token": "admin_jwt_refresh_token",
+    "email": "admin@xio.com",
+    "full_name": "Admin Usuario",
+    "password": "admin123",  
+    "role": "admin"
+  },
+  {
+    "access_token": "user_jwt_token",
+    "refresh_token": "user_jwt_refresh_token",
+    "email": "user@xio.com",
+    "full_name": "Regular Usuario",
+    "password": "user123", 
+    "role": "user"
+  }
+]

@@ -2,7 +2,10 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+  "/admin": "pages/admin.js",
   "/admin/users": "pages/admin/users.js",
   "/": "pages/index.js",
-  "/admin/realdolar": "pages/admin/realdolar.js"
+  "/singup": "pages/singup.js",
+  "/404": "pages/404.js",
+  "/login": "pages/login.js"
 }

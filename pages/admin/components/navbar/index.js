@@ -1,6 +1,21 @@
-import React from "react";
+import { useRouter } from "next/router"; // Para redirigir al usuario
 
 const Navbar = () => {
+  const router = useRouter();
+
+  // Función para manejar el cierre de sesión
+  const handleLogout = () => {
+    // Eliminar el token de localStorage
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    
+    // Si estás usando cookies, también puedes limpiar el token de las cookies.
+    // document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+    // Redirigir al usuario a la página de login
+    router.push("/login");
+  };
+
   return (
     <nav className="navbar top-bar navbar-light border-bottom py-0 py-xl-3">
       <div className="container-fluid p-0">
@@ -22,219 +37,8 @@ const Navbar = () => {
           </div>
           {/* Logo END */}
 
-          {/* Toggler for sidebar START */}
-          <div className="navbar-expand-xl sidebar-offcanvas-menu">
-            <button
-              className="navbar-toggler me-auto"
-              type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasSidebar"
-              aria-controls="offcanvasSidebar"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-              data-bs-auto-close="outside"
-            >
-              <i
-                className="bi bi-text-right fa-fw h2 lh-0 mb-0 rtl-flip"
-                data-bs-target="#offcanvasMenu"
-              >
-                {" "}
-              </i>
-            </button>
-          </div>
-          {/* Toggler for sidebar END */}
-
-          {/* Top bar left */}
-          <div className="navbar-expand-lg ms-auto ms-xl-0">
-            {/* Toggler for menubar START */}
-            <button
-              className="navbar-toggler ms-auto"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarTopContent"
-              aria-controls="navbarTopContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-animation">
-                <span></span>
-                <span></span>
-                <span></span>
-              </span>
-            </button>
-            {/* Toggler for menubar END */}
-
-            {/* Topbar menu START */}
-            <div
-              className="collapse navbar-collapse w-100"
-              id="navbarTopContent"
-            >
-              {/* Top search START */}
-         {/*      <div className="nav my-3 my-xl-0 flex-nowrap align-items-center">
-                <div className="nav-item w-100">
-                  <form className="position-relative">
-                    <input
-                      className="form-control pe-5 bg-secondary bg-opacity-10 border-0"
-                      type="search"
-                      placeholder="Search"
-                      aria-label="Search"
-                    />
-                    <button
-                      className="bg-transparent px-2 py-0 border-0 position-absolute top-50 end-0 translate-middle-y"
-                      type="submit"
-                    >
-                      <i className="fas fa-search fs-6 text-primary"></i>
-                    </button>
-                  </form>
-                </div>
-              </div> */}
-              {/* Top search END */}
-            </div>
-            {/* Topbar menu END */}
-          </div>
-          {/* Top bar left END */}
-
-          {/* Top bar right START */}
           <div className="ms-xl-auto">
             <ul className="navbar-nav flex-row align-items-center">
-              {/* Notification dropdown START */}
-              <li className="nav-item ms-2 ms-md-3 dropdown">
-                <a
-                  className="btn btn-light btn-round mb-0"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                  data-bs-auto-close="outside"
-                >
-                  <i className="bi bi-bell fa-fw"></i>
-                </a>
-                <span className="notif-badge animation-blink"></span>
-
-                {/* Notification dropdown menu START */}
-                <div className="dropdown-menu dropdown-animation dropdown-menu-end dropdown-menu-size-md p-0 shadow-lg border-0">
-                  <div className="card bg-transparent">
-                    <div className="card-header bg-transparent border-bottom py-4 d-flex justify-content-between align-items-center">
-                      <h6 className="m-0">
-                        Notifications{" "}
-                        <span className="badge bg-danger bg-opacity-10 text-danger ms-2">
-                          2 new
-                        </span>
-                      </h6>
-                      <a className="small" href="#">
-                        Clear all
-                      </a>
-                    </div>
-                    <div className="card-body p-0">
-                      <ul className="list-group list-unstyled list-group-flush">
-                        <li>
-                          <a
-                            href="#"
-                            className="list-group-item-action border-0 border-bottom d-flex p-3"
-                          >
-                            <div className="me-3">
-                              <div className="avatar avatar-md">
-                                <img
-                                  className="avatar-img rounded-circle"
-                                  src="assets/images/avatar/08.jpg"
-                                  alt="avatar"
-                                />
-                              </div>
-                            </div>
-                            <div>
-                              <p className="text-body small m-0">
-                                Congratulate <b>Joan Wallace</b> for graduating
-                                from <b>Microverse university</b>
-                              </p>
-                              <u className="small">Say congrats</u>
-                            </div>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            className="list-group-item-action border-0 border-bottom d-flex p-3"
-                          >
-                            <div className="me-3">
-                              <div className="avatar avatar-md">
-                                <img
-                                  className="avatar-img rounded-circle"
-                                  src="assets/images/avatar/02.jpg"
-                                  alt="avatar"
-                                />
-                              </div>
-                            </div>
-                            <div>
-                              <h6 className="mb-1">
-                                Larry Lawson Added a new course
-                              </h6>
-                              <p className="small text-body m-0">
-                                What's new! Find out about new features
-                              </p>
-                              <u className="small">View detail</u>
-                            </div>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            className="list-group-item-action border-0 border-bottom d-flex p-3"
-                          >
-                            <div className="me-3">
-                              <div className="avatar avatar-md">
-                                <img
-                                  className="avatar-img rounded-circle"
-                                  src="assets/images/avatar/05.jpg"
-                                  alt="avatar"
-                                />
-                              </div>
-                            </div>
-                            <div>
-                              <h6 className="mb-1">
-                                New request to apply for Instructor
-                              </h6>
-                              <u className="small">View detail</u>
-                            </div>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            className="list-group-item-action border-0 border-bottom d-flex p-3"
-                          >
-                            <div className="me-3">
-                              <div className="avatar avatar-md">
-                                <img
-                                  className="avatar-img rounded-circle"
-                                  src="assets/images/avatar/03.jpg"
-                                  alt="avatar"
-                                />
-                              </div>
-                            </div>
-                            <div>
-                              <h6 className="mb-1">
-                                Update v2.3 completed successfully
-                              </h6>
-                              <p className="small text-body m-0">
-                                What's new! Find out about new features
-                              </p>
-                              <small className="text-body">5 min ago</small>
-                            </div>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="card-footer bg-transparent border-0 py-3 text-center position-relative">
-                      <a href="#" className="stretched-link">
-                        See all incoming activity
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                {/* Notification dropdown menu END */}
-              </li>
-              {/* Notification dropdown END */}
-
               {/* Profile dropdown START */}
               <li className="nav-item ms-2 ms-md-3 dropdown">
                 <a
@@ -282,8 +86,12 @@ const Navbar = () => {
                   </li>
 
                   <li>
-                    <a className="dropdown-item bg-danger-soft-hover" href="#">
-                      <i className="bi bi-power fa-fw me-2"></i>Cerrar sesion
+                    <a
+                      className="dropdown-item bg-danger-soft-hover"
+                      href="#"
+                      onClick={handleLogout} // Llama a la función para cerrar sesión
+                    >
+                      <i className="bi bi-power fa-fw me-2"></i>Cerrar sesión
                     </a>
                   </li>
                 </ul>
@@ -292,7 +100,6 @@ const Navbar = () => {
               {/* Profile dropdown END */}
             </ul>
           </div>
-          {/* Top bar right END */}
         </div>
       </div>
     </nav>
