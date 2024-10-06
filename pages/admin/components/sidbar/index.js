@@ -1,14 +1,14 @@
-"use client";
-import Link from "next/link";
-import React, { useEffect } from "react";
-import { useRouter } from "next/router";
+'use client';
+import Link from 'next/link';
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 const OffcanvasSidebar = () => {
   const router = useRouter();
 
   useEffect(() => {
     // Este código solo se ejecutará en el cliente, no en el servidor
-    import("bootstrap/dist/js/bootstrap.bundle.min.js");
+    import('bootstrap/dist/js/bootstrap.bundle.min.js');
   }, []);
 
   // Función para determinar si un enlace está activo
@@ -41,7 +41,7 @@ const OffcanvasSidebar = () => {
             <li className="nav-item">
               <Link
                 href="/admin"
-                className={`nav-link ${isActive("/admin") ? "active" : ""}`}
+                className={`nav-link ${isActive('/admin') ? 'active' : ''}`}
               >
                 <i className="fas fa-house fa-fw me-2"></i>Dashboard
               </Link>
@@ -55,12 +55,23 @@ const OffcanvasSidebar = () => {
               <Link
                 href="/admin/users"
                 className={`nav-link ${
-                  isActive("/admin/users") ? "active" : ""
+                  isActive('/admin/users') ? 'active' : ''
                 }`}
               >
                 <i className="far fa-user-alt fa-fw me-2"></i>Usuarios
               </Link>
             </li>
+
+            {/* Actualización: Link para Tipo Cambio (Tasa) */}
+            <li className="nav-item">
+              <Link
+                href="/admin/tasa" // Cambiado para apuntar a la vista correcta
+                className={`nav-link ${isActive('/admin/tasa') ? 'active' : ''}`}
+              >
+                <i className="fas fa-percentage fa-fw me-2"></i>Tipo Cambio
+              </Link>
+            </li>
+
             <li className="nav-item">
               <a
                 className="nav-link"
@@ -82,7 +93,7 @@ const OffcanvasSidebar = () => {
                   <Link
                     href="/admin/solreal"
                     className={`nav-link ${
-                      isActive("/admin/solreal") ? "active" : ""
+                      isActive('/admin/solreal') ? 'active' : ''
                     }`}
                   >
                     Sol a Real
@@ -92,7 +103,7 @@ const OffcanvasSidebar = () => {
                   <Link
                     href="/admin/realsol"
                     className={`nav-link ${
-                      isActive("/admin/realsol") ? "active" : ""
+                      isActive('/admin/realsol') ? 'active' : ''
                     }`}
                   >
                     Real a Sol
@@ -102,43 +113,30 @@ const OffcanvasSidebar = () => {
                   <Link
                     href="/admin/dolarreal"
                     className={`nav-link ${
-                      isActive("/admin/dolarreal") ? "active" : ""
+                      isActive('/admin/dolarreal') ? 'active' : ''
                     }`}
                   >
-                    Dolar a Real
+                    Dólar a Real
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link
                     href="/admin/realdolar"
                     className={`nav-link ${
-                      isActive("/admin/realdolar") ? "active" : ""
+                      isActive('/admin/realdolar') ? 'active' : ''
                     }`}
                   >
-                    Real a Dolar
+                    Real a Dólar
                   </Link>
                 </li>
               </ul>
             </li>
 
-            {/* Menu item 6 */}
-            {/* <li className="nav-item">
-              <Link
-                href="/admin/earnings"
-                className={`nav-link ${
-                  isActive("/admin/earnings") ? "active" : ""
-                }`}
-              >
-                <i className="far fa-chart-bar fa-fw me-2"></i>Earnings
-              </Link>
-            </li> */}
-
-            {/* Menu item 7 */}
             <li className="nav-item">
               <Link
                 href="/admin/settings"
                 className={`nav-link ${
-                  isActive("/admin/settings") ? "active" : ""
+                  isActive('/admin/settings') ? 'active' : ''
                 }`}
               >
                 <i className="fas fa-user-cog fa-fw me-2"></i>Admin Settings

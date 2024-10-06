@@ -86,7 +86,7 @@ const Services = () => {
           <div className="video-wrap-two wow fadeInUp delay-0-2s">
             <img src="assets/images/background/video.jpg" alt="Video" />
             <a
-              href="https://www.youtube.com/watch?v=9Y7ma241N8k"
+              href="https://youtu.be/DPR8pZN9OrM?si=0dtwxf1hMOUMCxqk"
               className="mfp-iframe video-play"
               tabIndex={-1}
             >

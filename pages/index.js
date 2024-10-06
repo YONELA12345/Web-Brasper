@@ -14,11 +14,10 @@ const Counter = dynamic(() => import("@/src/components/Counter"), {
 });
 
 const Index = () => {
-  const { t } = useLocale(); // Accedemos a la función de traducción
+  const { t } = useLocale(); // traducción
 
   return (
     <Layout header={1}>
-      {/* Hero Section Start */}
       <section className="hero-area bgc-gray rel z-1">
         <div className="container ">
           <div className="row">
@@ -26,12 +25,8 @@ const Index = () => {
               <div className="hero-content pt-115 pb-125 rpb-0 wow fadeInUp delay-0-4s">
                 <h1>{t.heroSection.title}</h1>
                 <p>{t.heroSection.description}</p>
-                <Link
-                  legacyBehavior
-                  href="https://rb.gy/vjpce3"
-                  target="_blank"
-                >
-                  <a className="theme-btn mt-20 wow fadeInUp delay-0-6s">
+                <Link legacyBehavior href="https://rb.gy/vjpce3">
+                  <a className="theme-btn mt-20 wow fadeInUp delay-0-6s" target="_blank" rel="noopener noreferrer">
                     {t.heroSection.buttonText}{" "}
                     <i className="fas fa-long-arrow-right" />
                   </a>
@@ -56,9 +51,6 @@ const Index = () => {
               </div>
             </div>
             <div className="col-lg-4  align-middle ">
-              {/* <div className="hero-images mt-80 wow fadeInLeft">
-                <img src="assets/images/hero/calculadora.png" alt="Hero" />
-              </div> */}
               <Calculator />
             </div>
           </div>
@@ -76,68 +68,7 @@ const Index = () => {
           />
         </div>
       </section>
-      {/* Hero Section End */}
-      {/* Partners Area start */}
-      {/* <section className="partners-area mt-60 pt-150 pb-100 rmt-30 rpb-70 rel z-1">
-        <div className="container">
-          <div className="section-title text-center mb-50 wow fadeInUp delay-0-2s">
-            <span className="sub-title mb-15">Global Partners</span>
-            <h2>World Wide Partners</h2>
-          </div>
-          <div className="w-full row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-2 justify-content-center ">
-            <div className="col">
-              <Link legacyBehavior href="/contact">
-                <a className="partner-item wow fadeInUp delay-0-3s">
-                  <img
-                    src="assets/images/brasper/bcp.jpeg"
-                    alt="Partner"
-                  />
-                </a>
-              </Link>
-            </div>
-            <div className="col">
-              <Link legacyBehavior href="/contact">
-                <a className="partner-item wow fadeInUp delay-0-4s">
-                  <img
-                    src="assets/images/brasper/interbank.jpeg"
-                    alt="Partner"
-                  />
-                </a>
-              </Link>
-            </div>
-            <div className="col">
-              <Link legacyBehavior href="/contact">
-                <a className="partner-item wow fadeInUp delay-0-5s">
-                  <img
-                    src="assets/images/brasper/bdb.png"
-                    alt="Partner"
-                  />
-                </a>
-              </Link>
-            </div>
-            <div className="col">
-              <Link legacyBehavior href="/contact">
-                <a className="partner-item wow fadeInUp delay-0-6s">
-                  <img
-                    src="assets/images/brasper/nubank.png"
-                    alt="Partner"
-                  />
-                </a>
-              </Link>
-            </div>
-            <div className="col">
-              <Link legacyBehavior href="/contact">
-                <a className="partner-item wow fadeInUp delay-0-7s">
-                  <img
-                    src="assets/images/brasper/c6bank.png"
-                    alt="Partner"
-                  />
-                </a>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section> */}
+
       <Bancos />
       <Acerca />
 
@@ -155,6 +86,7 @@ const Index = () => {
                   href="https://www.youtube.com/watch?v=DPR8pZN9OrM"
                   className="mfp-iframe video-play"
                   tabIndex={-1}
+                  target="_blank"
                 >
                   <i className="fas fa-play" />
                 </a>
@@ -195,6 +127,7 @@ const Index = () => {
                   href="https://youtube.com/shorts/arT3LE9GSvk?si=wyoG0vCLHUd4UDnV"
                   className="mfp-iframe video-play"
                   tabIndex={-1}
+                  target="_blank"
                 >
                   <i className="fas fa-play" />
                 </a>
@@ -215,9 +148,7 @@ const Index = () => {
           />
         </div>
       </section>
-      {/* Project Section End */}
 
-      {/* Services Section Start */}
       <section
         className="services-area text-white pt-75 pb-10 rel z-1"
         style={{ backgroundColor: "#1b1f2e" }}
@@ -227,7 +158,7 @@ const Index = () => {
             <div className="col-xl-4 col-md-6">
               <div className="section-title mb-60 wow fadeInUp delay-0-2s">
                 <span className="sub-title mb-15">
-                  {t.servicesSection.title}
+                 
                 </span>
                 <h2>{t.servicesSection.subtitle}</h2>
               </div>
@@ -325,9 +256,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-      {/* Services Section End */}
 
-      {/* Work Process Section Start */}
       <section className="work-process-area pt-130 pb-100 rpt-100 rpb-70 rel z-1">
         <div className="section-title text-center mb-70 wow fadeInUp delay-0-2s">
           <span className="sub-title mb-15">
@@ -379,14 +308,13 @@ const Index = () => {
           </div>
         </div>
       </section>
-      {/* Work Process Section End */}
-
-      {/* Testimonials Section Start */}
+        
       <section className="testimonials-area-two pb-115 rpb-85 rel z-1">
         <div className="container">
           <TestimonialsSlider />
         </div>
       </section>
+
     </Layout>
   );
 };

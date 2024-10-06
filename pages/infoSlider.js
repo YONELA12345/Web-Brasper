@@ -23,7 +23,7 @@ const infoSlider = () => {
                 />
                 <a
 
-                  href="https://www.youtube.com/watch?v=DPR8pZN9OrM"
+                  href="https://youtu.be/DPR8pZN9OrM?si=0dtwxf1hMOUMCxqk"
                   className="mfp-iframe video-play"
                   tabIndex={-1}
                 >

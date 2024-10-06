@@ -21,7 +21,7 @@ const Team = () => {
               <div className="team-top-video mt-55 wow fadeInRight delay-0-2s">
                 <img src="assets/images/team/team-page.jpg" alt="Team Page" />
                 <a
-                  href="https://www.youtube.com/watch?v=9Y7ma241N8k"
+                  href="https://youtu.be/DPR8pZN9OrM?si=0dtwxf1hMOUMCxqk"
                   className="mfp-iframe video-play"
                 >
                   <i className="fas fa-play" />

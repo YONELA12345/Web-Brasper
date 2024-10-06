@@ -5,7 +5,7 @@ const Users = () => {
   // Estado para manejar el modo de edición de cada fila
   const [editingRow, setEditingRow] = useState(null);
   const [users, setUsers] = useState([
-    { id: 1, name: "Mark", email: "mark.otto@example.com", password: "12345" },
+    { id: 1, name: "luis", email: "luis.otto@example.com", password: "12345" },
     {
       id: 2,
       name: "Jacob",

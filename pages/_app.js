@@ -5,6 +5,7 @@ import "@/styles/globals.css";
 import { Fragment, useEffect, useState } from "react";
 import JeenaHead from "@/src/layout/JeenaHead";
 import Preloader from "@/src/layout/Preloader";
+import Chatbox from "@/components/Chatbot/Chatbot";
 
 export default function App({ Component, pageProps }) {
   const [loading, setLoading] = useState(true);

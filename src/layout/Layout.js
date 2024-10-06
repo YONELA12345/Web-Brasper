@@ -5,26 +5,27 @@ import { animation } from "../utils";
 import Footer from "./footer/Index";
 import Header from "./header/Index";
 import ScrollTopButton from "./ScrollTopButton";
-import { useLocale } from "../../context/LocaleContext"; // Usar el contexto de idioma
+import { useLocale } from "../../context/LocaleContext"; 
+import ChatBot from "../components/Chatbot/Chatbot";
 
 const Layout = ({ children, header }) => {
-  const { locale, changeLocale } = useLocale(); // Usar el contexto de idioma
+  const { locale, changeLocale } = useLocale(); 
 
   useEffect(() => {
     animation();
   }, []);
 
   return (
-    <Fragment>
+    <Fragment className="border border-danger">
       <VideoPopup />
       <ImageView />
       <div className="page-wrapper">
         <Header header={header} />
-        {/* Selector de idioma global */}
         {children}
         <Footer />
-        <ScrollTopButton />
+        {/* <ScrollTopButton /> */}
       </div>
+      <ChatBot/>
     </Fragment>
   );
 };

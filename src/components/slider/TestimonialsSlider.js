@@ -109,11 +109,11 @@ const TestimonialsSlider = () => {
         </div>
         <div className="testimonial-item wow fadeInUp delay-0-4s">
           <div className="image">
-            <img src="assets/images/testimonials/karol.png" alt="Author" />
+            <img src="assets/images/testimonials/t3.png" alt="Author" />
           </div>
           <div className="content">
             <div className="testi-header">
-              <h4>{t.testimonialsSection.testimonial3.author}</h4>
+              <h4>{t.testimonialsSection.testimonial3.title}</h4>
               <div className="ratting">
                 <i className="fas fa-star" />
                 <i className="fas fa-star" />
@@ -140,7 +140,7 @@ const TestimonialsSlider = () => {
         </div>
         <div className="testimonial-item wow fadeInUp delay-0-4s">
           <div className="image">
-            <img src="assets/images/testimonials/karol.png" alt="Author" />
+            <img src="assets/images/testimonials/t4.png" alt="Author" />
           </div>
           <div className="content">
             <div className="testi-header">
@@ -171,7 +171,7 @@ const TestimonialsSlider = () => {
         </div>
         <div className="testimonial-item wow fadeInUp delay-0-4s">
           <div className="image">
-            <img src="assets/images/testimonials/karol.png" alt="Author" />
+            <img src="assets/images/testimonials/t5.png" alt="Author" />
           </div>
           <div className="content">
             <div className="testi-header">
@@ -202,7 +202,7 @@ const TestimonialsSlider = () => {
         </div> 
         <div className="testimonial-item wow fadeInUp delay-0-4s">
           <div className="image">
-            <img src="assets/images/testimonials/karol.png" alt="Author" />
+            <img src="assets/images/testimonials/t8.png" alt="Author" />
           </div>
           <div className="content">
             <div className="testi-header">

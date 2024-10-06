@@ -43,7 +43,7 @@ const Acerca = () => {
                       />
                     </div>
                     <h4>
-                      <Link legacyBehavior href="service-details">
+                      <Link legacyBehavior href="#">
                         {t.aboutSection.bestChoice.title}
                       </Link>
                     </h4>
@@ -59,7 +59,7 @@ const Acerca = () => {
                       />
                     </div>
                     <h4>
-                      <Link legacyBehavior href="service-details">
+                      <Link legacyBehavior href="#">
                         {t.aboutSection.smartInvestments.title}
                       </Link>
                     </h4>

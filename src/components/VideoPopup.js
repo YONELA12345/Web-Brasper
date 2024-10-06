@@ -24,13 +24,16 @@ const VideoPopup_ = ({ close, videoID }) => {
               >
                 ×
               </button>
-              <iframe
-                src="https://www.youtube.com/embed/nfP5N9Yc72A?autoplay=1"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+              <iframe 
+                width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/DPR8pZN9OrM?si=9K0Eq7Kzqh_KEqd7" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen
+                ></iframe>
             </div>
           </div>
           <div className="mfp-preloader">Loading...</div>

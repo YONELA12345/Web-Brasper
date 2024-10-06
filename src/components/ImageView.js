@@ -31,7 +31,6 @@ const ImgViews = ({ close, src }) => {
 const ImageView = () => {
   const [img, setImg] = useState(false);
   const [imgValue, setImgValue] = useState(null);
-
   useEffect(() => {
     setTimeout(() => {
       const a = document.querySelectorAll("a");
