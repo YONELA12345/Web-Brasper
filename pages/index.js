@@ -158,7 +158,6 @@ const Index = () => {
             <div className="col-xl-4 col-md-6">
               <div className="section-title mb-60 wow fadeInUp delay-0-2s">
                 <span className="sub-title mb-15">
-                 
                 </span>
                 <h2>{t.servicesSection.subtitle}</h2>
               </div>

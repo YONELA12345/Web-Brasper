@@ -1,6 +1,6 @@
 'use client';
 import { useState } from "react";
-import Layout from "../layout";
+import Layout from "./admin/layout";
 import { useRouter } from "next/router";
 
 const Login = () => {

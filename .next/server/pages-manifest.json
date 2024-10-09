@@ -1,11 +1,1 @@
-{
-  "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
-  "/admin": "pages/admin.js",
-  "/admin/users": "pages/admin/users.js",
-  "/": "pages/index.js",
-  "/singup": "pages/singup.js",
-  "/404": "pages/404.js",
-  "/login": "pages/login.js"
-}
+{"/_app":"pages/_app.js","/Dash":"pages/Dash.html","/404":"pages/404.html","/_document":"pages/_document.js","/_error":"pages/_error.js","/about":"pages/about.html","/acerca":"pages/acerca.html","/admin/components/navbar":"pages/admin/components/navbar.html","/admin/components/sidbar":"pages/admin/components/sidbar.html","/admin/dolarreal":"pages/admin/dolarreal.html","/admin":"pages/admin.html","/admin/layout":"pages/admin/layout.html","/admin/realdolar":"pages/admin/realdolar.html","/admin/realsol":"pages/admin/realsol.html","/admin/solreal":"pages/admin/solreal.html","/admin/users":"pages/admin/users.html","/admin/tasa":"pages/admin/tasa.html","/bancos":"pages/bancos.html","/blog-details":"pages/blog-details.html","/blog":"pages/blog.html","/cart":"pages/cart.html","/checkout":"pages/checkout.html","/contact":"pages/contact.html","/faqs":"pages/faqs.html","/forget":"pages/forget.html","/":"pages/index.html","/index2":"pages/index2.html","/index3":"pages/index3.html","/infoSlider":"pages/infoSlider.html","/login":"pages/login.html","/index4":"pages/index4.html","/pricing":"pages/pricing.html","/project-masonry":"pages/project-masonry.html","/product-details":"pages/product-details.html","/services":"pages/services.html","/project-grid":"pages/project-grid.html","/project-details":"pages/project-details.html","/service-details":"pages/service-details.html","/shop":"pages/shop.html","/singup":"pages/singup.html","/team":"pages/team.html","/services2":"pages/services2.html","/verify":"pages/verify.html"}

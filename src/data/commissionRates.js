@@ -31,5 +31,4 @@ const commissionRates = {
     { min: 5000, max: 100000, rate: 0.03 }
   ]
 };
-
 export default commissionRates;

@@ -2,7 +2,7 @@
   {
     "access_token": "admin_jwt_token",
     "refresh_token": "admin_jwt_refresh_token",
-    "email": "admin@xio.com",
+    "email": "admin@admin.com",
     "full_name": "Admin Usuario",
     "password": "admin123",  
     "role": "admin"

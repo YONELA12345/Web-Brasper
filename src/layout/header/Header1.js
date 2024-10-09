@@ -26,10 +26,10 @@ const Header1 = () => {
                   +51 966991933
                 </a>
               </li>
-              <li className="for-none" style={{ color: "#fff" }}>
+              {/* <li className="for-none" style={{ color: "#fff" }}>
                 <i className="far fa-clock" />
-                {t.header.hours} {/* Traducir el texto */}
-              </li>
+                {t.header.hours} 
+              </li> */}
               <li>
                 <div className="social-style-one">
                   <a
