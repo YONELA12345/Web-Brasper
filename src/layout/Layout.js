@@ -5,20 +5,24 @@ import { animation } from "../utils";
 import Footer from "./footer/Index";
 import Header from "./header/Index";
 import ScrollTopButton from "./ScrollTopButton";
-import { useLocale } from "../../context/LocaleContext"; 
+import { useLocale } from "../../context/LocaleContext";
 import ChatBot from "../components/Chatbot/Chatbot";
-import Popup from "@/components/Popup"
+import Popup from "@/components/Popup";
 
 const Layout = ({ children, header }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
-    // Show the popup automatically when the page loads
-    setIsPopupOpen(true);
+    // Verificar si el popup ya fue cerrado anteriormente
+    const popupClosed = localStorage.getItem("popupClosed");
+    if (!popupClosed) {
+      setIsPopupOpen(true);
+    }
   }, []);
 
   const closePopup = () => {
     setIsPopupOpen(false);
+    localStorage.setItem("popupClosed", "true"); // Guardar en localStorage que el popup fue cerrado
   };
 
   return (
