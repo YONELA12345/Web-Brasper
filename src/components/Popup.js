@@ -1,4 +1,5 @@
 import React from "react";
+import popup2 from "../../public/assets/images/popup/popup2.jpg";
 
 const Popup = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
@@ -10,7 +11,7 @@ const Popup = ({ isOpen, onClose }) => {
           &times;
         </button>
         <img
-          src="https://cdn.discordapp.com/attachments/1113644516830887997/1293650700286558279/popup2.jpg?ex=67082599&is=6706d419&hm=b5ca06d92d934accf7d1fbb4d4135e352874c839818182704b6d1b849d7618d3&"
+          src={popup2}
           alt="Popup"
           style={{ maxWidth: "100%", height: "auto" }}
         />
