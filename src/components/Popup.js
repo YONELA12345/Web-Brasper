@@ -1,4 +1,5 @@
 import React from "react";
+import Image from 'next/image';
 import popup2 from "../../public/assets/images/popup/popup2.jpg";
 
 const Popup = ({ isOpen, onClose }) => {
@@ -10,7 +11,7 @@ const Popup = ({ isOpen, onClose }) => {
         <button onClick={onClose} className="close-btn">
           &times;
         </button>
-        <img
+        <Image
           src={popup2}
           alt="Popup"
           style={{ maxWidth: "100%", height: "auto" }}
