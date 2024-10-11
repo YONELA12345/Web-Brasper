@@ -9,10 +9,6 @@ const Navbar = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     
-    // Si estás usando cookies, también puedes limpiar el token de las cookies.
-    // document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-
-    // Redirigir al usuario a la página de login
     router.push("/login");
   };
 

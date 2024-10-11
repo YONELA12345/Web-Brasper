@@ -176,7 +176,7 @@ const Calculator = () => {
         setCommissionRateDisplay(0);
         setTax(0);
         setTotalToSend(0);
-        setExchangeRate(rate.toFixed(3));
+        setExchangeRate(rate.toFixed(2));
         setErrorMessage("El monto mínimo es 100");
         return;
       } else {
@@ -184,24 +184,24 @@ const Calculator = () => {
       }
 
       commissionRate = calculateCommissionRate(amountSendCalc, key);
-      setCommissionRateDisplay((commissionRate * 100).toFixed(3) + "%");
+      setCommissionRateDisplay((commissionRate * 100).toFixed(2) + "%");
 
       const commissionAmount = amountSendCalc * commissionRate;
       const taxAmount = commissionAmount * taxRate;
       const totalToSendCalc = amountSendCalc - commissionAmount - taxAmount;
 
-      setCommission(commissionAmount.toFixed(3));
-      setTax(taxAmount.toFixed(3));
-      setTotalToSend(totalToSendCalc.toFixed(3));
+      setCommission(commissionAmount.toFixed(2));
+      setTax(taxAmount.toFixed(2));
+      setTotalToSend(totalToSendCalc.toFixed(2));
       setExchangeRate(rate.toFixed(3));
-      setAmountSend(amountSendCalc.toFixed(3));
+      setAmountSend(amountSendCalc.toFixed(2));
     } else {
       if (parsedAmount < 100) {
         setCommission(0);
         setCommissionRateDisplay(0);
         setTax(0);
         setTotalToSend(0);
-        setExchangeRate(rate.toFixed(3));
+        setExchangeRate(rate.toFixed(2));
         setErrorMessage("El monto mínimo es 100");
         return;
       } else {
@@ -209,18 +209,18 @@ const Calculator = () => {
       }
 
       commissionRate = calculateCommissionRate(parsedAmount, key);
-      setCommissionRateDisplay((commissionRate * 100).toFixed(3) + "%");
+      setCommissionRateDisplay((commissionRate * 100).toFixed(2) + "%");
 
       const commissionAmount = parsedAmount * commissionRate;
       const taxAmount = commissionAmount * taxRate;
       const total = parsedAmount - commissionAmount - taxAmount;
       const received = total * rate;
 
-      setCommission(commissionAmount.toFixed(3));
-      setTax(taxAmount.toFixed(3));
-      setTotalToSend(total.toFixed(3));
+      setCommission(commissionAmount.toFixed(2));
+      setTax(taxAmount.toFixed(2));
+      setTotalToSend(total.toFixed(2));
       setExchangeRate(rate.toFixed(3));
-      setAmountReceive(received.toFixed(3));
+      setAmountReceive(received.toFixed(2));
     }
   };
 

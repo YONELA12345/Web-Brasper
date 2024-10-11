@@ -25,13 +25,32 @@ const MobileMenu = () => {
       <Accordion>
         <div className="navbar-header">
           <div className="mobile-logo">
-            <Link href="/">
+            {/* <Link href="/">
               <img
                 src="assets/images/logos/logo_principal.png"
                 alt="Logo"
                 title="Logo"
               />
-            </Link>
+            </Link> */}
+          </div>
+          <div className="pl-4">
+          {/* <li className="dropdown">
+              <select
+                value={locale}
+                onChange={(e) => changeLocale(e.target.value)}
+                style={{
+                  background: "#000000",
+                  border: "none",
+                  color: "#fff",
+                  padding: "5px",
+                  borderRadius: "4px",
+                }}
+              >
+                <option value="es">Español</option>
+                <option value="en">English</option>
+                <option value="pt">Português</option>
+              </select>
+            </li> */}
           </div>
           <Accordion.Toggle
             as={"button"}
@@ -85,6 +104,16 @@ const MobileMenu = () => {
                 <option value="en">English</option>
                 <option value="pt">Português</option>
               </select>
+            </li>
+            <li className="dropdown">
+              <Link href="/login" onClick={() => active("login")}>
+                {t.header.login} <i className="fas fa-long-arrow-right" />
+              </Link>
+            </li>
+            <li className="dropdown">
+              <Link href="/singup" onClick={() => active("singup")}>
+              Registrate <i className="fas fa-long-arrow-right" />
+              </Link>
             </li>
           </ul>
         </Accordion.Collapse>
