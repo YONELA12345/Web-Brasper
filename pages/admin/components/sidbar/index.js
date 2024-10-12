@@ -18,7 +18,7 @@ const OffcanvasSidebar = () => {
     <nav className="navbar sidebar navbar-expand-xl navbar-dark bg-dark">
       {/* Navbar brand for xl START */}
       <div className="d-flex align-items-center">
-        <Link className="navbar-brand" href="/">
+        <Link className="navbar-brand" href="/admin">
           <img
             src="/assets/images/logos/logo_completo.png"
             alt="Logo"
@@ -46,11 +46,7 @@ const OffcanvasSidebar = () => {
                 <i className="fas fa-house fa-fw me-2"></i>Dashboard
               </Link>
             </li>
-
-            {/* Title */}
-            <li className="nav-item ms-2 my-2 ">Vistas</li>
-
-            {/* Menu item 2 */}
+            <li className="nav-item ms-2 my-2 text-white">Vistas</li>
             <li className="nav-item">
               <Link
                 href="/admin/users"
@@ -59,6 +55,16 @@ const OffcanvasSidebar = () => {
                 }`}
               >
                 <i className="far fa-user-alt fa-fw me-2"></i>Usuarios
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                href="/admin/tasa"
+                className={`nav-link ${
+                  isActive("/admin/tasa") ? "active" : ""
+                }`}
+              >
+                <i className="fas fa-percentage fa-fw me-2"></i>Tipo Cambio
               </Link>
             </li>
             <li className="nav-item">
@@ -72,12 +78,7 @@ const OffcanvasSidebar = () => {
               >
                 <i className="fas fa-money-bill fa-fw me-2"></i>Rangos
               </a>
-              {/* Submenu */}
-              <ul
-                className="nav collapse flex-column"
-                id="collapsepage"
-                data-bs-parent="#navbar-sidebar"
-              >
+              <ul className="nav collapse flex-column" id="collapsepage">
                 <li className="nav-item">
                   <Link
                     href="/admin/solreal"
@@ -105,7 +106,7 @@ const OffcanvasSidebar = () => {
                       isActive("/admin/dolarreal") ? "active" : ""
                     }`}
                   >
-                    Dolar a Real
+                    Dólar a Real
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -115,25 +116,11 @@ const OffcanvasSidebar = () => {
                       isActive("/admin/realdolar") ? "active" : ""
                     }`}
                   >
-                    Real a Dolar
+                    Real a Dólar
                   </Link>
                 </li>
               </ul>
             </li>
-
-            {/* Menu item 6 */}
-            {/* <li className="nav-item">
-              <Link
-                href="/admin/earnings"
-                className={`nav-link ${
-                  isActive("/admin/earnings") ? "active" : ""
-                }`}
-              >
-                <i className="far fa-chart-bar fa-fw me-2"></i>Earnings
-              </Link>
-            </li> */}
-
-            {/* Menu item 7 */}
             <li className="nav-item">
               <Link
                 href="/admin/settings"

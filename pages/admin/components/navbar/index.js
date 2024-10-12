@@ -2,13 +2,8 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-light bg-light">
+    <nav className="navbar navbar-light bg-light top-bar border-bottom  ">
       <div className="container-fluid">
-        {/* Logo START */}
-
-        {/* Logo END */}
-
-        {/* Toggler for sidebar START */}
         <button
           className="navbar-toggler d-xl-none"
           type="button"
@@ -53,7 +48,6 @@ const Navbar = () => {
         </div>
         <div className="ms-xl-auto">
           <ul className="navbar-nav flex-row align-items-center">
-            {/* Notification dropdown START */}
             {/*     <li className="nav-item ms-2 ms-md-3 dropdown">
               <a
                 className="btn btn-light btn-round mb-0"
@@ -69,9 +63,7 @@ const Navbar = () => {
 
            
             </li> */}
-            {/* Notification dropdown END */}
 
-            {/* Profile dropdown START */}
             <li className="nav-item ms-2 ms-md-3 dropdown">
               <a
                 className="avatar avatar-sm p-0"
@@ -85,7 +77,7 @@ const Navbar = () => {
               >
                 <img
                   className="avatar-img rounded-circle"
-                  src="assets/images/logos/logo_principal.png"
+                  src="/assets/images/logos/logo_principal.png"
                   alt="avatar"
                 />
               </a>
