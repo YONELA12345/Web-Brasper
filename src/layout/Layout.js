@@ -13,8 +13,8 @@ const Layout = ({ children, header }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
-    // Verificar si el popup ya fue cerrado anteriormente
-    const popupClosed = localStorage.getItem("popupClosed");
+    // Verificar si el popup ya fue cerrado en la sesión actual
+    const popupClosed = sessionStorage.getItem("popupClosed");
     if (!popupClosed) {
       setIsPopupOpen(true);
     }
@@ -22,7 +22,7 @@ const Layout = ({ children, header }) => {
 
   const closePopup = () => {
     setIsPopupOpen(false);
-    localStorage.setItem("popupClosed", "true"); // Guardar en localStorage que el popup fue cerrado
+    sessionStorage.setItem("popupClosed", "true"); // Guardar en sessionStorage que el popup fue cerrado
   };
 
   return (
