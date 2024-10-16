@@ -311,7 +311,7 @@ const Calculator = () => {
     // \n\n*Resumen:*  *Pra su envio de ${amountSend} ${fromCurrency},*
     // \n*recibirá directo en su cuenta de destino ${amountReceive} ${toCurrency}*`;
 
-    const message = `\n*Monto a Enviar:* ${amountSend} ${fromCurrency}\n*Tipo de cambio:* ${exchangeRate}\n*Comisión:* ${commission} ${fromCurrency}\n*Impuestos:* ${tax} ${fromCurrency}\n*Neto a convertir:* ${totalToSend} ${fromCurrency}\n*Total a recibir: ${amountReceive} ${toCurrency}*`;
+    const message = `\n*Monto a Enviar:* ${amountSend} ${fromCurrency}\nTipo de cambio: ${exchangeRate}\nComisión: ${commission} ${fromCurrency}\nImpuestos: ${tax} ${fromCurrency}\nNeto a convertir: ${totalToSend} ${fromCurrency}\n*Total a recibir:* ${amountReceive} ${toCurrency}`;
 
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
