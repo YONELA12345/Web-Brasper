@@ -4436,6 +4436,19 @@ h6,
   }
 }
 
+/* Header Img */
+
+.header-inner img {
+  padding: 2.5%;
+}
+
+/* Estilo para pantallas móviles */
+@media only screen and (max-width: 767px) {
+  .header-inner img {
+    padding: 3%;
+  }
+}
+
 /* Menu Sidebar */
 .menu-sidebar {
   display: -webkit-box;
@@ -4709,12 +4722,12 @@ h6,
   }
 }
 
-.main-header.header-one .mobile-logo {
+/* .main-header.header-one .mobile-logo {
   padding: 10px 25px;
   background: var(--secondary-color);
   -webkit-clip-path: polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%);
   clip-path: polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%);
-}
+} */
 .main-header.header-one .mobile-logo img {
   max-height: 50px;
 }
