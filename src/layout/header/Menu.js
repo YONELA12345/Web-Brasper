@@ -25,14 +25,14 @@ const MobileMenu = () => {
       <Accordion>
         <div className="navbar-header">
           <div className="mobile-logo">
-            {/* <Link href="/">
+            {/*  <Link href="/">
               <img
                 src="assets/images/logos/logo_principal.png"
                 alt="Logo"
                 title="Logo"
               />
             </Link> */}
-          </div>
+          </div> 
           <div className="pl-4">
           {/* <li className="dropdown">
               <select
