@@ -1,28 +1,25 @@
 import { Fragment, useEffect, useState } from "react";
+import { useRouter } from "next/router"; // Importar useRouter para controlar la ruta actual
 import ImageView from "../components/ImageView";
 import VideoPopup from "../components/VideoPopup";
-import { animation } from "../utils";
 import Footer from "./footer/Index";
 import Header from "./header/Index";
 import ScrollTopButton from "./ScrollTopButton";
-import { useLocale } from "../../context/LocaleContext";
 import ChatBot from "../components/Chatbot/Chatbot";
 import Popup from "@/components/Popup";
 
 const Layout = ({ children, header }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const router = useRouter(); // Hook para obtener la ruta actual
 
   useEffect(() => {
-    // Verificar si el popup ya fue cerrado en la sesión actual
-    const popupClosed = sessionStorage.getItem("popupClosed");
-    if (!popupClosed) {
+    if (router.pathname === "/") {
       setIsPopupOpen(true);
     }
-  }, []);
+  }, [router.pathname]); 
 
   const closePopup = () => {
     setIsPopupOpen(false);
-    sessionStorage.setItem("popupClosed", "true"); // Guardar en sessionStorage que el popup fue cerrado
   };
 
   return (
@@ -34,7 +31,7 @@ const Layout = ({ children, header }) => {
         {children}
         <Footer />
       </div>
-      {/* Render the Popup */}
+      {/* Renderizar el Popup solo si está abierto */}
       <Popup isOpen={isPopupOpen} onClose={closePopup} />
       <ChatBot />
     </Fragment>
