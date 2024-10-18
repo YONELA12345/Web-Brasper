@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <nav className="navbar navbar-light bg-light top-bar border-bottom  ">
+    <nav className="navbar navbar-light bg-light top-bar border-bottom shadow-sm">
       <div className="container-fluid">
         <button
           className="navbar-toggler d-xl-none"
@@ -13,114 +20,140 @@ const Navbar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-animation">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        {/* Toggler for sidebar END */}
 
-        {/* Collapsible content START */}
         <div className="collapse navbar-collapse d-xl-none" id="navbarContent">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <a className="nav-link" href="#home">
-                Home
+              <a className="nav-link" href="/admin/users">
+                Usuarios
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#about">
-                About
+              <a className="nav-link" href="/admin/tasa">
+                Tipo de Cambio
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#services">
-                Services
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#contact">
-                Contact
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div className="ms-xl-auto">
-          <ul className="navbar-nav flex-row align-items-center">
-            {/*     <li className="nav-item ms-2 ms-md-3 dropdown">
+            <li className="nav-item dropdown">
               <a
-                className="btn btn-light btn-round mb-0"
+                className="nav-link dropdown-toggle"
                 href="#"
+                id="navbarDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
-                aria-expanded="false"
-                data-bs-auto-close="outside"
+                aria-expanded={isOpen}
+                onClick={toggleDropdown}
               >
-                <i className="bi bi-bell fa-fw"></i>
+                Rangos
+                {/* Flecha personalizada */}
+                <i
+                  className={`fas fa-chevron-down ms-2 ${isOpen ? "rotate-icon" : ""
+                    }`}
+                  style={{ transition: "transform 0.3s ease" }}
+                ></i>
               </a>
-              <span className="notif-badge animation-blink"></span>
-
-           
-            </li> */}
-
-            <li className="nav-item ms-2 ms-md-3 dropdown">
-              <a
-                className="avatar avatar-sm p-0"
-                href="#"
-                id="profileDropdown"
-                role="button"
-                data-bs-auto-close="outside"
-                data-bs-display="static"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <img
-                  className="avatar-img rounded-circle"
-                  src="/assets/images/logos/logo_principal.png"
-                  alt="avatar"
-                />
-              </a>
-
-              {/* Profile dropdown START */}
               <ul
-                className="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3"
-                aria-labelledby="profileDropdown"
+                className={`dropdown-menu ${isOpen ? "show" : ""}`}
+                aria-labelledby="navbarDropdown"
               >
-                {/*  <li className="px-3">
-                  <div className="d-flex align-items-center">
-                    <div className="avatar me-3 mb-3">
-                      <img
-                        className="avatar-img rounded-circle shadow"
-                        src="assets/images/avatar/01.jpg"
-                        alt="avatar"
-                      />
-                    </div>
-                    <div>
-                      <a className="h6 mt-2 mt-sm-0" href="#">
-                        Lori Ferguson
-                      </a>
-                      <p className="small m-0">example@gmail.com</p>
-                    </div>
-                  </div>
-                </li> */}
-                {/*   <li>
-                  {" "}
-                  <hr className="dropdown-divider" />
-                </li>
- */}
                 <li>
-                  <a className="dropdown-item bg-danger-soft-hover" href="#">
-                    <i className="bi bi-power fa-fw me-2"></i>Cerrar sesion
+                  <a className="dropdown-item" href="/admin/solreal">
+                    Sol a Real
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="/admin/realsol">
+                    Real a Sol
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="/admin/dolarreal">
+                    Dólar a Real
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="/admin/realdolar">
+                    Real a Dólar
                   </a>
                 </li>
               </ul>
-              {/* Profile dropdown END */}
             </li>
-            {/* Profile dropdown END */}
+            <li className="nav-item">
+              <a className="nav-link" href="#contact">
+                admin Settings
+              </a>
+            </li>
           </ul>
         </div>
+
+        {/* Profile & Notification section */}
+        <div className="ms-xl-auto d-flex align-items-center">
+          {/* Profile Dropdown */}
+          <li className="nav-item dropdown">
+            <a
+              className="avatar "
+              href="#"
+              id="profileDropdown"
+              role="button"
+              data-bs-auto-close="outside"
+              data-bs-display="static"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              style={{ width: '60px', height: 'auto' }}  
+            >
+              <img
+                className="custom-logo"
+                src="/assets/images/logos/logo_principal.png"
+                alt="avatar"
+              />
+            </a>
+
+            <ul
+              className="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3"
+              aria-labelledby="profileDropdown"
+            >
+              <li>
+                <a className="dropdown-item bg-danger-soft-hover" href="/">
+                  <i className="bi bi-power fa-fw me-2"></i>Cerrar sesión
+                </a>
+              </li>
+            </ul>
+          </li>
+        </div>
       </div>
+
+      {/* Styles for custom icons and transitions */}
+      <style jsx>{`
+        /* Rotación de la flecha */
+        .rotate-icon {
+          transform: rotate(180deg);
+        }
+
+        /* Ocultar ícono predeterminado de Bootstrap */
+        .dropdown-toggle::after {
+          display: none;
+        }
+
+        .navbar-toggler-icon {
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%2870, 70, 70, 0.5%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+
+        .dropdown-animation {
+          animation: dropdown-slide 0.3s ease;
+        }
+
+        @keyframes dropdown-slide {
+          0% {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </nav>
   );
 };
