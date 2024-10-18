@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import Link from "next/link";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,14 +27,14 @@ const Navbar = () => {
         <div className="collapse navbar-collapse d-xl-none" id="navbarContent">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <a className="nav-link" href="/admin/users">
+              <Link className="nav-link" href="/admin/users">
                 Usuarios
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/admin/tasa">
+              <Link className="nav-link" href="/admin/tasa">
                 Tipo de Cambio
-              </a>
+              </Link>
             </li>
             <li className="nav-item dropdown">
               <a
@@ -58,32 +59,32 @@ const Navbar = () => {
                 aria-labelledby="navbarDropdown"
               >
                 <li>
-                  <a className="dropdown-item" href="/admin/solreal">
+                  <Link className="dropdown-item" href="/admin/solreal">
                     Sol a Real
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/admin/realsol">
+                  <Link className="dropdown-item" href="/admin/realsol">
                     Real a Sol
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/admin/dolarreal">
+                  <Link className="dropdown-item" href="/admin/dolarreal">
                     Dólar a Real
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/admin/realdolar">
+                  <Link className="dropdown-item" href="/admin/realdolar">
                     Real a Dólar
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link" href="#contact">
                 admin Settings
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
 
@@ -114,9 +115,9 @@ const Navbar = () => {
               aria-labelledby="profileDropdown"
             >
               <li>
-                <a className="dropdown-item bg-danger-soft-hover" href="/">
+                <Link className="dropdown-item bg-danger-soft-hover" href="/">
                   <i className="bi bi-power fa-fw me-2"></i>Cerrar sesión
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
