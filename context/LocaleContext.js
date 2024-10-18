@@ -8,11 +8,11 @@ const LocaleContext = createContext();
 const translations = { en, es, pt };
 
 export function LocaleProvider({ children }) {
-  const [locale, setLocale] = useState("es"); // Idioma predeterminado
+  const [locale, setLocale] = useState("pt"); // Idioma predeterminado
   const [t, setT] = useState(translations[locale]);
 
   useEffect(() => {
-    const storedLocale = localStorage.getItem("locale") || "es";
+    const storedLocale = localStorage.getItem("locale") || "pt";
     setLocale(storedLocale);
     setT(translations[storedLocale]);
   }, []);

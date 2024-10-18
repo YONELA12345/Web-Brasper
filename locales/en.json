@@ -156,5 +156,27 @@
             ]
         },
         "copyright": "© 2024 Brasper. All rights reserved."
+    },
+    "calculadora": {
+        "Titulo": "Enter the Amount to Send or Receive",
+        "Comisión": "Commission",
+        "Impuestos": "Taxes",
+        "Total": "Total to Send",
+        "Tipo": "Exchange Rate",
+        "Recibe": "Receives",
+        "Acepto": "I Accept",
+        "Términos": "Terms and Conditions",
+        "Enviar": "Send Money",
+        "Debe aceptar la Política de Privacidad": "You must accept the Privacy Policy and the Terms and Conditions to proceed.",
+        "Ingrese los montos": "Please enter the amounts to send and receive before proceeding.",
+        "Corrija los errores": "Please correct the errors before proceeding.",
+        "Monto a Enviar": "Amount to Send",
+        "Tipo de Cambio": "Exchange Rate",
+        "Neto a convertir": "Net Amount to Convert",
+        "Total a Recibir": "Total to Receive"
+    },
+    "Bancos": {
+        "Bancos": "Banks",
+        "Medios": "Transfer media"
     }
 }

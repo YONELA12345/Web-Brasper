@@ -156,5 +156,27 @@
             ]
         },
         "copyright": "© 2024 Brasper. Todos os direitos reservados."
+    },
+    "calculadora": {
+        "Titulo": "Insira o valor a enviar ou receber",
+        "Comisión": "Comissão",
+        "Impuestos": "Impostos",
+        "Total": "Total a Enviar",
+        "Tipo": "Taxa de Câmbio",
+        "Recibe": "Recebe",
+        "Acepto": "Aceito",
+        "Términos": "Termos e Condições",
+        "Enviar": "Enviar Dinheiro",
+        "Debe aceptar la Política de Privacidad": "Você deve aceitar a Política de Privacidade e os Termos e Condições para continuar.",
+        "Ingrese los montos": "Por favor, insira os valores a enviar e receber antes de continuar.",
+        "Corrija los errores": "Por favor, corrija os erros antes de continuar.",
+        "Monto a Enviar": "Valor a Enviar",
+        "Tipo de Cambio": "Taxa de câmbio",
+        "Neto a convertir": "Valor líquido a converter",
+        "Total a Recibir": "Total a receber"
+    },
+    "Bancos": {
+        "Bancos": "Bancos",
+        "Medios": "Transferir mídia"
     }
 }

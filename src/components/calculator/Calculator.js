@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import commissionRates from "@/src/data/commissionRates"; // Importar las tasas de comisión
+import { useLocale } from "@/context/LocaleContext";
 
 const Calculator = () => {
   const [amountSend, setAmountSend] = useState("");
@@ -17,24 +18,37 @@ const Calculator = () => {
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [exchangeRates, setExchangeRates] = useState({});
   const [cachedRates, setCachedRates] = useState({}); // Definir cachedRates como un estado vacío inicialmente
-
+  const { t } = useLocale();
 
   const fetchExchangeRates = async () => {
     try {
-      const response = await fetch('https://api-brasper.onrender.com/api/v1/coin/exchange-rates/', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        mode: 'cors',
-      });
+      const response = await fetch(
+        "https://api-brasper.onrender.com/api/v1/coin/exchange-rates/",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          mode: "cors",
+        }
+      );
 
       const data = await response.json();
       const formattedRates = {};
 
       data.forEach((rate) => {
-        const baseCurrency = rate.base_currency === 1 ? 'PEN' : rate.base_currency === 2 ? 'BRL' : 'USD';
-        const targetCurrency = rate.target_currency === 1 ? 'PEN' : rate.target_currency === 2 ? 'BRL' : 'USD';
+        const baseCurrency =
+          rate.base_currency === 1
+            ? "PEN"
+            : rate.base_currency === 2
+            ? "BRL"
+            : "USD";
+        const targetCurrency =
+          rate.target_currency === 1
+            ? "PEN"
+            : rate.target_currency === 2
+            ? "BRL"
+            : "USD";
         formattedRates[`${baseCurrency}-${targetCurrency}`] = rate.rate;
       });
 
@@ -58,7 +72,7 @@ const Calculator = () => {
         ...prevRates,
         ...cachedRates, // Actualiza la vista usando los datos cacheados
       }));
-    }, 1000); 
+    }, 1000);
 
     return () => clearInterval(interval);
   }, [cachedRates]);
@@ -249,7 +263,13 @@ const Calculator = () => {
         setAmountReceive("");
       }
     }
-  }, [amountSend, amountReceive, fromCurrency, toCurrency, editingReceiveAmount]);
+  }, [
+    amountSend,
+    amountReceive,
+    fromCurrency,
+    toCurrency,
+    editingReceiveAmount,
+  ]);
 
   const handleAmountChange = (e) => {
     const amount = e.target.value;
@@ -282,27 +302,36 @@ const Calculator = () => {
 
   const handleSendWhatsAppMessage = () => {
     if (!acceptedTerms) {
-      alert("Debe aceptar la Política de Privacidad y los Términos y Condiciones para continuar.");
+      alert(t.calculadora["Debe aceptar la Política de Privacidad"]);
       return;
     }
 
-    if (amountSend === "" || amountReceive === "" || isNaN(parseFloat(amountSend)) || isNaN(parseFloat(amountReceive))) {
-      alert("Por favor, ingrese los montos a enviar y recibir antes de continuar.");
+    if (
+      amountSend === "" ||
+      amountReceive === "" ||
+      isNaN(parseFloat(amountSend)) ||
+      isNaN(parseFloat(amountReceive))
+    ) {
+      alert(t.calculadora["Ingrese los montos"]);
       return;
     }
 
     if (errorMessage) {
-      alert("Por favor, corrija los errores antes de continuar.");
+      alert(t.calculadora["Corrija los errores"]);
       return;
     }
 
     const phoneNumber = "51966991933";
 
-    const fromCurrencyName = currencies.find((currency) => currency.code === fromCurrency).name;
-    const toCurrencyName = currencies.find((currency) => currency.code === toCurrency).name;
+    const fromCurrencyName = currencies.find(
+      (currency) => currency.code === fromCurrency
+    ).name;
+    const toCurrencyName = currencies.find(
+      (currency) => currency.code === toCurrency
+    ).name;
 
     // const message = `*Excelente, su cotización Brasper para su envío de hoy es la siguiente:*
-    // \n\n*Monto a Enviar:* ${amountSend} ${fromCurrency} 
+    // \n\n*Monto a Enviar:* ${amountSend} ${fromCurrency}
     // \n*Tipo de cambio:* ${exchangeRate}
     // \n*Comisión:* ${commission} ${fromCurrency}
     // \n*Impuestos:* ${tax} ${fromCurrency}
@@ -311,7 +340,7 @@ const Calculator = () => {
     // \n\n*Resumen:*  *Pra su envio de ${amountSend} ${fromCurrency},*
     // \n*recibirá directo en su cuenta de destino ${amountReceive} ${toCurrency}*`;
 
-    const message = `\n*Monto a Enviar: ${amountSend} ${fromCurrency}*\nTipo de cambio: ${exchangeRate}\nComisión: ${commission} ${fromCurrency}\nImpuestos: ${tax} ${fromCurrency}\nNeto a convertir: ${totalToSend} ${fromCurrency}\n*Total a recibir: ${amountReceive} ${toCurrency}*`;
+    const message = `${t.calculadora["Monto a Enviar"]}: ${amountSend} ${fromCurrency}\n${t.calculadora["Tipo de Cambio"]}: ${exchangeRate}\n${t.calculadora["Comisión"]}: ${commission} ${fromCurrency}\n${t.calculadora["Impuestos"]}: ${tax} ${fromCurrency}\n${t.calculadora["Neto a convertir"]}: ${totalToSend} ${fromCurrency}\n${t.calculadora["Total a Recibir"]}: ${amountReceive} ${toCurrency}`;
 
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
@@ -320,19 +349,38 @@ const Calculator = () => {
 
   return (
     <div className="calculator-container m-3 text-center">
-      <h5>Ingrese el Monto a Enviar o Recibir</h5>
+      <h5>{t.calculadora.Titulo}</h5>
       <div className="currency-inputs r pb-4 pt-2">
-        <a style={{ color: "rgba(0, 0, 255, 1)", fontSize: "20px", paddingBottom: "50px" }}>Envías</a>
+        <a
+          style={{
+            color: "rgba(0, 0, 255, 1)",
+            fontSize: "20px",
+            paddingBottom: "50px",
+          }}
+        >
+          Envías
+        </a>
         <div className="currency-row pb-2">
           {/* Selector de moneda "Desde" */}
           <Select
-            value={currencyOptionsSelect.find((option) => option.value === fromCurrency)}
+            value={currencyOptionsSelect.find(
+              (option) => option.value === fromCurrency
+            )}
             onChange={handleFromCurrencyChange}
-            options={currencyOptionsSelect.filter((option) => Object.keys(currencyOptions).includes(option.value))}
-            components={{ Option: CustomOption, SingleValue: CustomSingleValue }}
+            options={currencyOptionsSelect.filter((option) =>
+              Object.keys(currencyOptions).includes(option.value)
+            )}
+            components={{
+              Option: CustomOption,
+              SingleValue: CustomSingleValue,
+            }}
             isSearchable={false}
             styles={{
-              container: (base) => ({ ...base, width: "50%", margin: "0 auto" }),
+              container: (base) => ({
+                ...base,
+                width: "50%",
+                margin: "0 auto",
+              }),
               control: (base) => ({ ...base, minHeight: "45px" }),
               valueContainer: (base) => ({
                 ...base,
@@ -354,47 +402,69 @@ const Calculator = () => {
         </div>
 
         {/* Muestra mensaje de error si aplica */}
-        {errorMessage && <div className="error-message text-danger">{errorMessage}</div>}
+        {errorMessage && (
+          <div className="error-message text-danger">{errorMessage}</div>
+        )}
 
         {/* Mostrar los cálculos resultantes */}
         <div className="row gy-4 mb-3 text-dark">
           <div className="col-6">
-            <strong>Comisión {commissionRateDisplay}:</strong>
+            <strong>
+              {t.calculadora.Comisión} {commissionRateDisplay}:
+            </strong>
           </div>
           <div className="col-6" style={{ color: "#c91c10" }}>
             <strong>{commission}</strong>
           </div>
           <div className="col-6">
-            <strong>Impuestos:</strong>
+            <strong>{t.calculadora.Impuestos}:</strong>
           </div>
           <div className="col-6" style={{ color: "#c91c10" }}>
             <strong>{tax}</strong>
           </div>
           <div className="col-6">
-            <strong>Total a Enviar:</strong>
+            <strong>{t.calculadora.Total}:</strong>
           </div>
           <div className="col-6" style={{ color: "#c91c10" }}>
             <strong>{totalToSend}</strong>
           </div>
           <div className="col-6">
-            <strong>Tipo de Cambio:</strong>
+            <strong>{t.calculadora.Tipo}:</strong>
           </div>
           <div className="col-6" style={{ color: "#c91c10" }}>
             <strong>{exchangeRate}</strong>
           </div>
         </div>
 
-        <a style={{ color: "rgba(0, 0, 255, 1)", fontSize: "20px", paddingBottom: "50px" }}>Recibe</a>
+        <a
+          style={{
+            color: "rgba(0, 0, 255, 1)",
+            fontSize: "20px",
+            paddingBottom: "50px",
+          }}
+        >
+          {t.calculadora.Recibe}
+        </a>
         <div className="currency-row">
-          {/* Selector de moneda "Hacia" */}
           <Select
-            value={currencyOptionsSelect.find((option) => option.value === toCurrency)}
+            value={currencyOptionsSelect.find(
+              (option) => option.value === toCurrency
+            )}
             onChange={handleToCurrencyChange}
-            options={currencyOptionsSelect.filter((option) => getAvailableToCurrencies().includes(option.value))}
-            components={{ Option: CustomOption, SingleValue: CustomSingleValue }}
+            options={currencyOptionsSelect.filter((option) =>
+              getAvailableToCurrencies().includes(option.value)
+            )}
+            components={{
+              Option: CustomOption,
+              SingleValue: CustomSingleValue,
+            }}
             isSearchable={false}
             styles={{
-              container: (base) => ({ ...base, width: "50%", margin: "0 auto" }),
+              container: (base) => ({
+                ...base,
+                width: "50%",
+                margin: "0 auto",
+              }),
               control: (base) => ({ ...base, minHeight: "45px" }),
               valueContainer: (base) => ({
                 ...base,
@@ -428,20 +498,19 @@ const Calculator = () => {
           style={{ marginRight: "8px" }}
         />
         <label htmlFor="acceptTerms">
-          Acepto{" "}
+          {t.calculadora.Acepto}
           <a href="/terminos-y-condiciones" target="_blank">
-            Términos y Condiciones
+            {t.calculadora.Términos}
           </a>
         </label>
       </div>
 
       {/* Botón de envío */}
       <button className="theme-btn" onClick={handleSendWhatsAppMessage}>
-        Enviar Dinero
+        {t.calculadora.Enviar}
       </button>
     </div>
   );
-
 };
 
 export default Calculator;

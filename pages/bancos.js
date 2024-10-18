@@ -2,13 +2,13 @@ import React from "react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import databancos from "../src/data/databancos"; // Importa los bancos
-
-// Importar los estilos de Swiper
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { useLocale } from "@/context/LocaleContext";
 
 const swiperOptions = {
+
   modules: [Autoplay, Pagination, Navigation],
   slidesPerView: 5,
   spaceBetween: 0,
@@ -46,6 +46,8 @@ const swiperOptions = {
 };
 
 const Bancos = () => {
+  const { t } = useLocale(); 
+  
   return (
     <section className="partners-area mt-60 pt-50 pb-30 rmt-30 rpb-70 rel z-1">
       <div className="partners-area-three text-center rel z-1 pb-110 rpb-80">

@@ -14,7 +14,7 @@ const Counter = dynamic(() => import("@/src/components/Counter"), {
 });
 
 const Index = () => {
-  const { t } = useLocale(); // traducción
+  const { t } = useLocale(); 
 
   return (
     <Layout header={1}>
