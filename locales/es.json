@@ -175,7 +175,8 @@
         "Impuestos": "Impuestos",
         "Neto a convertir": "Neto a convertir",
         "Total a Recibir": "Total a Recibir",
-        "Resumen: Para su envío de":"Resumen: Para su envío de",
+        "Resumen:":"Resumen:",
+        "Para su envío de":"Para su envío de",
         ", recibirá directo en su cuenta de destino":", recibirá directo en su cuenta de destino"
     },
     "Bancos": {
