@@ -206,7 +206,7 @@ button:focus,
   outline: none;
   -webkit-box-shadow: none;
   box-shadow: none;
-  border-color: #cfdbf1;
+  border-color: #436ab3;
 }
 
 input[type="search"]::-ms-clear {

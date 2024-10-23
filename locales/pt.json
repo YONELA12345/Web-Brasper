@@ -158,6 +158,8 @@
         "copyright": "© 2024 Brasper. Todos os direitos reservados."
     },
     "calculadora": {
+        "EnviarP": "Enviar",
+        "RecibirP": "Receber",
         "Titulo": "Insira o valor a enviar ou receber",
         "Total": "Total a Enviar",
         "Tipo": "Taxa de Câmbio",

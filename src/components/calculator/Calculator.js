@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import commissionRates from "@/src/data/commissionRates"; // Importar las tasas de comisión
 import { useLocale } from "@/context/LocaleContext";
+import Image from "next/image";
+import Logo from '../../../public/assets/images/logos/logo_principal.png';
 
 const Calculator = () => {
   const [amountSend, setAmountSend] = useState("");
@@ -19,6 +21,7 @@ const Calculator = () => {
   const [exchangeRates, setExchangeRates] = useState({});
   const [cachedRates, setCachedRates] = useState({}); // Definir cachedRates como un estado vacío inicialmente
   const { t } = useLocale();
+
 
   const fetchExchangeRates = async () => {
     try {
@@ -330,16 +333,6 @@ const Calculator = () => {
       (currency) => currency.code === toCurrency
     ).name;
 
-    // const message = `*Excelente, su cotización Brasper para su envío de hoy es la siguiente:*
-    // \n\n*Monto a Enviar:* ${amountSend} ${fromCurrency}
-    // \n*Tipo de cambio:* ${exchangeRate}
-    // \n*Comisión:* ${commission} ${fromCurrency}
-    // \n*Impuestos:* ${tax} ${fromCurrency}
-    // \n*Total a Enviar:* ${totalToSend} ${fromCurrency}
-
-    // \n\n*Resumen:*  *Para su envio de ${amountSend} ${fromCurrency},*
-    // \n*recibirá directo en su cuenta de destino ${amountReceive} ${toCurrency}*`;
-
     const message = `${t.calculadora["Excelente, su cotización Brasper para su envío de hoy es la siguiente:"]}\n\n*${t.calculadora["Monto a Enviar"]}: ${amountSend} ${fromCurrency}*\n${t.calculadora["Tipo de Cambio"]}: ${exchangeRate}\n${t.calculadora["Comisión"]}: ${commission} ${fromCurrency}\n${t.calculadora["Impuestos"]}: ${tax} ${fromCurrency}\n${t.calculadora["Neto a convertir"]}: ${totalToSend} ${fromCurrency}\n*${t.calculadora["Total a Recibir"]}: ${amountReceive} ${toCurrency}*\n\n*${t.calculadora["Resumen:"]}*  ${t.calculadora["Para su envío de"]}  *${amountSend} ${fromCurrency}* ${t.calculadora[", recibirá directo en su cuenta de destino"]} *${amountReceive} ${toCurrency}*`;
 
     const encodedMessage = encodeURIComponent(message);
@@ -350,6 +343,13 @@ const Calculator = () => {
   return (
     <div className="calculator-container m-3 text-center">
       <h5>{t.calculadora.Titulo}</h5>
+      {/* <Image
+          src={Logo}
+          style={{  
+            paddingBottom: "20px",
+            width: "70px",
+          }}
+      /> */}
       <div className="currency-inputs r pb-4 pt-2">
         <a
           style={{
@@ -358,7 +358,7 @@ const Calculator = () => {
             paddingBottom: "50px",
           }}
         >
-          Envías
+          {t.calculadora.EnviarP}
         </a>
         <div className="currency-row pb-2">
           {/* Selector de moneda "Desde" */}
@@ -393,7 +393,7 @@ const Calculator = () => {
           <input
             type="number"
             className="currency-input"
-            placeholder="Envías"
+            placeholder={t.calculadora.EnviarP}
             value={amountSend}
             onChange={handleAmountChange}
             min="100"
@@ -477,7 +477,7 @@ const Calculator = () => {
           <input
             type="number"
             className="currency-input"
-            placeholder="Recibes"
+            placeholder={t.calculadora.RecibirP}
             value={amountReceive}
             onChange={handleAmountReceiveChange}
             min="100"
