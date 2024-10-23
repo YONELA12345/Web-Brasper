@@ -159,8 +159,6 @@
     },
     "calculadora": {
         "Titulo": "Enter the Amount to Send or Receive",
-        "Comisión": "Commission",
-        "Impuestos": "Taxes",
         "Total": "Total to Send",
         "Tipo": "Exchange Rate",
         "Recibe": "Receives",
@@ -170,10 +168,16 @@
         "Debe aceptar la Política de Privacidad": "You must accept the Privacy Policy and the Terms and Conditions to proceed.",
         "Ingrese los montos": "Please enter the amounts to send and receive before proceeding.",
         "Corrija los errores": "Please correct the errors before proceeding.",
+        "Excelente, su cotización Brasper para su envío de hoy es la siguiente:": "Excellent, your Brasper quote for your shipment today is as follows:",
         "Monto a Enviar": "Amount to Send",
         "Tipo de Cambio": "Exchange Rate",
+        "Comisión": "Commission",
+        "Impuestos": "Taxes",
         "Neto a convertir": "Net Amount to Convert",
-        "Total a Recibir": "Total to Receive"
+        "Total a Recibir": "Total to Receive",
+        "Resumen:":"Summary:",
+        "Para su envío de":"For your shipment",
+        ", recibirá directo en su cuenta de destino":", you will receive direct to your destination account"
     },
     "Bancos": {
         "Bancos": "Banks",
