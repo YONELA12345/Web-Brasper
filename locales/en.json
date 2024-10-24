@@ -158,6 +158,8 @@
         "copyright": "© 2024 Brasper. All rights reserved."
     },
     "calculadora": {
+        "EnviarP": "Send",
+        "RecibirP": "Receive",
         "Titulo": "Enter the Amount to Send or Receive",
         "Total": "Total to Send",
         "Tipo": "Exchange Rate",

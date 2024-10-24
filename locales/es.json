@@ -158,6 +158,8 @@
         "copyright": "© 2024 Brasper. Reservados todos los derechos."
     },
     "calculadora": {
+        "EnviarP": "Enviar",
+        "RecibirP": "Recibir",
         "Titulo": "Ingrese el Monto a Enviar o Recibir",
         "Total": "Total a Enviar",
         "Tipo": "Tipo de Cambio",
