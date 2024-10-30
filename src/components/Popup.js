@@ -1,6 +1,6 @@
 import React from "react";
 import Image from 'next/image';
-import popup2 from "../../public/assets/images/popup/cancion_criolla.jpeg";
+import popup2 from "../../public/assets/images/popup/halloween.jpg";
 
 const Popup = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
