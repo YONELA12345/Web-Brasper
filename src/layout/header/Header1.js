@@ -92,13 +92,13 @@ const Header1 = () => {
               <Menu />
               {/* Main Menu End */}
             </div>
-           {/*  <div className="menu-btns">
+            <div className="menu-btns">
               <Link legacyBehavior href="login">
                 <a className="theme-btn">
                   {t.header.login} <i className="fas fa-long-arrow-right" />
                 </a>
               </Link>
-            </div> */}
+            </div>
             <div className="menu-btns">
              {/*  <Link legacyBehavior href="/singup">
                 <a className="theme-btn style-three">
