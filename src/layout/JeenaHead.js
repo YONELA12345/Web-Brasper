@@ -1,6 +1,8 @@
 import Head from "next/head";
 
+
 const JeenaHead = () => {
+  const version = "1.0.1";
   return (
     <Head>
       {/* Required meta tags */}
@@ -43,7 +45,7 @@ const JeenaHead = () => {
       {/* Slick */}
       <link rel="stylesheet" href="/assets/css/slick.min.css" />
       {/* Main Style */}
-      <link rel="stylesheet" href="/assets/css/style.css" />
+      <link rel="stylesheet" href={`/assets/css/style.css?v=${version}`} />
       {/* admin Style */}
       <link rel="stylesheet" href="/assets/css/admin.css" />
       <link
