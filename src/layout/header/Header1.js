@@ -99,13 +99,13 @@ const Header1 = () => {
                 </a>
               </Link>
             </div>
-            <div className="menu-btns">
-             {/*  <Link legacyBehavior href="/singup">
+            {/* <div className="menu-btns">
+              <Link legacyBehavior href="/singup">
                 <a className="theme-btn style-three">
                   Registrate <i className="fas fa-long-arrow-right" />
                 </a>
-              </Link> */}
-            </div>
+              </Link>
+            </div> */}
           </div>
         </div>
       </div>

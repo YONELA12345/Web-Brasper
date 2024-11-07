@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
-import users from "@/src/data/users.json"; 
+import axios from "axios";
+import Link from "next/link";
 
 const Login = () => {
   const router = useRouter();
@@ -15,27 +16,76 @@ const Login = () => {
     setLogindata({ ...logindata, [e.target.name]: e.target.value });
   };
 
+  const validateForm = () => {
+    const { email, password } = logindata;
+    if (!email.trim() || !password.trim()) {
+      toast.error("Todos los campos son obligatorios");
+      return false;
+    }
+    return true;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { email, password } = logindata;
+    if (!validateForm()) return;
 
-    const user = users.find(
-      (u) => u.email === email && u.password === password
-    );
+    try {
+      const response = await axios.post(
+        `http://127.0.0.1:8000/api/v1/auth/login/`,
+        logindata,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+          },
+        }
+      );
 
-    if (user) {
-      localStorage.setItem("token", user.access_token);
-      localStorage.setItem("user", JSON.stringify(user));
+      const { data } = response;
+      const { role, tokens, user } = data;
 
-      toast.success("Login exitoso");
-
-      if (user.role === "admin") {
-        router.push("/admin"); 
-      } else if (user.role === "user") {
-        router.push("/Dash"); 
+      if (!role) {
+        toast.error("Rol no encontrado en la respuesta del servidor");
+        return;
       }
-    } else {
-      toast.error("Usuario o contraseña incorrectos");
+
+      // Guardar tokens y detalles del usuario en localStorage
+      localStorage.setItem("token", tokens.access);
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("role", JSON.stringify(role));
+
+      toast.success("Inicio de sesión exitoso");
+
+      // Redireccionar basado en el rol del usuario y pasar datos por query
+      if (role === "staff") {
+        router.push({
+          pathname: "/admin",
+          query: { role: "staff" },
+        });
+      } else if (role === "client") {
+        router.push({
+          pathname: "/Dash",
+          query: { role: "client" },
+        });
+      } else {
+        toast.error("Rol no reconocido, acceso denegado");
+      }
+    } catch (error) {
+      if (error.response) {
+        if (error.response.status === 401 && error.response.data.error) {
+          // Manejo específico del error "La cuenta no está verificada"
+          if (error.response.data.error.includes("La cuenta no está verificada")) {
+            toast.error("La cuenta no está verificada. Por favor, verifica tu correo electrónico.");
+          } else {
+            toast.error("Usuario o contraseña incorrectos");
+          }
+        } else {
+          toast.error("Error al iniciar sesión, por favor intenta nuevamente");
+        }
+      } else {
+        toast.error("Error al iniciar sesión, por favor intenta nuevamente");
+      }
+      console.error("Error al intentar iniciar sesión:", error);
     }
   };
 
@@ -92,7 +142,7 @@ const Login = () => {
                   <a href="/forget">¿Olvidaste tu contraseña?</a>
                 </form>
                 <div className="page-links">
-                  <a href="/signup">Registrarse</a>
+                  <Link href="/singup">Registrarse</Link>
                 </div>
               </div>
             </div>

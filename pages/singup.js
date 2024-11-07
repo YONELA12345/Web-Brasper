@@ -1,66 +1,94 @@
-import { useEffect, useState, React } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
-import Script from "next/script";
 
-const singup = () => {
+const Singup = () => {
   const router = useRouter();
   const [formdata, setFormdata] = useState({
     email: "",
     first_name: "",
     last_name: "",
+    document_number: "",
+    phone_number: "",
+    country: "", // Nuevo campo
     password: "",
     password2: "",
   });
 
-  const handleOnchange = async (e) => {
+  const [errors, setErrors] = useState({});
+
+  const handleOnchange = (e) => {
     setFormdata({ ...formdata, [e.target.name]: e.target.value });
   };
 
-  // const handleSigninWithGoogle =  async (response) => {
-  //   const payload = response.credential;
-  //   const server_res = await axios.post(
-  //     `${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/google/`,
-  //     { access_token: payload }
-  //   );
-  //   console.log(server_res.data);
-  // };
+  const validateForm = () => {
+    let formErrors = {};
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^[0-9]{9,15}$/;
 
-  // useEffect(() => {
-  //   /* global google */
-  //   google.accounts.id.initialize({
-  //     client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
-  //     callback: handleSigninWithGoogle,
-  //   });
-  //   google.accounts.id.renderButton(document.getElementById("signInDiv"), {
-  //     theme: "outline",
-  //     size: "large",
-  //     text: "continue_with",
-  //     shape: "circle",
-  //     width: "280",
-  //   });
-  // }, []);
+    if (!emailRegex.test(formdata.email)) {
+      formErrors.email = "El correo no es válido.";
+    }
+    if (formdata.first_name.trim() === "") {
+      formErrors.first_name = "El nombre es obligatorio.";
+    }
+    if (formdata.last_name.trim() === "") {
+      formErrors.last_name = "El apellido es obligatorio.";
+    }
+    if (formdata.document_number.trim() === "") {
+      formErrors.document_number = "El número de documento es obligatorio.";
+    }
+    if (!phoneRegex.test(formdata.phone_number)) {
+      formErrors.phone_number = "El teléfono debe tener entre 9 y 15 dígitos.";
+    }
+    if (formdata.country.trim() === "") {
+      formErrors.country = "El campo país es obligatorio.";
+    }
+    if (formdata.password.length < 6) {
+      formErrors.password = "La contraseña debe tener al menos 6 caracteres.";
+    }
+    if (formdata.password !== formdata.password2) {
+      formErrors.password2 = "Las contraseñas no coinciden.";
+    }
 
-  const { email, first_name, last_name, password, password2 } = formdata;
+    setErrors(formErrors);
+    return Object.keys(formErrors).length === 0;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/register/`,
-        formdata
-      );
-      console.log(response.data);
-      const result = response.data;
-      if (response.status === 201) {
-        router.push("/verify");
-        toast.success(result.message);
+    if (validateForm()) {
+      try {
+        const response = await axios.post(
+          `http://127.0.0.1:8000/api/v1/auth/register/`,
+          formdata,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json",
+            },
+          }
+        );
+        console.log(response.data);
+        if (response.status === 201) {
+          toast.success("Registro exitoso, redirigiendo a la página de inicio de sesión...");
+          router.push("/login"); // Redirige a la página de inicio de sesión
+        }
+      } catch (error) {
+        if (error.response && error.response.data) {
+          const serverErrors = error.response.data;
+          for (const key in serverErrors) {
+            toast.error(`${key}: ${serverErrors[key].join(", ")}`);
+          }
+        } else {
+          toast.error("Error en el registro, por favor revisa los datos.");
+        }
+        console.error(error);
       }
-    } catch (error) {
-      toast.error("Registration failed");
-      console.error(error);
+    } else {
+      toast.error("Por favor corrige los errores en el formulario.");
     }
   };
 
@@ -91,78 +119,104 @@ const singup = () => {
             <div className="form-content">
               <div className="form-items">
                 <h2 className="text-center pb-4">Registrar nueva cuenta</h2>
-                <form action="" onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}>
                   <input
                     className="form-control"
                     type="email"
                     name="email"
                     placeholder="Correo"
-                    value={email}
+                    value={formdata.email}
                     onChange={handleOnchange}
                     required
                   />
+                  {errors.email && <p className="error-text">{errors.email}</p>}
+
                   <input
                     type="text"
-                    className="email-form"
+                    className="form-control"
                     name="first_name"
                     placeholder="Nombres"
-                    value={first_name}
+                    value={formdata.first_name}
                     onChange={handleOnchange}
                     required
                   />
+                  {errors.first_name && <p className="error-text">{errors.first_name}</p>}
+
                   <input
                     type="text"
-                    className="email-form"
+                    className="form-control"
                     name="last_name"
                     placeholder="Apellidos"
-                    value={last_name}
+                    value={formdata.last_name}
                     onChange={handleOnchange}
                     required
                   />
-                  
+                  {errors.last_name && <p className="error-text">{errors.last_name}</p>}
+
                   <input
+                    type="text"
                     className="form-control"
-                    type="number"
-                    name="number"
-                    placeholder="Telefono"
+                    name="document_number"
+                    placeholder="Número de documento"
+                    value={formdata.document_number}
+                    onChange={handleOnchange}
                     required
                   />
+                  {errors.document_number && <p className="error-text">{errors.document_number}</p>}
+
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="phone_number"
+                    placeholder="Teléfono"
+                    value={formdata.phone_number}
+                    onChange={handleOnchange}
+                    required
+                  />
+                  {errors.phone_number && <p className="error-text">{errors.phone_number}</p>}
+
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="country"
+                    placeholder="País"
+                    value={formdata.country}
+                    onChange={handleOnchange}
+                    required
+                  />
+                  {errors.country && <p className="error-text">{errors.country}</p>}
+
                   <input
                     className="form-control"
                     type="password"
                     name="password"
                     placeholder="Contraseña"
-                    value={password}
+                    value={formdata.password}
                     onChange={handleOnchange}
                     required
                   />
+                  {errors.password && <p className="error-text">{errors.password}</p>}
+
                   <input
                     className="form-control"
                     type="password"
                     name="password2"
                     placeholder="Confirmar contraseña"
-                    value={password2}
+                    value={formdata.password2}
                     onChange={handleOnchange}
                     required
                   />
+                  {errors.password2 && <p className="error-text">{errors.password2}</p>}
+
                   <div className="form-button">
                     <button id="submit" type="submit" className="ibtn">
                       Registrate
                     </button>
                   </div>
                 </form>
-                {/* <div className="other-links social-with-title">
-                  <div className="text">Or register with</div>
-                  <a href="#">
-                    <i className="fab fa-facebook-f"></i>Facebook
-                  </a>
-                  <a href="#">
-                    <i className="fab fa-google" id="signInDiv"></i>Google
-                  </a>
-                </div> */}
                 <div className="page-links">
                   <Link href="/login" legacyBehavior>
-                    <a>Incio de sesion </a>
+                    <a>Inicio de sesión</a>
                   </Link>
                 </div>
               </div>
@@ -173,4 +227,5 @@ const singup = () => {
     </>
   );
 };
-export default singup;
+
+export default Singup;

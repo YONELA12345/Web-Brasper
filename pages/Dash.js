@@ -9,8 +9,9 @@ const Dash = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     const user = JSON.parse(localStorage.getItem("user"));
+    const role = JSON.parse(localStorage.getItem("role"));
 
-    if (!token || user?.role !== "user") {
+    if (!token || role !== "client") {
       router.push("/login");
     } else {
       setLoading(false); 

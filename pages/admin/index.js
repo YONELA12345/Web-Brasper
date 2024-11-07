@@ -8,17 +8,19 @@ const Admin = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    const user = JSON.parse(localStorage.getItem("user")); 
+    const user = JSON.parse(localStorage.getItem("user"));
+    const role = JSON.parse(localStorage.getItem("role"));
+    
 
-    if (!token || user?.role !== "admin") {
+    if (!token || role !== "staff") {
       router.push("/login");
     } else {
-      setLoading(false); 
+      setLoading(false);
     }
   }, [router]);
 
   if (loading) {
-    return <div>Cargando...</div>; 
+    return <div>Cargando...</div>;
   }
 
   return (

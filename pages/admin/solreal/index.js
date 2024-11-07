@@ -3,11 +3,12 @@ import { useState, useEffect } from "react";
 import Layout from "../layout";
 import commissionRates from "@/src/data/commissionRates"; 
 import factors from "@/src/data/factors"; 
+import axios from "axios";
+
+const API_URL = "https://api-brasper.onrender.com/api/v1/coin/exchange-rates/";
 
 const SolReal = () => {
-  
   const brlToUsdRates = commissionRates["PEN-BRL"];
-
 
   const [commissions, setCommissions] = useState(
     brlToUsdRates.map((rate, index) => ({
@@ -35,14 +36,24 @@ const SolReal = () => {
     setter(items.map((item) => (item.id === id ? { ...item, label: newLabel } : item)));
   };
 
+  const handleSaveRate = async (item, setter, items, currencyType) => {
+    try {
+      await axios.put(`${API_URL}${item.id}/`, {
+        base_currency: "PEN",
+        target_currency: currencyType,
+        rate: parseFloat(item.value),
+      });
+      console.log("Tasa de cambio guardada correctamente.");
+      setter(items.map((rate) => (rate.id === item.id ? { ...rate, value: item.value } : rate)));
+    } catch (error) {
+      console.error("Error al guardar la tasa de cambio:", error);
+    }
+  };
+
   const handleAddRange = (setter, items) => {
     const newId = items.length + 1;
     const newLabel = `Nuevo Rango ${newId}`; 
     setter([...items, { label: newLabel, id: newId, value: "" }]);
-  };
-
-  const handleDeleteRange = (id, setter, items) => {
-    setter(items.filter((item) => item.id !== id));
   };
 
   return (
@@ -54,10 +65,9 @@ const SolReal = () => {
         
         <div className="container">
         <div className="">
-          <h3 >Comisión Porcentaje</h3>
+          <h3>Comisión Porcentaje</h3>
         </div>
           {commissions.map((item) => (
-            
             <div
               className="row mt-3 d-flex justify-content-center align-items-center"
               key={item.id}
@@ -86,10 +96,10 @@ const SolReal = () => {
 
               <div className="col-md-2">
                 <button
-                  className="btn btn-danger"
-                  onClick={() => handleDeleteRange(item.id, setCommissions, commissions)}
+                  className="btn btn-success"
+                  onClick={() => handleSaveRate(item, setCommissions, commissions, "BRL")}
                 >
-                  Eliminar
+                  Guardar
                 </button>
               </div>
             </div>
@@ -134,10 +144,10 @@ const SolReal = () => {
 
               <div className="col-md-2">
                 <button
-                  className="btn btn-danger"
-                  onClick={() => handleDeleteRange(item.id, setInverseCommissions, inverseCommissions)}
+                  className="btn btn-success"
+                  onClick={() => handleSaveRate(item, setInverseCommissions, inverseCommissions, "PEN")}
                 >
-                  Eliminar
+                  Guardar
                 </button>
               </div>
             </div>
