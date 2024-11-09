@@ -153,7 +153,7 @@ const Singup = () => {
                   />
                   {errors.last_name && <p className="error-text">{errors.last_name}</p>}
 
-                  <input
+                  {/* <input
                     type="text"
                     className="form-control"
                     name="document_number"
@@ -162,7 +162,7 @@ const Singup = () => {
                     onChange={handleOnchange}
                     required
                   />
-                  {errors.document_number && <p className="error-text">{errors.document_number}</p>}
+                  {errors.document_number && <p className="error-text">{errors.document_number}</p>} */}
 
                   <input
                     type="text"

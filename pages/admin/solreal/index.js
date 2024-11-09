@@ -1,80 +1,49 @@
+// SolReal.js
 "use client";
 import { useState, useEffect } from "react";
-import Layout from "../layout";
 import axios from "axios";
+import Layout from "../layout";
+import CommissionList from "./CommissionList"; // Ajusta la ruta según tu estructura de archivos
 
-const API_URL = "http://127.0.0.1:8000/api/v1/coin/commission-rates-app/";
-const API_BASE_URL = "http://localhost:8000/api/v1/coin/commissions/1";
+const API_URL = "http://localhost:8000/api/v1/coin/commissions/";
+
+// Establecemos los IDs de las monedas por defecto
+const baseCurrencyId = 1; // ID para Sol (PEN)
+const targetCurrencyId = 2; // ID para Real (BRL)
 
 const SolReal = () => {
   const [commissions, setCommissions] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchCommissions = async () => {
+      console.log("Obteniendo datos de comisiones");
       try {
         const response = await axios.get(API_URL);
-        // Asumiendo que la respuesta tiene un formato similar a:
-        // { "PEN-BRL": [ { "min": ..., "max": ..., "rate": ... }, ... ] }
-        const data = response.data["PEN-BRL"] || []; // Asegúrate de manejar el caso de no encontrar la clave
+        const commissionsData = response.data;
+
+        // Filtrar las comisiones para base_currency: 1 y target_currency: 2 (Soles a Reales)
+        const penToBrlCommissions = commissionsData.filter(
+          (commission) =>
+            commission.base_currency === baseCurrencyId &&
+            commission.target_currency === targetCurrencyId
+        );
+
+        // Crear los items combinados con el campo 'range' separado
         setCommissions(
-          data.map((rate, index) => ({
-            label: `${rate.min} a ${rate.max}`,
-            id: index + 1, // Usa un índice si no hay `id` en los datos
-            value: rate.rate.toFixed(3),
-            min: rate.min,
-            max: rate.max
+          penToBrlCommissions.map((item) => ({
+            id: item.id,
+            range: item.range,
+            commission_percentage: item.commission_percentage.toFixed(2),
+            reverse_commission: item.reverse_commission.toFixed(4),
           }))
         );
       } catch (error) {
         console.error("Error al obtener las comisiones:", error);
-      } finally {
-        setLoading(false);
       }
     };
+
     fetchCommissions();
   }, []);
-
-  const handleInputChange = (id, newValue, setter, items) => {
-    setter(items.map((item) => (item.id === id ? { ...item, value: newValue } : item)));
-  };
-
-  const handleLabelChange = (id, newLabel, setter, items) => {
-    setter(items.map((item) => (item.id === id ? { ...item, label: newLabel } : item)));
-  };
-
-  const handleSaveRate = async (item, setter, items) => {
-    try {
-      // Verifica que el `id` esté presente en el item
-      if (!item.id) {
-        console.error("El elemento no tiene un id válido.");
-        return;
-      }
-  
-      const url = `http://localhost:8000/api/v1/coin/commissions/1/`;
-  
-      // Solo se envía el campo `commission_percentage`
-      const requestData = {
-        commission_percentage: parseFloat(item.value),
-      };
-  
-      await axios.put(url, requestData);
-      console.log("Tasa de cambio guardada correctamente.");
-      setter(items.map((rate) => (rate.id === item.id ? { ...rate, value: item.value } : rate)));
-    } catch (error) {
-      console.error("Error al guardar la tasa de cambio:", error);
-    }
-  };
-
-  const handleAddRange = (setter, items) => {
-    const newId = items.length + 1;
-    const newLabel = `Nuevo Rango ${newId}`;
-    setter([...items, { label: newLabel, id: newId, value: "", min: 0, max: 0 }]);
-  };
-
-  if (loading) {
-    return <div>Cargando datos...</div>;
-  }
 
   return (
     <Layout>
@@ -83,54 +52,13 @@ const SolReal = () => {
           <h1>Sol a Real</h1>
         </div>
 
-        <div className="container">
-          <div className="">
-            <h3>Comisión Porcentaje</h3>
-          </div>
-          {commissions.map((item) => (
-            <div
-              className="row mt-3 d-flex justify-content-center align-items-center"
-              key={item.id}
-            >
-              <div className="col-md-3 text-end">
-                <input
-                  type="text"
-                  className="form-control"
-                  value={item.label}
-                  onChange={(e) => handleLabelChange(item.id, e.target.value, setCommissions, commissions)}
-                  placeholder="Editar rango"
-                />
-              </div>
-
-              <div className="col-md-3">
-                <input
-                  type="number"
-                  className="form-control"
-                  value={item.value}
-                  onChange={(e) => handleInputChange(item.id, e.target.value, setCommissions, commissions)}
-                  placeholder="Ingrese valor"
-                  step="0.000001"
-                  min="0"
-                />
-              </div>
-
-              <div className="col-md-2">
-                <button
-                  className="btn btn-success"
-                  onClick={() => handleSaveRate(item, setCommissions, commissions)}
-                >
-                  Guardar
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="text-center mt-4">
-          <button className="btn btn-primary" onClick={() => handleAddRange(setCommissions, commissions)}>
-            Agregar nuevo rango
-          </button>
-        </div>
+        <CommissionList
+          items={commissions}
+          setItems={setCommissions}
+          apiUrl={API_URL}
+          baseCurrencyId={baseCurrencyId}
+          targetCurrencyId={targetCurrencyId}
+        />
       </div>
     </Layout>
   );
