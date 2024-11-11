@@ -114,7 +114,7 @@ const Footer = () => {
           <div className="col-xl-6">
             <div className="row">
               <div className="col-md-4 col-6 col-small">
-                <div className="footer-widget widget_nav_menu wow fadeInUp delay-0-3s">
+                <div className="footer-widget widget_nav_menu wow fadeInUp dfadeInUp">
                   <h4 className="footer-title">{t.footer.services.title}</h4>
                   <ul className="list-style-two">
                     {t.footer.services.items.map((service, index) => (

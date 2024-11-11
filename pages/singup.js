@@ -62,18 +62,20 @@ const Singup = () => {
     if (validateForm()) {
       try {
         const response = await axios.post(
-          `https://api.brasper.site/api/v1/auth/register/`,
+          `${process.env.NEXT_PUBLIC_API_URL}api/v1/auth/register/`,
           formdata,
           {
             headers: {
               "Content-Type": "application/json",
-              "Accept": "application/json",
+              Accept: "application/json",
             },
           }
         );
         console.log(response.data);
         if (response.status === 201) {
-          toast.success("Registro exitoso, redirigiendo a la página de inicio de sesión...");
+          toast.success(
+            "Registro exitoso, redirigiendo a la página de inicio de sesión..."
+          );
           router.push("/login"); // Redirige a la página de inicio de sesión
         }
       } catch (error) {
@@ -89,6 +91,48 @@ const Singup = () => {
       }
     } else {
       toast.error("Por favor corrige los errores en el formulario.");
+    }
+  };
+  useEffect(() => {
+    /* global google */
+    if (window.google) {
+      google.accounts.id.initialize({
+        client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+        callback: handleGoogleResponse,
+      });
+      google.accounts.id.renderButton(
+        document.getElementById("googleSignInButton"),
+        { theme: "outline", size: "large" }
+      );
+    }
+  }, []);
+  const handleGoogleResponse = async (response) => {
+    try {
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}auth/google`,
+        { token: response.credential }
+      );
+
+      if (res.status === 200) {
+        const data = res.data;
+        sessionStorage.setItem("token", data.token);
+        login({
+          token: data.token,
+          id: data.id,
+          nombre: data.nombre,
+          rol: data.rol,
+        });
+
+        if (data.rol === "Admin") {
+          navigate("/admin");
+        } else if (data.rol === "Super Admin") {
+          navigate("/superadmin");
+        } else if (data.rol === "Alumno") {
+          navigate("/Alumno");
+        }
+      }
+    } catch (error) {
+      console.error("Error al autenticar con Google:", error);
     }
   };
 
@@ -140,7 +184,9 @@ const Singup = () => {
                     onChange={handleOnchange}
                     required
                   />
-                  {errors.first_name && <p className="error-text">{errors.first_name}</p>}
+                  {errors.first_name && (
+                    <p className="error-text">{errors.first_name}</p>
+                  )}
 
                   <input
                     type="text"
@@ -151,7 +197,9 @@ const Singup = () => {
                     onChange={handleOnchange}
                     required
                   />
-                  {errors.last_name && <p className="error-text">{errors.last_name}</p>}
+                  {errors.last_name && (
+                    <p className="error-text">{errors.last_name}</p>
+                  )}
 
                   {/* <input
                     type="text"
@@ -173,7 +221,9 @@ const Singup = () => {
                     onChange={handleOnchange}
                     required
                   />
-                  {errors.phone_number && <p className="error-text">{errors.phone_number}</p>}
+                  {errors.phone_number && (
+                    <p className="error-text">{errors.phone_number}</p>
+                  )}
 
                   <input
                     type="text"
@@ -184,7 +234,9 @@ const Singup = () => {
                     onChange={handleOnchange}
                     required
                   />
-                  {errors.country && <p className="error-text">{errors.country}</p>}
+                  {errors.country && (
+                    <p className="error-text">{errors.country}</p>
+                  )}
 
                   <input
                     className="form-control"
@@ -195,7 +247,9 @@ const Singup = () => {
                     onChange={handleOnchange}
                     required
                   />
-                  {errors.password && <p className="error-text">{errors.password}</p>}
+                  {errors.password && (
+                    <p className="error-text">{errors.password}</p>
+                  )}
 
                   <input
                     className="form-control"
@@ -206,7 +260,9 @@ const Singup = () => {
                     onChange={handleOnchange}
                     required
                   />
-                  {errors.password2 && <p className="error-text">{errors.password2}</p>}
+                  {errors.password2 && (
+                    <p className="error-text">{errors.password2}</p>
+                  )}
 
                   <div className="form-button">
                     <button id="submit" type="submit" className="ibtn">
@@ -215,6 +271,7 @@ const Singup = () => {
                   </div>
                 </form>
                 <div className="page-links">
+                  <div id="googleSignInButton" className="mt-4"></div>
                   <Link href="/login" legacyBehavior>
                     <a>Inicio de sesión</a>
                   </Link>

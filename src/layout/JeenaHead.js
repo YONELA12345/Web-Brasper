@@ -1,6 +1,5 @@
 import Head from "next/head";
 
-
 const JeenaHead = () => {
   const version = "1.0.1";
   return (
@@ -73,6 +72,13 @@ const JeenaHead = () => {
           `,
         }}
       />
+      {/* google utentificacion */}
+      <script src="https://accounts.google.com/gsi/client" async defer></script>
+      <script
+        src="https://accounts.google.com/gsi/intermediate"
+        async
+        defer
+      ></script>
     </Head>
   );
 };

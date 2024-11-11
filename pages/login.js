@@ -31,7 +31,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        `https://api.brasper.site/api/v1/auth/login/`,
+        `${process.env.NEXT_PUBLIC_API_URL}api/v1/auth/login/`,
         logindata,
         {
           headers: {
