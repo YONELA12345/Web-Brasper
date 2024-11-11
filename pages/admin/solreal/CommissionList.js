@@ -69,7 +69,7 @@ const CommissionList = ({
       <div>
         <h3>Comisiones</h3>
       </div>
-      {items
+      {(items || [])
         .sort((a, b) => a.range - b.range)
         .map((item, index) => (
           <div
