@@ -62,7 +62,7 @@ const Singup = () => {
     if (validateForm()) {
       try {
         const response = await axios.post(
-          `http://127.0.0.1:8000/api/v1/auth/register/`,
+          `https://api.brasper.site/api/v1/auth/register/`,
           formdata,
           {
             headers: {
