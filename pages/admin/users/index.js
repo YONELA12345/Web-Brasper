@@ -7,6 +7,7 @@ const Users = () => {
   const [users, setUsers] = useState([]);
   const [newUser, setNewUser] = useState({
     email: "",
+    username: "",  // Campo nuevo para el nombre de usuario
     first_name: "",
     last_name: "",
     document_number: "",
@@ -16,16 +17,18 @@ const Users = () => {
   });
   const [editingRow, setEditingRow] = useState(null);
   const [editFormData, setEditFormData] = useState({
+    username: "", // Campo nuevo para el nombre de usuario en edición
     first_name: "",
     email: "",
     password: "",
   });
 
-  // Función para obtener los usuarios desde el endpoint y filtrar por is_verified: true
+  // Función para obtener los usuarios desde el endpoint
   const fetchUsers = async () => {
     try {
-      const response = await axios.get(`http://127.0.0.1:8000/api/v1/auth/staff/register/`);
-      const verifiedUsers = response.data.filter(user => user.is_verified === true);
+      const response = await axios.get(`https://api.brasper.site/api/v1/auth/staff/register/`);
+      const verifiedUsers = response.data.data;
+      console.log(verifiedUsers);
       setUsers(verifiedUsers);
     } catch (error) {
       console.error("Error al obtener los usuarios:", error);
@@ -48,7 +51,7 @@ const Users = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `http://127.0.0.1:8000/api/v1/auth/staff/register/`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/staff/register/`,
         newUser,
         {
           headers: {
@@ -64,6 +67,7 @@ const Users = () => {
       }
       setNewUser({
         email: "",
+        username: "", // Restablecer username a vacío
         first_name: "",
         last_name: "",
         document_number: "",
@@ -87,6 +91,7 @@ const Users = () => {
   const handleEditClick = (user) => {
     setEditingRow(user.id);
     setEditFormData({
+      username: user.username, // Asignar el username para edición
       first_name: user.first_name,
       email: user.email,
       password: "", // Dejar el campo de la contraseña vacío para la edición
@@ -131,6 +136,7 @@ const Users = () => {
           <thead>
             <tr>
               <th scope="col">#</th>
+              <th scope="col">Username</th>
               <th scope="col">Nombres</th>
               <th scope="col">Apellidos</th>
               <th scope="col">Correo</th>
@@ -144,12 +150,13 @@ const Users = () => {
             {users.map((user, index) => (
               <tr key={user.id}>
                 <th scope="row">{index + 1}</th>
+                <td>{editingRow === user.id ? <input type="text" name="username" value={editFormData.username} onChange={handleInputChange} /> : user.username}</td>
                 <td>{editingRow === user.id ? <input type="text" name="first_name" value={editFormData.first_name} onChange={handleInputChange} /> : user.first_name}</td>
                 <td>{user.last_name}</td>
                 <td>{editingRow === user.id ? <input type="email" name="email" value={editFormData.email} onChange={handleInputChange} /> : user.email}</td>
                 <td>{user.document_number}</td>
                 <td>{user.phone_number}</td>
-                <td>{new Date(user.created_at).toLocaleDateString()}</td>
+                <td>{new Date(user.date_joined).toLocaleDateString()}</td>
                 <td>
                   {editingRow === user.id ? (
                     <>
@@ -178,6 +185,10 @@ const Users = () => {
               </div>
               <div className="modal-body">
                 <form onSubmit={handleAddUser}>
+                  <div className="mb-3">
+                    <label className="form-label">Username</label>
+                    <input type="text" className="form-control" name="username" value={newUser.username} onChange={handleNewUserChange} required />
+                  </div>
                   <div className="mb-3">
                     <label className="form-label">Correo</label>
                     <input type="email" className="form-control" name="email" value={newUser.email} onChange={handleNewUserChange} required />
