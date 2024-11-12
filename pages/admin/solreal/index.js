@@ -2,11 +2,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Layout from "../layout";
-import CommissionList from "./CommissionList"; // Ajusta la ruta según tu estructura de archivos
+import CommissionList from "../CommissionList"; // Ajusta la ruta según tu estructura de archivos
 
 // Utiliza la variable de entorno para las URLs de la API
 const COMMISSIONS_API_URL = `${process.env.NEXT_PUBLIC_API_URL}api/v1/coin/commissions/`;
-const RANGES_API_URL = `${process.env.NEXT_PUBLIC_API_URL}api/v1/coin/commission-rates-app/`;
 
 // Establecemos los IDs de las monedas por defecto
 const baseCurrencyId = 1; // ID para Sol (PEN)
@@ -22,13 +21,6 @@ const SolReal = () => {
         const commissionsResponse = await axios.get(COMMISSIONS_API_URL);
         const commissionsData = commissionsResponse.data;
 
-        // Obtener los rangos desde el nuevo endpoint
-        const rangesResponse = await axios.get(RANGES_API_URL);
-        const rangesData = rangesResponse.data;
-
-        // Obtener los rangos para "PEN-BRL"
-        const penToBrlRanges = rangesData["PEN-BRL"];
-
         // Filtrar las comisiones para base_currency: 1 y target_currency: 2 (Soles a Reales)
         const penToBrlCommissions = commissionsData.filter(
           (commission) =>
@@ -36,26 +28,16 @@ const SolReal = () => {
             commission.target_currency === targetCurrencyId
         );
 
-        // Combinar los rangos y las comisiones
-        const combinedData = penToBrlRanges.map((rangeItem, index) => {
-          // Encontrar la comisión correspondiente al rango actual
-          const commissionItem = penToBrlCommissions.find(
-            (commission) => commission.range === index + 1
-          );
-
-          return {
-            id: commissionItem ? commissionItem.id : null,
-            min: rangeItem.min,
-            max: rangeItem.max,
-            commission_percentage: commissionItem
-              ? commissionItem.commission_percentage.toFixed(2)
-              : "",
-            reverse_commission: commissionItem
-              ? commissionItem.reverse_commission.toFixed(4)
-              : "",
-            range: index + 1, // Usamos el índice + 1 como identificador del rango
-          };
-        });
+        // Mapear las comisiones para obtener los datos necesarios
+        const combinedData = penToBrlCommissions.map((commissionItem) => ({
+          id: commissionItem.id,
+          min_amount: commissionItem.range_details.min_amount.replace(/,/g, ''),
+          max_amount: commissionItem.range_details.max_amount.replace(/,/g, ''),
+          commission_percentage: commissionItem.commission_percentage.toFixed(2),
+          reverse_commission: commissionItem.reverse_commission.toFixed(4),
+          range: commissionItem.range, // Usamos el campo 'range' del commissionItem
+          range_id: commissionItem.range_details.id, // ID del rango
+        }));
 
         setCommissions(combinedData);
       } catch (error) {

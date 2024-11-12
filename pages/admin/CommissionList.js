@@ -11,34 +11,53 @@ const CommissionList = ({
   targetCurrencyId,
 }) => {
   const handleInputChange = (id, field, newValue) => {
+    const sanitizedValue = newValue.replace(/,/g, "");
     setItems(
       items.map((item) =>
-        item.id === id ? { ...item, [field]: newValue } : item
+        item.id === id ? { ...item, [field]: sanitizedValue } : item
       )
     );
   };
 
   const handleSaveCommission = async (item) => {
     try {
-      const data = {
+      const commissionData = {
         base_currency: baseCurrencyId,
         target_currency: targetCurrencyId,
-        commission_percentage: parseFloat(item.commission_percentage),
-        reverse_commission: parseFloat(item.reverse_commission),
-        range: parseInt(item.range) || 0,
+        commission_percentage:
+          parseFloat(item.commission_percentage.toString().replace(/,/g, "")) ||
+          0,
+        reverse_commission:
+          parseFloat(item.reverse_commission.toString().replace(/,/g, "")) || 0,
+        range: item.range,
+      };
+
+      const rangeData = {
+        min_amount:
+          parseFloat(item.min_amount.toString().replace(/,/g, "")) || 0,
+        max_amount:
+          parseFloat(item.max_amount.toString().replace(/,/g, "")) || 0,
       };
 
       if (item.id) {
         // Actualizar registro existente
-        await axios.put(`${apiUrl}${item.id}/`, data);
+        await axios.put(`${apiUrl}${item.id}/`, {
+          ...commissionData,
+          range_details: rangeData,
+        });
       } else {
         // Crear nuevo registro
-        const response = await axios.post(apiUrl, data);
+        const response = await axios.post(apiUrl, {
+          ...commissionData,
+          range_details: rangeData,
+        });
         // Actualiza el item con el nuevo ID asignado por el servidor
         const newId = response.data.id;
         setItems(
           items.map((commission) =>
-            commission === item ? { ...commission, id: newId } : commission
+            commission.range === item.range
+              ? { ...commission, id: newId }
+              : commission
           )
         );
       }
@@ -49,17 +68,20 @@ const CommissionList = ({
     }
   };
 
+  // Función para agregar un nuevo rango
   const handleAddRange = () => {
-    // Determinar el siguiente número de rango disponible
     const nextRange =
       items.length > 0 ? Math.max(...items.map((item) => item.range)) + 1 : 1;
     setItems([
       ...items,
       {
         id: null,
-        range: nextRange,
+        min_amount: "",
+        max_amount: "",
         commission_percentage: "",
         reverse_commission: "",
+        range: nextRange,
+        range_id: null,
       },
     ]);
   };
@@ -69,29 +91,45 @@ const CommissionList = ({
       <div>
         <h3>Comisiones</h3>
       </div>
-      {(items || [])
+      {items
         .sort((a, b) => a.range - b.range)
         .map((item, index) => (
           <div
             className="row mt-3 d-flex justify-content-center align-items-center"
-            key={item.id || `new-${index}`}
+            key={item.id || `range-${item.range}-${index}`}
           >
-            <div className="col-md-2 text-end">
+            <div className="col-md-2">
               <input
-                type="number"
+                type="text"
                 className="form-control"
-                value={item.range}
-                onChange={(e) =>
-                  handleInputChange(item.id, "range", e.target.value)
-                }
-                placeholder="Rango"
-                min="1"
+                value={item.min_amount}
+                onChange={(e) => {
+                  const value = e.target.value.replace(/\D/g, ""); // Remover todo excepto dígitos
+                  handleInputChange(item.id, "min_amount", value);
+                }}
+                placeholder="Min Amount"
+                inputMode="numeric"
+                pattern="[0-9]*"
               />
             </div>
 
             <div className="col-md-2">
               <input
-                type="number"
+                type="text"
+                className="form-control"
+                value={item.max_amount}
+                onChange={(e) =>
+                  handleInputChange(item.id, "max_amount", e.target.value)
+                }
+                placeholder="Max Amount"
+                inputMode="numeric"
+                pattern="[0-9]*"
+              />
+            </div>
+
+            <div className="col-md-2">
+              <input
+                type="text"
                 className="form-control"
                 value={item.commission_percentage}
                 onChange={(e) =>
@@ -102,14 +140,14 @@ const CommissionList = ({
                   )
                 }
                 placeholder="Comisión (%)"
-                step="0.01"
-                min="0"
+                inputMode="decimal"
+                pattern="[0-9]*[.]?[0-9]*"
               />
             </div>
 
             <div className="col-md-2">
               <input
-                type="number"
+                type="text"
                 className="form-control"
                 value={item.reverse_commission}
                 onChange={(e) =>
@@ -120,8 +158,8 @@ const CommissionList = ({
                   )
                 }
                 placeholder="Comisión inversa"
-                step="0.0001"
-                min="0"
+                inputMode="decimal"
+                pattern="[0-9]*[.]?[0-9]*"
               />
             </div>
 

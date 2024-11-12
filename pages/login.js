@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import axios from "axios";
@@ -6,6 +6,50 @@ import Link from "next/link";
 
 const Login = () => {
   const router = useRouter();
+
+  useEffect(() => {
+    /* global google */
+    if (window.google) {
+      google.accounts.id.initialize({
+        client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+        callback: handleGoogleResponse,
+      });
+      google.accounts.id.renderButton(
+        document.getElementById("googleSignInButton"),
+        { theme: "outline", size: "large" }
+      );
+    }
+  }, []);
+
+  const handleGoogleResponse = async (response) => {
+    try {
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}auth/google`,
+        { token: response.credential }
+      );
+
+      if (res.status === 200) {
+        const data = res.data;
+        sessionStorage.setItem("token", data.token);
+        login({
+          token: data.token,
+          id: data.id,
+          nombre: data.nombre,
+          rol: data.rol,
+        });
+
+        if (data.rol === "Admin") {
+          navigate("/admin");
+        } else if (data.rol === "Super Admin") {
+          navigate("/superadmin");
+        } else if (data.rol === "Alumno") {
+          navigate("/Alumno");
+        }
+      }
+    } catch (error) {
+      console.error("Error al autenticar con Google:", error);
+    }
+  };
 
   const [logindata, setLogindata] = useState({
     email: "",
@@ -141,7 +185,9 @@ const Login = () => {
                   </div>
                   <a href="/forget">¿Olvidaste tu contraseña?</a>
                 </form>
+                
                 <div className="page-links">
+                <div id="googleSignInButton" className="mt-4"></div>
                   <Link href="/singup">Registrarse</Link>
                 </div>
               </div>

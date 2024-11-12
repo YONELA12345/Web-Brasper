@@ -1,60 +1,52 @@
 "use client";
 import { useState, useEffect } from "react";
-import Layout from "../layout";
-import commissionRates from "@/src/data/commissionRates"; 
-import factors from "@/src/data/factors"; 
 import axios from "axios";
+import Layout from "../layout";
+import CommissionList from "../CommissionList"; // Ajusta la ruta según tu estructura de archivos
 
-const API_URL = "https://api-brasper.onrender.com/api/v1/coin/exchange-rates/";
+// Utiliza la variable de entorno para las URLs de la API
+const COMMISSIONS_API_URL = `${process.env.NEXT_PUBLIC_API_URL}api/v1/coin/commissions/`;
+
+// Establecemos los IDs de las monedas por defecto
+const baseCurrencyId = 1; // ID para Sol (PEN)
+const targetCurrencyId = 2; // ID para Real (BRL)
 
 const RealSol = () => {
-  const brlToUsdRates = commissionRates["BRL-PEN"];
+  const [commissions, setCommissions] = useState([]);
 
-  const [commissions, setCommissions] = useState(
-    brlToUsdRates.map((rate, index) => ({
-      label: `${rate.min} a ${rate.max}`,
-      id: index + 1,
-      value: rate.rate.toFixed(3), 
-    }))
-  );
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Obtener las comisiones existentes
+        const commissionsResponse = await axios.get(COMMISSIONS_API_URL);
+        const commissionsData = commissionsResponse.data;
 
-  const brlToUsdFactors = factors["BRL-PEN"];
+        // Filtrar las comisiones para base_currency: 1 y target_currency: 2 (Soles a Reales)
+        const penToBrlCommissions = commissionsData.filter(
+          (commission) =>
+            commission.base_currency === baseCurrencyId &&
+            commission.target_currency === targetCurrencyId
+        );
 
-  const [inverseCommissions, setInverseCommissions] = useState(
-    brlToUsdFactors.map((rate, index) => ({
-      label: `${rate.min} a ${rate.max}`,
-      id: index + 1,
-      value: rate.rate.toFixed(4), 
-    }))
-  );
+        // Mapear las comisiones para obtener los datos necesarios
+        const combinedData = penToBrlCommissions.map((commissionItem) => ({
+          id: commissionItem.id,
+          min_amount: commissionItem.range_details.min_amount.replace(/,/g, ''),
+          max_amount: commissionItem.range_details.max_amount.replace(/,/g, ''),
+          commission_percentage: commissionItem.commission_percentage.toFixed(2),
+          reverse_commission: commissionItem.reverse_commission.toFixed(4),
+          range: commissionItem.range, // Usamos el campo 'range' del commissionItem
+          range_id: commissionItem.range_details.id, // ID del rango
+        }));
 
-  const handleInputChange = (id, newValue, setter, items) => {
-    setter(items.map((item) => (item.id === id ? { ...item, value: newValue } : item)));
-  };
+        setCommissions(combinedData);
+      } catch (error) {
+        console.error("Error al obtener los datos:", error);
+      }
+    };
 
-  const handleLabelChange = (id, newLabel, setter, items) => {
-    setter(items.map((item) => (item.id === id ? { ...item, label: newLabel } : item)));
-  };
-
-  const handleSaveRate = async (item, setter, items, currencyType) => {
-    try {
-      await axios.put(`${API_URL}${item.id}/`, {
-        base_currency: "BRL",
-        target_currency: currencyType,
-        rate: parseFloat(item.value),
-      });
-      console.log("Tasa de cambio guardada correctamente.");
-      setter(items.map((rate) => (rate.id === item.id ? { ...rate, value: item.value } : rate)));
-    } catch (error) {
-      console.error("Error al guardar la tasa de cambio:", error);
-    }
-  };
-
-  const handleAddRange = (setter, items) => {
-    const newId = items.length + 1;
-    const newLabel = `Nuevo Rango ${newId}`; 
-    setter([...items, { label: newLabel, id: newId, value: "" }]);
-  };
+    fetchData();
+  }, []);
 
   return (
     <Layout>
@@ -62,102 +54,14 @@ const RealSol = () => {
         <div className="text-center mb-6">
           <h1>Real a Sol</h1>
         </div>
-        
-        <div className="container">
-        <div className="">
-          <h3>Comisión Porcentaje</h3>
-        </div>
-          {commissions.map((item) => (
-            <div
-              className="row mt-3 d-flex justify-content-center align-items-center"
-              key={item.id}
-            >
-              <div className="col-md-3 text-end">
-                <input
-                  type="text"
-                  className="form-control"
-                  value={item.label}
-                  onChange={(e) => handleLabelChange(item.id, e.target.value, setCommissions, commissions)}
-                  placeholder="Editar rango"
-                />
-              </div>
-              
-              <div className="col-md-3">
-                <input
-                  type="number"
-                  className="form-control"
-                  value={item.value}
-                  onChange={(e) => handleInputChange(item.id, e.target.value, setCommissions, commissions)}
-                  placeholder="Ingrese valor"
-                  step="0.000001"  
-                  min="0"         
-                />
-              </div>
 
-              <div className="col-md-2">
-                <button
-                  className="btn btn-success"
-                  onClick={() => handleSaveRate(item, setCommissions, commissions, "PEN")}
-                >
-                  Guardar
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="text-center mt-4">
-          <button className="btn btn-primary" onClick={() => handleAddRange(setCommissions, commissions)}>
-            Agregar nuevo rango
-          </button>
-        </div>
-
-        <div className="container">
-        <div className="">
-          <h3>Comisión Inversa</h3>
-        </div>
-          {inverseCommissions.map((item) => (
-            <div
-              className="row mt-3 d-flex justify-content-center align-items-center"
-              key={item.id}
-            >
-              <div className="col-md-3 text-end">
-                <input
-                  type="text"
-                  className="form-control"
-                  value={item.label}
-                  onChange={(e) => handleLabelChange(item.id, e.target.value, setInverseCommissions, inverseCommissions)}
-                  placeholder="Editar rango"
-                />
-              </div>
-              <div className="col-md-3">
-                <input
-                  type="number"
-                  className="form-control"
-                  value={item.value}
-                  onChange={(e) => handleInputChange(item.id, e.target.value, setInverseCommissions, inverseCommissions)}
-                  placeholder="Ingrese valor"
-                  step="0.000001"  
-                  min="0"       
-                />
-              </div>
-
-              <div className="col-md-2">
-                <button
-                  className="btn btn-success"
-                  onClick={() => handleSaveRate(item, setInverseCommissions, inverseCommissions, "BRL")}
-                >
-                  Guardar
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="text-center mt-4">
-          <button className="btn btn-primary" onClick={() => handleAddRange(setInverseCommissions, inverseCommissions)}>
-            Agregar nuevo rango
-          </button>
-        </div>
+        <CommissionList
+          items={commissions}
+          setItems={setCommissions}
+          apiUrl={COMMISSIONS_API_URL}
+          baseCurrencyId={baseCurrencyId}
+          targetCurrencyId={targetCurrencyId}
+        />
       </div>
     </Layout>
   );

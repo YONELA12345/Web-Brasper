@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
-import commissionRates from "@/src/data/commissionRates"; // Importar las tasas de comisión
+// Eliminamos la importación de commissionRates
 import { useLocale } from "@/context/LocaleContext";
 import Image from "next/image";
 import Logo from '../../../public/assets/images/logos/logo_principal.png';
@@ -19,14 +19,15 @@ const Calculator = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [exchangeRates, setExchangeRates] = useState({});
-  const [cachedRates, setCachedRates] = useState({}); // Definir cachedRates como un estado vacío inicialmente
+  const [cachedRates, setCachedRates] = useState({});
+  const [commissionRates, setCommissionRates] = useState({}); // Agregamos este estado
   const { t } = useLocale();
 
-
+  // Función para obtener las tasas de cambio
   const fetchExchangeRates = async () => {
     try {
       const response = await fetch(
-        "https://api-brasper.onrender.com/api/v1/coin/exchange-rates/",
+        "https://api.brasper.site/api/v1/coin/exchange-rates/",
         {
           method: "GET",
           headers: {
@@ -56,16 +57,68 @@ const Calculator = () => {
       });
 
       setExchangeRates(formattedRates);
-      setCachedRates(formattedRates); // Guardar en caché local
+      setCachedRates(formattedRates);
     } catch (error) {
       console.error("Error al obtener las tasas de cambio:", error);
       setErrorMessage("Error al cargar las tasas de cambio.");
     }
   };
 
+  // Función para obtener las tasas de comisión
+  const fetchCommissionRates = async () => {
+    try {
+      const response = await fetch(
+        "https://api.brasper.site/api/v1/coin/commissions/",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          mode: "cors",
+        }
+      );
+      const data = await response.json();
+      const formattedCommissionRates = {};
+
+      data.forEach((commission) => {
+        const baseCurrency =
+          commission.base_currency === 1
+            ? "PEN"
+            : commission.base_currency === 2
+            ? "BRL"
+            : "USD";
+        const targetCurrency =
+          commission.target_currency === 1
+            ? "PEN"
+            : commission.target_currency === 2
+            ? "BRL"
+            : "USD";
+        const key = `${baseCurrency}-${targetCurrency}`;
+        if (!formattedCommissionRates[key]) {
+          formattedCommissionRates[key] = [];
+        }
+        formattedCommissionRates[key].push({
+          min: parseFloat(commission.range_details.min_amount),
+          max: parseFloat(commission.range_details.max_amount),
+          rate: commission.commission_percentage / 100,
+        });
+      });
+
+      // Ordenar los rangos por monto mínimo
+      for (const key in formattedCommissionRates) {
+        formattedCommissionRates[key].sort((a, b) => a.min - b.min);
+      }
+
+      setCommissionRates(formattedCommissionRates);
+    } catch (error) {
+      console.error("Error al obtener las tasas de comisión:", error);
+    }
+  };
+
   // Cargar datos inicialmente
   useEffect(() => {
     fetchExchangeRates();
+    fetchCommissionRates();
   }, []);
 
   // Usar la caché para actualizar la vista cada segundo sin volver a llamar a la API
@@ -73,7 +126,7 @@ const Calculator = () => {
     const interval = setInterval(() => {
       setExchangeRates((prevRates) => ({
         ...prevRates,
-        ...cachedRates, // Actualiza la vista usando los datos cacheados
+        ...cachedRates,
       }));
     }, 1000);
 
@@ -148,7 +201,7 @@ const Calculator = () => {
   const calculateCommissionRate = (amount, currencyPair) => {
     const rates = commissionRates[currencyPair];
     if (!rates) {
-      return 0.03;
+      return 0.03; // Tasa de comisión por defecto si no se encuentra
     }
     for (let i = 0; i < rates.length; i++) {
       const { min, max, rate } = rates[i];
@@ -156,6 +209,7 @@ const Calculator = () => {
         return rate;
       }
     }
+    // Si el monto supera todos los rangos, usamos la última tasa
     return rates[rates.length - 1].rate;
   };
 
@@ -272,6 +326,8 @@ const Calculator = () => {
     fromCurrency,
     toCurrency,
     editingReceiveAmount,
+    exchangeRates,
+    commissionRates, // Agregamos commissionRates a las dependencias
   ]);
 
   const handleAmountChange = (e) => {
