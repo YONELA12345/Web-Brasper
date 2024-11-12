@@ -4,7 +4,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 
 const CommissionList = ({
-  items,
+  items = [],
   setItems,
   apiUrl,
   baseCurrencyId,
@@ -183,7 +183,7 @@ const CommissionList = ({
 };
 
 CommissionList.propTypes = {
-  items: PropTypes.array.isRequired,
+  items: PropTypes.array,
   setItems: PropTypes.func.isRequired,
   apiUrl: PropTypes.string.isRequired,
   baseCurrencyId: PropTypes.number.isRequired,
