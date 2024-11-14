@@ -153,6 +153,13 @@ const Footer = () => {
                 <p>{t.footer.copyright}</p>
               </div>
             </div>
+            <div className="col-lg-4 text-lg-end">
+              <Link legacyBehavior href="/claims-book">
+                <a className="claims-book-link">
+                  📖  Libro de reclamaciones
+                </a>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -173,6 +180,16 @@ const Footer = () => {
           alt="Shape"
         />
       </div>
+
+      <style jsx>{`
+        .claims-book-link {
+          
+          font-weight: 500;
+          text-decoration: none;
+          transition: color 0.3s;
+        }
+        
+      `}</style>
     </footer>
   );
 };
