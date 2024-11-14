@@ -1,5 +1,5 @@
 // CommissionList.js
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 
@@ -9,8 +9,10 @@ const CommissionList = ({
   apiUrl,
   baseCurrencyId,
   targetCurrencyId,
-  reloadData, // No asignamos un valor por defecto aquí
+  reloadData,
 }) => {
+  const [loadingId, setLoadingId] = useState(null); // Estado para identificar qué ítem está cargando
+
   // Manejar cambios en los inputs
   const handleInputChange = (id, field, newValue) => {
     const sanitizedValue = newValue.replace(/,/g, "");
@@ -23,6 +25,7 @@ const CommissionList = ({
 
   // Guardar comisión y recargar datos
   const handleSaveCommission = async (item) => {
+    setLoadingId(item.id || `new-${item.range}`); // Identifica el ítem que está siendo guardado
     try {
       const commissionData = {
         base_currency: baseCurrencyId,
@@ -62,12 +65,11 @@ const CommissionList = ({
 
       console.log("Comisión guardada correctamente.");
       // Recargar datos después de guardar
-      reloadData(); // Llamamos a reloadData del componente padre
+      await reloadData(); // Llamamos a reloadData del componente padre
     } catch (error) {
-      console.error(
-        "Error al guardar la comisión:",
-        error.response?.data || error.message
-      );
+      console.error("Error al guardar la comisión:", error.response?.data || error.message);
+    } finally {
+      setLoadingId(null); // Reinicia el estado de cargando
     }
   };
 
@@ -167,8 +169,9 @@ const CommissionList = ({
               <button
                 className="btn btn-success"
                 onClick={() => handleSaveCommission(item)}
+                disabled={loadingId === (item.id || `new-${item.range}`)}
               >
-                Guardar
+                {loadingId === (item.id || `new-${item.range}`) ? "Guardando..." : "Guardar"}
               </button>
             </div>
           </div>
@@ -188,7 +191,7 @@ CommissionList.propTypes = {
   apiUrl: PropTypes.string.isRequired,
   baseCurrencyId: PropTypes.number.isRequired,
   targetCurrencyId: PropTypes.number.isRequired,
-  reloadData: PropTypes.func.isRequired, // Añadimos reloadData a PropTypes
+  reloadData: PropTypes.func.isRequired,
 };
 
 export default CommissionList;
