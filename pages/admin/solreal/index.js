@@ -14,37 +14,39 @@ const targetCurrencyId = 2; // ID para Real (BRL)
 const SolReal = () => {
   const [commissions, setCommissions] = useState([]);
 
+  // Definir la función fetchData para obtener datos de las comisiones
+  const fetchData = async () => {
+    try {
+      // Obtener las comisiones existentes
+      const commissionsResponse = await axios.get(COMMISSIONS_API_URL);
+      const commissionsData = commissionsResponse.data;
+
+      // Filtrar las comisiones para base_currency: 1 y target_currency: 2 (Soles a Reales)
+      const penToBrlCommissions = commissionsData.filter(
+        (commission) =>
+          commission.base_currency === baseCurrencyId &&
+          commission.target_currency === targetCurrencyId
+      );
+
+      // Mapear las comisiones para obtener los datos necesarios
+      const combinedData = penToBrlCommissions.map((commissionItem) => ({
+        id: commissionItem.id,
+        min_amount: commissionItem.range_details.min_amount.replace(/,/g, ''),
+        max_amount: commissionItem.range_details.max_amount.replace(/,/g, ''),
+        commission_percentage: commissionItem.commission_percentage.toFixed(2),
+        reverse_commission: commissionItem.reverse_commission.toFixed(4),
+        range: commissionItem.range, // Usamos el campo 'range' del commissionItem
+        range_id: commissionItem.range_details.id, // ID del rango
+      }));
+
+      setCommissions(combinedData);
+    } catch (error) {
+      console.error("Error al obtener los datos:", error);
+    }
+  };
+
+  // Utilizar useEffect para llamar a fetchData cuando el componente se monte
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // Obtener las comisiones existentes
-        const commissionsResponse = await axios.get(COMMISSIONS_API_URL);
-        const commissionsData = commissionsResponse.data;
-
-        // Filtrar las comisiones para base_currency: 1 y target_currency: 2 (Soles a Reales)
-        const penToBrlCommissions = commissionsData.filter(
-          (commission) =>
-            commission.base_currency === baseCurrencyId &&
-            commission.target_currency === targetCurrencyId
-        );
-
-        // Mapear las comisiones para obtener los datos necesarios
-        const combinedData = penToBrlCommissions.map((commissionItem) => ({
-          id: commissionItem.id,
-          min_amount: commissionItem.range_details.min_amount.replace(/,/g, ''),
-          max_amount: commissionItem.range_details.max_amount.replace(/,/g, ''),
-          commission_percentage: commissionItem.commission_percentage.toFixed(2),
-          reverse_commission: commissionItem.reverse_commission.toFixed(4),
-          range: commissionItem.range, // Usamos el campo 'range' del commissionItem
-          range_id: commissionItem.range_details.id, // ID del rango
-        }));
-
-        setCommissions(combinedData);
-      } catch (error) {
-        console.error("Error al obtener los datos:", error);
-      }
-    };
-
     fetchData();
   }, []);
 
@@ -61,6 +63,7 @@ const SolReal = () => {
           apiUrl={COMMISSIONS_API_URL}
           baseCurrencyId={baseCurrencyId}
           targetCurrencyId={targetCurrencyId}
+          reloadData={fetchData} // Pasamos fetchData para recargar los datos después de guardar
         />
       </div>
     </Layout>

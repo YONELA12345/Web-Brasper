@@ -1,7 +1,7 @@
-// CommissionList.js
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import axios from "axios";
+// components/CommissionList.js
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import axios from 'axios';
 
 const CommissionList = ({
   items = [],
@@ -15,7 +15,7 @@ const CommissionList = ({
 
   // Manejar cambios en los inputs
   const handleInputChange = (id, field, newValue) => {
-    const sanitizedValue = newValue.replace(/,/g, "");
+    const sanitizedValue = newValue.replace(/,/g, '');
     setItems((prevItems) =>
       prevItems.map((item) =>
         item.id === id ? { ...item, [field]: sanitizedValue } : item
@@ -31,15 +31,15 @@ const CommissionList = ({
         base_currency: baseCurrencyId,
         target_currency: targetCurrencyId,
         commission_percentage:
-          parseFloat(item.commission_percentage.toString().replace(/,/g, "")) || 0,
+          parseFloat(item.commission_percentage.toString().replace(/,/g, '')) || 0,
         reverse_commission:
-          parseFloat(item.reverse_commission.toString().replace(/,/g, "")) || 0,
+          parseFloat(item.reverse_commission.toString().replace(/,/g, '')) || 0,
         range: item.range,
       };
 
       const rangeData = {
-        min_amount: parseFloat(item.min_amount.toString().replace(/,/g, "")) || 0,
-        max_amount: parseFloat(item.max_amount.toString().replace(/,/g, "")) || 0,
+        min_amount: parseFloat(item.min_amount.toString().replace(/,/g, '')) || 0,
+        max_amount: parseFloat(item.max_amount.toString().replace(/,/g, '')) || 0,
       };
 
       if (item.id) {
@@ -63,11 +63,11 @@ const CommissionList = ({
         );
       }
 
-      console.log("Comisión guardada correctamente.");
+      console.log('Comisión guardada correctamente.');
       // Recargar datos después de guardar
       await reloadData(); // Llamamos a reloadData del componente padre
     } catch (error) {
-      console.error("Error al guardar la comisión:", error.response?.data || error.message);
+      console.error('Error al guardar la comisión:', error.response?.data || error.message);
     } finally {
       setLoadingId(null); // Reinicia el estado de cargando
     }
@@ -75,16 +75,15 @@ const CommissionList = ({
 
   // Función para agregar un nuevo rango
   const handleAddRange = () => {
-    const nextRange =
-      items.length > 0 ? Math.max(...items.map((item) => item.range)) + 1 : 1;
+    const nextRange = items.length > 0 ? Math.max(...items.map((item) => item.range)) + 1 : 1;
     setItems([
       ...items,
       {
         id: null,
-        min_amount: "",
-        max_amount: "",
-        commission_percentage: "",
-        reverse_commission: "",
+        min_amount: '',
+        max_amount: '',
+        commission_percentage: '',
+        reverse_commission: '',
         range: nextRange,
         range_id: null,
       },
@@ -109,8 +108,8 @@ const CommissionList = ({
                 className="form-control"
                 value={item.min_amount}
                 onChange={(e) => {
-                  const value = e.target.value.replace(/\D/g, ""); // Remover todo excepto dígitos
-                  handleInputChange(item.id, "min_amount", value);
+                  const value = e.target.value.replace(/\D/g, ''); // Remover todo excepto dígitos
+                  handleInputChange(item.id, 'min_amount', value);
                 }}
                 placeholder="Min Amount"
                 inputMode="numeric"
@@ -124,8 +123,8 @@ const CommissionList = ({
                 className="form-control"
                 value={item.max_amount}
                 onChange={(e) => {
-                  const value = e.target.value.replace(/\D/g, "");
-                  handleInputChange(item.id, "max_amount", value);
+                  const value = e.target.value.replace(/\D/g, '');
+                  handleInputChange(item.id, 'max_amount', value);
                 }}
                 placeholder="Max Amount"
                 inputMode="numeric"
@@ -139,7 +138,7 @@ const CommissionList = ({
                 className="form-control"
                 value={item.commission_percentage}
                 onChange={(e) =>
-                  handleInputChange(item.id, "commission_percentage", e.target.value)
+                  handleInputChange(item.id, 'commission_percentage', e.target.value)
                 }
                 placeholder="Comisión (%)"
                 inputMode="decimal"
@@ -155,7 +154,7 @@ const CommissionList = ({
                 className="form-control"
                 value={item.reverse_commission}
                 onChange={(e) =>
-                  handleInputChange(item.id, "reverse_commission", e.target.value)
+                  handleInputChange(item.id, 'reverse_commission', e.target.value)
                 }
                 placeholder="Comisión inversa"
                 inputMode="decimal"
@@ -171,7 +170,7 @@ const CommissionList = ({
                 onClick={() => handleSaveCommission(item)}
                 disabled={loadingId === (item.id || `new-${item.range}`)}
               >
-                {loadingId === (item.id || `new-${item.range}`) ? "Guardando..." : "Guardar"}
+                {loadingId === (item.id || `new-${item.range}`) ? 'Guardando...' : 'Guardar'}
               </button>
             </div>
           </div>
