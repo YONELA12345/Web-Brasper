@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import Header from "../src/layout/header/Index";
 import Footer from "../src/layout/footer/Index";
 import { FaPaperclip } from "react-icons/fa";
-//import "bootstrap/dist/css/bootstrap.min.css";
 
 const ClaimsBook = () => {
   const [currentDate, setCurrentDate] = useState("");
@@ -34,12 +33,10 @@ const ClaimsBook = () => {
           <h1 className="d-flex justify-content-center align-items-center">Libro de Reclamaciones</h1>
           <p className="description text-left">
             Conforme a lo establecido en el Código de Protección y Defensa del Consumidor, esta institución cuenta con un libro de reclamaciones a su disposición.
-            
           </p>
-          <p>
-          Proyecto ley Nº 29571
-          </p>
+          <p>Proyecto ley Nº 29571</p>
 
+          {/* Primera sección */}
           <div className="form-section mb-4">
             <div className="form-group d-flex justify-content-between align-items-center mb-3">
               <button className="btn btn-primary date-button">
@@ -63,50 +60,51 @@ const ClaimsBook = () => {
             <p className="note text-left text-muted">
               Nota: Si la queja o reclamo se relaciona con un proyecto entregado, consignar a la oficina principal.
             </p>
+          </div>
 
-            <hr />
+          <hr />
 
-            {/* Sección de Identificación del Consumidor Reclamante */}
-            <h5 className="text-left mt-4">1. Identificación del consumidor reclamante</h5>
-            <div className="row g-3 mt-3">
-              <div className="col-md-6">
-                <input type="text" className="form-control" placeholder="Nombres" />
-              </div>
-              <div className="col-md-6">
-                <input type="text" className="form-control" placeholder="Apellidos" />
-              </div>
-              <div className="col-md-6">
-                <input type="email" className="form-control" placeholder="Correo Electrónico" />
-              </div>
-              <div className="col-md-6 d-flex">
-                <span className="input-group-text">🇵🇪 +51</span>
-                <input type="tel" className="form-control" placeholder="Teléfono" />
-              </div>
-              <div className="col-md-6">
-                <select className="form-select">
-                  <option>Tipo de Documento</option>
-                  <option>DNI</option>
-                  <option>Pasaporte</option>
-                  <option>Carné de Extranjería</option>
-                </select>
-              </div>
-              <div className="col-md-6">
-                <input type="text" className="form-control" placeholder="No. de Documento" />
-              </div>
-              <div className="col-md-6">
-                <input type="text" className="form-control" placeholder="Departamento" />
-              </div>
-              <div className="col-md-6">
-                <input type="text" className="form-control" placeholder="Provincia" />
-              </div>
-              <div className="col-md-6">
-                <input type="text" className="form-control" placeholder="Distrito" />
-              </div>
-              <div className="col-md-6">
-                <input type="text" className="form-control" placeholder="Dirección" />
-              </div>
+          {/* Sección de Identificación del Consumidor Reclamante */}
+          <h5 className="text-left mt-4">1. Identificación del consumidor reclamante</h5>
+          <div className="row g-3 mt-3">
+            <div className="col-md-6">
+              <input type="text" className="form-control" placeholder="Nombres" />
+            </div>
+            <div className="col-md-6">
+              <input type="text" className="form-control" placeholder="Apellidos" />
+            </div>
+            <div className="col-md-6">
+              <input type="email" className="form-control" placeholder="Correo Electrónico" />
+            </div>
+            <div className="col-md-6 d-flex">
+              <span className="input-group-text">🇵🇪 +51</span>
+              <input type="tel" className="form-control" placeholder="Teléfono" />
+            </div>
+            <div className="col-md-6">
+              <select className="form-select">
+                <option>Tipo de Documento</option>
+                <option>DNI</option>
+                <option>Pasaporte</option>
+                <option>Carné de Extranjería</option>
+              </select>
+            </div>
+            <div className="col-md-6">
+              <input type="text" className="form-control" placeholder="No. de Documento" />
+            </div>
+            <div className="col-md-6">
+              <input type="text" className="form-control" placeholder="Departamento" />
+            </div>
+            <div className="col-md-6">
+              <input type="text" className="form-control" placeholder="Provincia" />
+            </div>
+            <div className="col-md-6">
+              <input type="text" className="form-control" placeholder="Distrito" />
+            </div>
+            <div className="col-md-6">
+              <input type="text" className="form-control" placeholder="Dirección" />
             </div>
           </div>
+
           <hr />
 
           {/* Sección de Detalle de Reclamación */}
@@ -123,7 +121,7 @@ const ClaimsBook = () => {
                   <label htmlFor="queja" className="ms-1">Queja</label>
                 </div>
               </div>
-              <p className=" mt-2">
+              <p className="mt-2">
                 <small>*Reclamo:</small> Disconformidad relacionada a los proyectos o servicios.<br />
                 <small>***Queja:</small> Disconformidad no relacionada a los proyectos o servicios; o, malestar o descontento respecto a la atención al público.
               </p>
@@ -156,6 +154,8 @@ const ClaimsBook = () => {
       <style jsx>{`
         .claims-book-container {
           min-height: 100vh;
+          padding: 40px 0; /* Añade padding en la parte superior e inferior */
+          margin-bottom: 80px; /* Añade margen inferior adicional */
           background-color: #f4f7fa;
         }
         .date-button {
