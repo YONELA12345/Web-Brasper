@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
+import { FaUserAlt, FaPercentage, FaMoneyBill, FaCog } from "react-icons/fa";
 
 const OffcanvasSidebar = () => {
   const router = useRouter();
@@ -37,16 +38,10 @@ const OffcanvasSidebar = () => {
         <div className="offcanvas-body sidebar-content d-flex flex-column bg-dark">
           {/* Sidebar menu START */}
           <ul className="navbar-nav flex-column" id="navbar-sidebar">
-            {/* Menu item 1 */}
-            <li className="nav-item">
-              <Link
-                href="/admin"
-                className={`nav-link ${isActive("/admin") ? "active" : ""}`}
-              >
-                <i className="fas fa-house fa-fw me-2"></i>Dashboard
-              </Link>
-            </li>
+            {/* Vistas */}
             <li className="nav-item ms-2 my-2 text-white">Vistas</li>
+
+            {/* Usuarios */}
             <li className="nav-item">
               <Link
                 href="/admin/users"
@@ -54,9 +49,11 @@ const OffcanvasSidebar = () => {
                   isActive("/admin/users") ? "active" : ""
                 }`}
               >
-                <i className="far fa-user-alt fa-fw me-2"></i>Usuarios
+                <FaUserAlt className="me-2" /> Usuarios
               </Link>
             </li>
+
+            {/* Tipo Cambio */}
             <li className="nav-item">
               <Link
                 href="/admin/tasa"
@@ -64,9 +61,11 @@ const OffcanvasSidebar = () => {
                   isActive("/admin/tasa") ? "active" : ""
                 }`}
               >
-                <i className="fas fa-percentage fa-fw me-2"></i>Tipo Cambio
+                <FaPercentage className="me-2" /> Tipo Cambio
               </Link>
             </li>
+
+            {/* Rangos */}
             <li className="nav-item">
               <a
                 className="nav-link"
@@ -76,7 +75,7 @@ const OffcanvasSidebar = () => {
                 aria-expanded="false"
                 aria-controls="collapsepage"
               >
-                <i className="fas fa-money-bill fa-fw me-2"></i>Rangos
+                <FaMoneyBill className="me-2" /> Rangos
               </a>
               <ul className="nav collapse flex-column" id="collapsepage">
                 <li className="nav-item">
@@ -121,6 +120,8 @@ const OffcanvasSidebar = () => {
                 </li>
               </ul>
             </li>
+
+            {/* Admin Settings */}
             <li className="nav-item">
               <Link
                 href="/admin/settings"
@@ -128,7 +129,7 @@ const OffcanvasSidebar = () => {
                   isActive("/admin/settings") ? "active" : ""
                 }`}
               >
-                <i className="fas fa-user-cog fa-fw me-2"></i>Admin Settings
+                <FaCog className="me-2" /> Admin Settings
               </Link>
             </li>
           </ul>
