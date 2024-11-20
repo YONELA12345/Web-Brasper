@@ -4,7 +4,7 @@ const factors = {
     { min: 200, max: 299, rate: 0.9528 },
     { min: 300, max: 499, rate: 0.9587 },
     { min: 500, max: 999, rate: 0.9646 },
-    { min: 1000, max: 4999, rate: 0.9646 },
+    { min: 1000, max: 4999, rate: 0.96696 },
     { min: 5000, max: 100000, rate: 0.9646 }
   ],
   "USD-BRL": [
@@ -12,7 +12,7 @@ const factors = {
     { min: 200, max: 299, rate: 0.9587 },
     { min: 300, max: 499, rate: 0.9587 },
     { min: 500, max: 999, rate: 0.9587 },
-    { min: 1000, max: 4999, rate: 0.9587 },
+    { min: 1000, max: 4999, rate: 0.96696 },
     { min: 5000, max: 100000, rate: 0.9587 }
   ],
   "BRL-PEN": [
@@ -20,7 +20,7 @@ const factors = {
     { min: 200, max: 299, rate: 0.9528 },
     { min: 300, max: 499, rate: 0.9587 },
     { min: 500, max: 999, rate: 0.9646 },
-    { min: 1000, max: 4999, rate: 0.9646 },
+    { min: 1000, max: 4999, rate: 0.96696 },
     { min: 5000, max: 100000, rate: 0.9646 }
   ],
   "BRL-USD": [
@@ -28,7 +28,7 @@ const factors = {
     { min: 200, max: 299, rate: 0.9587},
     { min: 300, max: 499, rate: 0.9587 },
     { min: 500, max: 999, rate: 0.9587 },
-    { min: 1000, max: 4999, rate: 0.9587 },
+    { min: 1000, max: 4999, rate: 0.96696 },
     { min: 5000, max: 100000, rate: 0.9587 }
   ]
 };
