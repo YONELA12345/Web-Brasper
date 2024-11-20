@@ -2,14 +2,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Layout from "../layout";
-import CommissionList from "../CommissionList"; // Ajusta la ruta según tu estructura de archivos
+import CommissionList from "../CommissionList"; 
 
-// Utiliza la variable de entorno para las URLs de la API
+
 const COMMISSIONS_API_URL = `${process.env.NEXT_PUBLIC_API_URL}api/v1/coin/commissions/`;
 
-// Establecemos los IDs de las monedas por defecto
-const baseCurrencyId = 1; // ID para Sol (PEN)
-const targetCurrencyId = 2; // ID para Real (BRL)
+
+const baseCurrencyId = 3; 
+const targetCurrencyId = 2; 
 
 const DolarReal = () => {
   const [commissions, setCommissions] = useState([]);
