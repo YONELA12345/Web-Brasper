@@ -11,7 +11,7 @@ const CommissionList = ({
   targetCurrencyId,
   reloadData,
 }) => {
-  const [loadingId, setLoadingId] = useState(null); // Estado para identificar qué ítem está cargando
+  const [loadingId, setLoadingId] = useState(null); 
 
   // Manejar cambios en los inputs
   const handleInputChange = (id, field, newValue) => {
@@ -64,12 +64,11 @@ const CommissionList = ({
       }
 
       console.log('Comisión guardada correctamente.');
-      // Recargar datos después de guardar
-      await reloadData(); // Llamamos a reloadData del componente padre
+      await reloadData(); 
     } catch (error) {
       console.error('Error al guardar la comisión:', error.response?.data || error.message);
     } finally {
-      setLoadingId(null); // Reinicia el estado de cargando
+      setLoadingId(null); 
     }
   };
 
