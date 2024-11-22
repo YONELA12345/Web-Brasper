@@ -34,7 +34,7 @@ const RealSol = () => {
           min_amount: commissionItem.range_details.min_amount.replace(/,/g, ''),
           max_amount: commissionItem.range_details.max_amount.replace(/,/g, ''),
           commission_percentage: commissionItem.commission_percentage.toFixed(2),
-          reverse_commission: commissionItem.reverse_commission.toFixed(4),
+          reverse_commission: commissionItem.reverse_commission.toFixed(5),
           range: commissionItem.range, // Usamos el campo 'range' del commissionItem
           range_id: commissionItem.range_details.id, // ID del rango
         }));

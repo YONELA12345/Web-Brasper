@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { useLocale } from "../../../context/LocaleContext";
+import { FaBook } from "react-icons/fa";
+import { GiOpenBook } from "react-icons/gi";
 
 const Footer = () => {
   const { t } = useLocale(); // Accede a las traducciones
@@ -45,7 +47,7 @@ const Footer = () => {
                 <Link legacyBehavior href="/index">
                   <a>
                     <img
-                      src="assets/images/logos/logo_completo.png"
+                      src="assets/images/logos/logo_blanco.png"
                       alt="Logo"
                     />
                   </a>
@@ -102,10 +104,7 @@ const Footer = () => {
                 >
                   <i className="fab fa-youtube" />
                 </a>
-                <a
-                  href="https://x.com/BrasperT21"
-                  target="_blank"
-                >
+                <a href="https://x.com/BrasperT21" target="_blank">
                   <i className="fab fa-twitter" />
                 </a>
               </div>
@@ -148,16 +147,21 @@ const Footer = () => {
       <div className="footer-bottom mt-20 pt-20 border-top">
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-lg-4 ">
-              <div className="copyright-text text-lg-end wow fadeInLeft delay-0-2s ">
+            {/* Sección de copyright */}
+            <div className="col-lg-4">
+              <div className="copyright-text text-lg-end wow fadeInLeft delay-0-2s">
                 <p>{t.footer.copyright}</p>
               </div>
             </div>
-            <div className="col-lg-4 text-lg-end">
-              <Link legacyBehavior href="/claims-book">
-                <a className="claims-book-link">
-                  📖  Libro de reclamaciones
-                </a>
+
+            {/* Sección de libro de reclamaciones */}
+            <div className="col-lg-4 text-lg-end mb-3">
+              <Link
+                href="/claims-book"
+                className="claims-book-link d-flex align-items-center justify-content-center"
+              >
+                <GiOpenBook className="me-2" size={28} />
+                Libro de reclamaciones
               </Link>
             </div>
           </div>
@@ -183,12 +187,10 @@ const Footer = () => {
 
       <style jsx>{`
         .claims-book-link {
-          
           font-weight: 500;
           text-decoration: none;
           transition: color 0.3s;
         }
-        
       `}</style>
     </footer>
   );

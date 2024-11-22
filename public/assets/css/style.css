@@ -11077,7 +11077,7 @@ blockquote .name:before {
 .footer-logo {
   padding: 25px 30px;
   display: inline-block;
-  background: var(--color-icon-navbar);
+  background: #d7e6ff00;
   -webkit-clip-path: polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%);
   clip-path: polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%);
 }
