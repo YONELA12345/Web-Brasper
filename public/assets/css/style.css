@@ -58,7 +58,7 @@ body {
   line-height: 32px;
   font-size: 16px;
   font-family: "Roboto", sans-serif;
-  --color-icon-navbar: #d7e6ff;
+  --color-icon-navbar: #d7e6ff00;
   --base-color: #737683;
   --heading-color: #1b1f2e;
   --primary-color: #01e8fc;
@@ -372,7 +372,7 @@ input[type="radio"] {
   position: relative;
 }
 .section-title .sub-title {
-  font-size: 20px;
+  font-size: 28px;
   font-weight: 500;
   display: inline-block;
   color: var(--secondary-color);
@@ -1106,7 +1106,7 @@ a.theme-btn.style-four:not(:hover):after {
 .bgc-gray {
   /* background-color: var(--heading-color);  */
   /* background: linear-gradient(180deg, #11449b, #AFCFFF); */
-  background: linear-gradient(90deg, #11449b, #4375c0, #acc7f7);
+  background: linear-gradient(90deg, #0749bb, #3172d4, #8088e0);
   /* background-image: url('../images/logos/header_brasper.png');
     background-size: cover; 
     background-position: center; 
@@ -1114,7 +1114,7 @@ a.theme-btn.style-four:not(:hover):after {
 }
 
 .bgc-header1 {
-  background-color: #1c54a4;
+  background-color: #0749bb;
 }
 .footer_bacground {
   background-color: var(--heading-color);
@@ -11077,7 +11077,8 @@ blockquote .name:before {
 .footer-logo {
   padding: 25px 30px;
   display: inline-block;
-  background: #d7e6ff00;
+  /* background: #d7e6ff00; */
+  background: var(--color-icon-navbar);
   -webkit-clip-path: polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%);
   clip-path: polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%);
 }
@@ -11430,11 +11431,10 @@ input {
 
 .calculator-container {
   background-color: white;
-  border-radius: 10px;
-  padding: 20px;
-
+  border-radius: 30px;
+  padding: 40px;
   width: auto;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 5px rgb(132, 187, 219);
   z-index: 99;
 }
 
