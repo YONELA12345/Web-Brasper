@@ -2,7 +2,15 @@
 import Link from "next/link";
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
-import { FaUserAlt, FaPercentage, FaMoneyBill, FaCog } from "react-icons/fa";
+import {
+  FaUserAlt,
+  FaPercentage,
+  FaMoneyBill,
+  FaCog,
+  FaUsers,
+  FaUserTie,
+} from "react-icons/fa";
+import { GiOpenBook } from "react-icons/gi";
 
 const OffcanvasSidebar = () => {
   const router = useRouter();
@@ -41,7 +49,7 @@ const OffcanvasSidebar = () => {
             {/* Vistas */}
             <li className="nav-item ms-2 my-2 text-white">Vistas</li>
 
-            {/* Usuarios */}
+            
             <li className="nav-item">
               <Link
                 href="/admin/users"
@@ -49,7 +57,18 @@ const OffcanvasSidebar = () => {
                   isActive("/admin/users") ? "active" : ""
                 }`}
               >
-                <FaUserAlt className="me-2" /> Usuarios
+                <FaUsers className="me-2" /> Usuarios
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link
+                href="/admin/users"
+                className={`nav-link ${
+                  isActive("/admin/users") ? "active" : ""
+                }`}
+              >
+                <FaUserTie className="me-2" /> Clientes
               </Link>
             </li>
 
@@ -122,6 +141,15 @@ const OffcanvasSidebar = () => {
             </li>
 
             {/* Admin Settings */}
+            <li className="nav-item">
+              <Link
+                href="/claims-book"
+                className="claims-book-link d-flex align-items-center justify-content-center"
+              >
+                <GiOpenBook className="me-2" size={28} />
+                Libro de reclamaciones
+              </Link>
+            </li>
             <li className="nav-item">
               <Link
                 href="/admin/settings"

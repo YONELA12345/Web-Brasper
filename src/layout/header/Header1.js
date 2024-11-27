@@ -7,7 +7,7 @@ const Header1 = () => {
 
   return (
     <header className="main-header header-one menu-white">
-      <div className="header-top-wrap bgc-header1">
+      {/* <div className="header-top-wrap bgc-header1">
         <div className="container">
           <div className="header-top mb-n4">
             <ul>
@@ -26,10 +26,7 @@ const Header1 = () => {
                   +51 966991933
                 </a>
               </li>
-              {/* <li className="for-none" style={{ color: "#fff" }}>
-                <i className="far fa-clock" />
-                {t.header.hours} 
-              </li> */}
+              
               <li>
                 <div className="social-style-one">
                   <a
@@ -66,7 +63,7 @@ const Header1 = () => {
             </ul>
           </div>
         </div>
-      </div>
+      </div> */}
       {/*Header-Upper*/}
       <div className="header-upper bgc-black">
         <div className="container clearfix">
