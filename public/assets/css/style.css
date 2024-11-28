@@ -4438,16 +4438,10 @@ h6,
 
 /* Header Img */
 
-.header-inner img {
-  padding: 2.5%;
-}
+
 
 /* Estilo para pantallas móviles */
-@media only screen and (max-width: 767px) {
-  .header-inner img {
-    padding: 3%;
-  }
-}
+
 
 /* Menu Sidebar */
 .menu-sidebar {
