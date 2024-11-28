@@ -14,7 +14,7 @@ const Popup = ({ isOpen, onClose }) => {
         <Image
           src={popup2}
           alt="Popup"
-          style={{ maxWidth: "100%", height: "auto" }}
+          style={{ maxWidth: "70%", height: "auto" }}
         />
       </div>
       <style jsx>{`
