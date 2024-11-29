@@ -14,9 +14,6 @@
         "hours": "Atendemos das 8:30 às 14:00",
         "login": "Conecte-se"
     },
-    "footer": {
-        "allRightsReserved": "Todos os direitos reservados."
-    },
     "homepage": {
         "welcome": "Bem-vindo ao nosso site!",
         "description": "Oferecemos serviços excelentes."
@@ -160,7 +157,7 @@
     "calculadora": {
         "EnviarP": "Enviar",
         "RecibirP": "Receber",
-        "Titulo": "Insira o valor a enviar ou receber",
+        "Titulo": "Insira o valor a ser calculado",
         "Total": "Total a Enviar",
         "Tipo": "Taxa de Câmbio",
         "Recibe": "Recebe",

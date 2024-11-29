@@ -160,7 +160,7 @@
     "calculadora": {
         "EnviarP": "Enviar",
         "RecibirP": "Recibir",
-        "Titulo": "Ingrese el Monto a Enviar o Recibir",
+        "Titulo": "Ingrese el Monto a calcular",
         "Total": "Total a Enviar",
         "Tipo": "Tipo de Cambio",
         "Recibe": "Recibe",
