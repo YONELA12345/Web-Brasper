@@ -10,12 +10,12 @@ const Header1 = () => {
       <div className="header-upper bgc-black">
         <div className="container clearfix">
           <div className="header-inner rel d-flex align-items-center">
-            {/* <img
+            <img
               src="assets/images/logos/logo_blanco.png"
               alt="Logo"
               title="Logo"
               className="logo"
-            /> */}
+            />
             <div className="nav-outer mx-auto clearfix">
               <Menu />
             </div>
