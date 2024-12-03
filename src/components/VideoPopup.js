@@ -36,7 +36,7 @@ const VideoPopup_ = ({ close, videoID }) => {
                 ></iframe>
             </div>
           </div>
-          <div className="mfp-preloader">Loading...</div>
+          {/* <div className="mfp-preloader">Loading...</div> */}
         </div>
       </div>
     </Fragment>
